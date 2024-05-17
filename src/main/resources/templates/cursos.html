@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos | Nextclass</title>
+    <links th:include="components/link"></links>
+</head>
+<body class="light_mode">
+    <header th:include="components/menu_app"></header>
+    <main class="main_wrapper">
+        <header th:include="components/nav_panel"></header>
+        <section class="courses">
+            <ul class="courses_category">
+                <li class="category-btn" data-filter="all">Todos</li>
+                <li class="category-btn" data-filter="ciencia">Ciencia</li>
+                <li class="category-btn" data-filter="tecnologia">Tecnología</li>
+                <li class="category-btn" data-filter="ingenieria">Ingeniería</li>
+                <li class="category-btn" data-filter="negocios">Negocios</li>
+                <li class="category-btn" data-filter="humanidades">Humanidades</li>
+                <li class="category-btn" data-filter="arte">Arte</li>
+                <li class="category-btn" data-filter="otros">Otros</li>
+            </ul>
+
+            <div class="courses_item">
+
+                <a th:href="@{/curso}" class="item_course ciencia">
+                    <figure style="background-image:url(upload/courses/algebra_lineal.jpg);">
+                    </figure>
+                    <div class="desc_course">
+                        <h5>Algebra lineal</h5>
+                        <p>Ciencias</p>
+                    </div>
+                </a>
+                
+                <a th:href="@{/curso}" class="item_course tecnologia">
+                    <figure style="background-image:url(upload/courses/matematicas_discretas.jpg);">
+                    </figure>
+                    <div class="desc_course">
+                        <h5>Matemáticas Discretas</h5>
+                        <p>Ciencias</p>
+                    </div>
+                </a>
+
+                <a th:href="@{/curso}" class="item_course ingenieria">
+                    <figure style="background-image:url(upload/courses/biotecnologia.jpg);">
+                    </figure>
+                    <div class="desc_course">
+                        <h5>Biotecnología</h5>
+                        <p>Ciencias</p>
+                    </div>
+                </a>
+
+                <a th:href="@{/curso}" class="item_course ciencia">
+                    <figure style="background-image:url(upload/courses/fisicoquimica.jpg);">
+                    </figure>
+                    <div class="desc_course">
+                        <h5>Fisico Quimica </h5>
+                        <p>Ciencias</p>
+                    </div>
+                </a>
+
+                <a href="#" class="item_course ciencia">
+                    <figure style="background-image:url(upload/courses/geometria_analitica.jpg);">
+                    </figure>
+                    <div class="desc_course">
+                        <h5>Geometría Analitica </h5>
+                        <p>Ciencias</p>
+                    </div>
+                </a>
+
+                <a href="#" class="item_course humanidades">
+                    <figure style="background-image:url(upload/courses/quimica_organica.jpg);">
+                    </figure>
+                    <div class="desc_course">
+                        <h5>Química Organica </h5>
+                        <p>Ciencias</p>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
+    </main>
+    <links th:include="components/footer"></links>
+</body>
+</html>

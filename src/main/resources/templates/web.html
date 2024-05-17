@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextclass | Home</title>
+    <links th:include="components/link"></links>
+</head>
+<body class="bg_index">
+    <header>
+        <div class="container container_max">
+            <nav class="navigation">
+                <ul class="navbar_left">
+                    <li><a class="btn_abrir color_light_p">
+                        <i class="ai-info-fill"></i>
+                        <span>¿Qué es Nextclass?</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar_right">
+                    <li><a class="btn_abrir color_light_p">
+                            <span>Entidades educativas</span>
+                            <a th:href="@{/login}" class="button">
+                                <i class="ai-link-out icon"></i>
+                                Acceder
+                            </a>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="cover ">
+        <div class="container">
+            <section class="contender">
+                <figure class="logo">
+                    <img src="img/logo_w.png">
+                </figure>
+                <h1 class="color_light_p font_rs">Aprendizaje ligero y
+                flexible.</h1><br>
+                <a class="button button_2 bg_light_p color_dark_p sz24" th:href="@{/registrarse}">Empezar <i class="ai-arrow-up-right"></i></a>
+            </section>
+        </div>
+    </main>
+    <links th:include="components/footer"></links>
+</body>
+</html>

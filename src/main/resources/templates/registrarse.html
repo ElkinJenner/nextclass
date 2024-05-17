@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse | Nextclass</title>
+    <links th:include="components/link"></links>
+</head>
+<body class="light_mode">
+    <main class="main">
+        <div class="container">
+            <section class="contender">
+                <ul class="navbar_center">
+                    <figure class="mb5">
+                        <img src="img/logo.png">
+                    </figure>
+                </ul>
+                <form class="form_users" method="POST">
+                    <article class="users_form">
+                        <fieldset class="user_contender">
+                            <input type="radio" name="tipousuario" id="tipousuario"/>
+                            <label for="tipousuario">
+                                <img src="img/estudiante_acceso.png">
+                                <h5>Estudiante</h5>
+                            </label>
+                        </fieldset>
+
+                        <fieldset class="user_contender">
+                            <input type="radio" name="tipousuario" id="tipousuario"/>
+                            <label class="btn_abrir" for="tipousuario">
+                                <img src="img/profesor_acceso.png">
+                                <h5>Profesor</h5>
+                            </label>
+                        </fieldset>
+                    </article>
+
+                    <div class="users_btn">
+                        <a class="button bg_span color_light_p  btn_abrir sz18">Siguiente <i class="ai-arrow-right"></i></a>
+                        <main class="modal_ventana_content hidden" id="modal" th:include="components/user_form"></main>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+    <links th:include="components/footer"></links>
+</body>
+</html>

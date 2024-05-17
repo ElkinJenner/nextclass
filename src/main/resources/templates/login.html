@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Nextclass</title>
+    <links th:include="components/link"></links>
+</head>
+<body class="light_mode">
+    <main class="main">
+        <div class="container container_min">
+            <section class="contender column-4 mc">
+                <form class="form_login" method="POST">
+                    <figure class="mt5 mb3 tc">
+                        <img src="img/logo.png">
+                    </figure>
+                    <aside class="form_column">
+                    <div class="group">
+                        <label>Email</label>
+                        <input type="email" name="email" id="email" />
+                    </div>
+                    <div class="group">
+                        <label>Contraseña</label>
+                        <input type="password" name="contrasena" id="contrasena" />
+                    </div>
+                    <div class="group">
+                        <button class="button">Ingresar <i class='bx bx-log-in'></i></button>
+                    </div>
+                    </aside>
+                </form>
+            </section>
+        </div>
+    </main>
+    <links th:include="components/footer"></links>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Connection Validation</title>
+    <links th:include="components/link"></links>
+</head>
+
+<body>
+    <h4>Database Connection Validation</h4>
+    <p th:if="${isConnected}">¡La conexión a la base de datos fue exitosa!</p>
+    <p th:unless="${isConnected}">La conexión a la base de datos ha fallado.</p>
+</body>
+
+</html>
