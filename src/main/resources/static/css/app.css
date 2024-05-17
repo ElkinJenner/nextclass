@@ -13,7 +13,7 @@ NAVIGATION
 }
 
 .navigation_app ul {
-    margin-top: 8rem;
+    margin-top: 6rem;
 }
 
 .navigation_app ul li {
@@ -60,7 +60,7 @@ NAVIGATION
 .logo_app{
     padding: .65rem 1.2rem;
     padding-left: 2rem;
-    padding-top: 2rem;
+    padding-top: 4rem;
 }
 .logo_app img{
     max-width: 150px;
@@ -255,7 +255,7 @@ FORM
 /*------
 COURSES & COURSE
 ------ */
-.courses, .course{
+.courses{
     display: flex;
     gap: 2rem;
 }
@@ -328,16 +328,15 @@ COURSES & COURSE
     height: 320px;
     display: block;
     transition: transform 250ms;
-    width: 18.5%;
+    width: 15.6%;
     padding: 1rem;
 }
 .course_title{
     width: 20%;
-    display: grid;
-    align-items: center;
 }
-.course_title .title{
-    padding-top: 4rem;
+.title{
+    padding-top: 1rem;
+    padding-bottom: 3rem;
 }
 .item_theme .profile_contender{
     position: absolute;
@@ -349,4 +348,42 @@ COURSES & COURSE
 }
 .item_theme .desc_course h5{
     line-height: 1.65rem;
+    font-size: 1.4rem;
+}
+/*------
+Advisory
+------ */
+.advisory_contender{
+    position: relative;
+    right: 2rem;
+    padding: 1rem 2rem;
+    display: grid;
+   align-content: center;
+   justify-content: center;
+}
+.advisory_c{
+    max-width: 550px;
+}
+.advisory_c .title h2{
+    margin-bottom: 1rem;
+}
+.advisory .desc_theme, .advisory .profile_contender{
+    padding: 1rem 0rem;
+}
+.desc_prof{
+    border: 1px solid var(--color_input);
+    padding: 1.65rem;
+    border-radius: 1rem;
+}
+.desc_theme_m{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0rem;
+}
+.desc_pay, .desc_abi{
+    display: flex;
+    gap: 1rem;
+}
+.buttons_contender{
+    padding: 1rem 0rem;
 }
