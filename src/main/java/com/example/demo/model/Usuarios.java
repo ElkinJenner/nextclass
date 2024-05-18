@@ -3,7 +3,7 @@ package com.example.demo.model;
 import java.util.Date;
 public class Usuarios {
     //Atributos
-    private int idUsuario;
+    private Long idUsuario;
     private String tipoUsuario;
     private String nombres;
     private String apellidos;
@@ -19,7 +19,7 @@ public class Usuarios {
     //Constructores
     public Usuarios() {}
 
-    public Usuarios(int idUsuario, String tipoUsuario, String nombres, String apellidos, String usuario,
+    public Usuarios(Long idUsuario, String tipoUsuario, String nombres, String apellidos, String usuario,
             String contrasena, String email, String fotoPerfil, String codUsuario, int telefono, String pais,
             Date fechaRegistro) {
         this.idUsuario = idUsuario;
@@ -37,11 +37,11 @@ public class Usuarios {
     }
     //Getters y Setters
 
-    public int getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
