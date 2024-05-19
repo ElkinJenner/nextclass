@@ -1,41 +1,51 @@
 package com.example.demo.controller;
 
-import com.example.demo.dao.UsuariosDao;
 import com.example.demo.model.Usuarios;
+import com.example.demo.services.UsuariosService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/usuarios")
+@Controller
+@RequestMapping("/")
 public class UsuariosController {
 
     @Autowired
-    private UsuariosDao usuariosDao;
+    private UsuariosService usuariosService;
 
     @GetMapping
-    public List<Usuarios> listar() {
-        return usuariosDao.findAll();
+    public List<Usuarios> findAll() {
+        return usuariosService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Usuarios leer(@PathVariable Long id) {
-        return usuariosDao.findById(id);
+    public Usuarios findById(@PathVariable Long id) {
+        return usuariosService.findById(id);
     }
 
     @PostMapping
-    public void registrar(@RequestBody Usuarios usuario) {
-        usuariosDao.save(usuario);
+    public void save(@RequestBody Usuarios usuario) {
+        usuariosService.save(usuario);
     }
 
-    @PutMapping
-    public void actualizar(@RequestBody Usuarios usuario) {
-        usuariosDao.update(usuario);
+    @PutMapping("/{id}")
+    public void update(@PathVariable Long id, @RequestBody Usuarios usuario) {
+        usuario.setIdUsuario(id);
+        usuariosService.update(usuario);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable Long id) {
-        usuariosDao.deleteById(id);
+    public void deleteById(@PathVariable Long id) {
+        usuariosService.deleteById(id);
+    }
+
+    @GetMapping("/lista")
+    public String listarUsuarios(Model model) {
+        List<Usuarios> usuarios = usuariosService.findAll();
+        model.addAttribute("usuarios", usuarios);
+        return "lista";
     }
 }

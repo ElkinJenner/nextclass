@@ -15,17 +15,17 @@ public class DatabaseController {
     @Autowired
     private DataSource dataSource;
 
-    @GetMapping("/validate-db")
+    @GetMapping("/validation")
     public String validateDatabaseConnection(Model model) {
         String message;
         try (Connection connection = dataSource.getConnection()) {
             if (connection != null) {
-                message = "Connected to the database successfully!";
+                message = "¡Conectado a la base de datos exitosamente!";
             } else {
-                message = "Failed to connect to the database.";
+                message = "No se pudo conectar a la base de datos.";
             }
         } catch (SQLException e) {
-            message = "Failed to connect to the database: " + e.getMessage();
+            message = "No se pudo conectar a la base de datos:" + e.getMessage();
         }
         model.addAttribute("message", message);
         return "validation";

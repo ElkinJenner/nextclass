@@ -1,43 +1,76 @@
 package com.example.demo.dao;
 
-import com.example.demo.model.*;
+//import com.example.demo.dao.UsuariosDao;
+import com.example.demo.model.Usuarios;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
-//import java.util.Optional;
 
 @Repository
 public class UsuariosDaoImpl implements UsuariosDao {
 
-    private List<Usuarios> usuariosList = new ArrayList<>();
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    private RowMapper<Usuarios> rowMapper = new RowMapper<Usuarios>() {
+        @Override
+        public Usuarios mapRow(@NonNull ResultSet rs, int rowNum) throws SQLException {
+            Usuarios usuario = new Usuarios();
+            usuario.setIdUsuario(rs.getLong("idUsuario"));
+            usuario.setTipoUsuario(rs.getString("tipoUsuario"));
+            usuario.setNombres(rs.getString("nombres"));
+            usuario.setApellidos(rs.getString("apellidos"));
+            usuario.setUsuario(rs.getString("usuario"));
+            usuario.setContrasena(rs.getString("contrasena"));
+            usuario.setEmail(rs.getString("email"));
+            usuario.setFotoPerfil(rs.getString("fotoPerfil"));
+            usuario.setCodUsuario(rs.getString("codUsuario"));
+            usuario.setTelefono(rs.getInt("telefono"));
+            usuario.setPais(rs.getString("pais"));
+            usuario.setFechaRegistro(rs.getDate("fechaRegistro"));
+            return usuario;
+        }
+    };
 
     @Override
     public List<Usuarios> findAll() {
-        return new ArrayList<>(usuariosList);
+        String sql = "SELECT * FROM Usuarios";
+        return jdbcTemplate.query(sql, rowMapper);
     }
 
     @Override
     public Usuarios findById(Long id) {
-        return usuariosList.stream()
-                .filter(u -> u.getIdUsuario().equals(id))
-                .findFirst()
-                .orElse(null);
+        String sql = "SELECT * FROM Usuarios WHERE idUsuario = ?";
+        List<Usuarios> usuarios = jdbcTemplate.query(sql, ps -> ps.setLong(1, id), rowMapper);
+        return usuarios.isEmpty() ? null : usuarios.get(0);
     }
 
     @Override
-    public void save(Usuarios usuario) {
-        usuariosList.add(usuario);
+    public void save(Usuarios entity) {
+        String sql = "INSERT INTO Usuarios (tipoUsuario, nombres, apellidos, usuario, contrasena, email, fotoPerfil, codUsuario, telefono, pais, fechaRegistro) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, entity.getTipoUsuario(), entity.getNombres(), entity.getApellidos(),
+                entity.getUsuario(), entity.getContrasena(), entity.getEmail(), entity.getFotoPerfil(),
+                entity.getCodUsuario(), entity.getTelefono(), entity.getPais(), entity.getFechaRegistro());
     }
 
     @Override
-    public void update(Usuarios usuario) {
-        deleteById(usuario.getIdUsuario());
-        save(usuario);
+    public void update(Usuarios entity) {
+        String sql = "UPDATE Usuarios SET tipoUsuario = ?, nombres = ?, apellidos = ?, usuario = ?, contrasena = ?, email = ?, fotoPerfil = ?, codUsuario = ?, telefono = ?, pais = ?, fechaRegistro = ? WHERE idUsuario = ?";
+        jdbcTemplate.update(sql, entity.getTipoUsuario(), entity.getNombres(), entity.getApellidos(),
+                entity.getUsuario(), entity.getContrasena(), entity.getEmail(), entity.getFotoPerfil(),
+                entity.getCodUsuario(), entity.getTelefono(), entity.getPais(), entity.getFechaRegistro(),
+                entity.getIdUsuario());
     }
 
     @Override
     public void deleteById(Long id) {
-        usuariosList.removeIf(u -> u.getIdUsuario().equals(id));
+        String sql = "DELETE FROM Usuarios WHERE idUsuario = ?";
+        jdbcTemplate.update(sql, id);
     }
 }
