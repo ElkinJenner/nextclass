@@ -1,31 +1,38 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Listado de Usuarios</title>
+    <title>Lista de Usuarios</title>
 </head>
-
 <body>
-    <h1>Listado de Usuarios</h1>
-    <table>
+    <h1>Lista de Usuarios</h1>
+    <table border="1">
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Tipo Usuario</th>
                 <th>Nombres</th>
                 <th>Apellidos</th>
                 <th>Usuario</th>
-                <!-- Agrega más columnas según necesites -->
+                <th>Email</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="usuario : ${usuarios}">
-                <td th:text="${usuario.idUsuario}"></td>
-                <td th:text="${usuario.nombres}"></td>
-                <td th:text="${usuario.apellidos}"></td>
-                <td th:text="${usuario.usuario}"></td>
-                <!-- Agrega más columnas según necesites -->
+                <td th:text="${usuario.idUsuario}">1</td>
+                <td th:text="${usuario.tipoUsuario}">Admin</td>
+                <td th:text="${usuario.nombres}">John</td>
+                <td th:text="${usuario.apellidos}">Doe</td>
+                <td th:text="${usuario.usuario}">johndoe</td>
+                <td th:text="${usuario.email}">johndoe@example.com</td>
+                <td>
+                    <a th:href="@{/usuarios/editar/{id}(id=${usuario.idUsuario})}">Editar</a>
+                    <a th:href="@{/usuarios/eliminar/{id}(id=${usuario.idUsuario})}">Eliminar</a>
+                </td>
             </tr>
         </tbody>
     </table>
+    <a href="/usuarios/nuevo">Registrar nuevo usuario</a>
 </body>
+
 </html>
