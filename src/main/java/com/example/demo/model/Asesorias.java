@@ -2,28 +2,44 @@ package com.example.demo.model;
 
 public class Asesorias {
     //Atributos
-    private int idAsesoria;
+    private Long idAsesoria;
+    private Long idCurso;
+    private Long idProfesor;
     private String tema;
-    private String descripcion;
-    private String referente;
+    private String descripcionC;
+    private String descripcionL;
+    private Long capacidad;
     private double precio;
-    private int sesiones;
     //Constructores
     public Asesorias(){}
-    public Asesorias(int idAsesoria, String tema, String descripcion, String referente, double precio, int sesiones) {
+    public Asesorias(Long idAsesoria, Long idCurso, Long idProfesor, String tema, String descripcionC,
+            String descripcionL, Long capacidad, double precio) {
         this.idAsesoria = idAsesoria;
+        this.idCurso = idCurso;
+        this.idProfesor = idProfesor;
         this.tema = tema;
-        this.descripcion = descripcion;
-        this.referente = referente;
+        this.descripcionC = descripcionC;
+        this.descripcionL = descripcionL;
+        this.capacidad = capacidad;
         this.precio = precio;
-        this.sesiones = sesiones;
     }
-    // Getters y Setter
-    public int getIdAsesoria() {
+    public Long getIdAsesoria() {
         return idAsesoria;
     }
-    public void setIdAsesoria(int idAsesoria) {
+    public void setIdAsesoria(Long idAsesoria) {
         this.idAsesoria = idAsesoria;
+    }
+    public Long getIdCurso() {
+        return idCurso;
+    }
+    public void setIdCurso(Long idCurso) {
+        this.idCurso = idCurso;
+    }
+    public Long getIdProfesor() {
+        return idProfesor;
+    }
+    public void setIdProfesor(Long idProfesor) {
+        this.idProfesor = idProfesor;
     }
     public String getTema() {
         return tema;
@@ -31,17 +47,23 @@ public class Asesorias {
     public void setTema(String tema) {
         this.tema = tema;
     }
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcionC() {
+        return descripcionC;
     }
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcionC(String descripcionC) {
+        this.descripcionC = descripcionC;
     }
-    public String getReferente() {
-        return referente;
+    public String getDescripcionL() {
+        return descripcionL;
     }
-    public void setReferente(String referente) {
-        this.referente = referente;
+    public void setDescripcionL(String descripcionL) {
+        this.descripcionL = descripcionL;
+    }
+    public Long getCapacidad() {
+        return capacidad;
+    }
+    public void setCapacidad(Long capacidad) {
+        this.capacidad = capacidad;
     }
     public double getPrecio() {
         return precio;
@@ -49,10 +71,5 @@ public class Asesorias {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-    public int getSesiones() {
-        return sesiones;
-    }
-    public void setSesiones(int sesiones) {
-        this.sesiones = sesiones;
-    }
+    
 }

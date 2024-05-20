@@ -2,28 +2,35 @@ package com.example.demo.model;
 
 public class Cursos {
     //Atributos
-    private int idCurso;
-    private String curso;
+    private Long idCurso;
+    private Long idCategoriaCurso;
+    private String nombreCurso;
     private String imagenCurso;
     //Constructores
     public Cursos(){}
-    public Cursos(int idCurso, String curso, String imagenCurso) {
+    public Cursos(Long idCurso, Long idCategoriaCurso, String nombreCurso, String imagenCurso) {
         this.idCurso = idCurso;
-        this.curso = curso;
+        this.idCategoriaCurso = idCategoriaCurso;
+        this.nombreCurso = nombreCurso;
         this.imagenCurso = imagenCurso;
     }
-    // Getters y Setter
-    public int getIdCurso() {
+    public Long getIdCurso() {
         return idCurso;
     }
-    public void setIdCurso(int idCurso) {
+    public void setIdCurso(Long idCurso) {
         this.idCurso = idCurso;
     }
-    public String getCurso() {
-        return curso;
+    public Long getIdCategoriaCurso() {
+        return idCategoriaCurso;
     }
-    public void setCurso(String curso) {
-        this.curso = curso;
+    public void setIdCategoriaCurso(Long idCategoriaCurso) {
+        this.idCategoriaCurso = idCategoriaCurso;
+    }
+    public String getNombreCurso() {
+        return nombreCurso;
+    }
+    public void setNombreCurso(String nombreCurso) {
+        this.nombreCurso = nombreCurso;
     }
     public String getImagenCurso() {
         return imagenCurso;
@@ -31,5 +38,7 @@ public class Cursos {
     public void setImagenCurso(String imagenCurso) {
         this.imagenCurso = imagenCurso;
     }
+
+    
     
 }

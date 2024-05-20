@@ -2,11 +2,12 @@ package com.example.demo.dao;
 
 import java.util.List;
 
+// Clase Generica para el CRUD
 public interface CrudDao<T, ID> {
     //Métodos generales que seran heredadas
-    List<T> findAll();
-    T findById(ID id);
-    void save(T entity);
-    void update(T entity);
-    void deleteById(ID id);
+    List<T> findAll(); // Llenar Array
+    T findById(ID id); // Buscar por ID
+    void save(T entity); // Guardar 
+    void update(T entity); // Actualizar 
+    void deleteById(ID id); // Eliminar por ID
 }
