@@ -1,1 +1,1 @@
-![image](https://github.com/ElkinJenner/nextclass/assets/134264351/d8dccc7c-29c9-4c79-a676-32bb43c8ae4b)
+![image](https://github.com/ElkinJenner/nextclass/assets/134264351/cc3e0368-7886-4ca4-b389-af5d28498c20)
