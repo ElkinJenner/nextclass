@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 import com.example.demo.model.Cursos;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ public class CursosDaoImpl extends CrudDaoImpl<Cursos, Long> {
     protected RowMapper<Cursos> getRowMapper() {
         return new RowMapper<Cursos>() {
             @Override
-            public Cursos mapRow(ResultSet rs, int rowNum) throws SQLException {
+            public Cursos mapRow(@NonNull ResultSet rs, int rowNum) throws SQLException {
                 Cursos curso = new Cursos();
                 curso.setIdCurso(rs.getLong("idCurso"));
                 curso.setIdCategoriaCurso(rs.getLong("idCategoriaCurso"));
