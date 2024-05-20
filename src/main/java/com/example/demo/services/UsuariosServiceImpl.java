@@ -1,8 +1,8 @@
 package com.example.demo.services;
 
 import com.example.demo.dao.CrudDao;
-import com.example.demo.model.Usuarios;
-import org.springframework.beans.factory.annotation.Autowired;
+//import com.example.demo.model.Usuarios;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,6 +40,4 @@ public class UsuariosServiceImpl implements CrudDao {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
     }
-
-   
 }
