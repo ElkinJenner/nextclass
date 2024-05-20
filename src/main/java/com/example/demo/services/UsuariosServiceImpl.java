@@ -1,45 +1,39 @@
 package com.example.demo.services;
 
-import com.example.demo.dao.CrudDao;
 import com.example.demo.model.Usuarios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@SuppressWarnings("rawtypes")
 @Service
-public class UsuariosServiceImpl implements CrudDao {
+public class UsuariosServiceImpl implements UsuariosService {
+
+    @Autowired
+    private UsuariosServiceImpl usuariosDao;
 
     @Override
-    public List findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+    public List<Usuarios> findAll() {
+        return usuariosDao.findAll();
     }
 
     @Override
-    public Object findById(Object id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    public Usuarios findById(Long id) {
+        return usuariosDao.findById(id);
     }
 
     @Override
-    public void save(Object entity) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    public void save(Usuarios usuario) {
+        usuariosDao.save(usuario);
     }
 
     @Override
-    public void update(Object entity) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    public void update(Usuarios usuario) {
+        usuariosDao.update(usuario);
     }
 
     @Override
-    public void deleteById(Object id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+    public void deleteById(Long id) {
+        usuariosDao.deleteById(id);
     }
-
-   
 }
