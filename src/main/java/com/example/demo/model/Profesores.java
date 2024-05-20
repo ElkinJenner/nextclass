@@ -1,23 +1,31 @@
 package com.example.demo.model;
 public class Profesores{
     // Atributos
-    private int idProfesor;
+    private long idProfesor;
+    private long idUsuario;
     private String permiso;
     private String profesion;
     private String descripcion;
-    //Constructores
-    public Profesores(int idProfesor, String permiso, String profesion, String descripcion) {
+    //Constru
+    public Profesores(){}
+    public Profesores(long idProfesor, long idUsuario, String permiso, String profesion, String descripcion) {
         this.idProfesor = idProfesor;
+        this.idUsuario = idUsuario;
         this.permiso = permiso;
         this.profesion = profesion;
         this.descripcion = descripcion;
     }
-    // Getters y Setters
-    public int getIdProfesor() {
+    public long getIdProfesor() {
         return idProfesor;
     }
-    public void setIdProfesor(int idProfesor) {
+    public void setIdProfesor(long idProfesor) {
         this.idProfesor = idProfesor;
+    }
+    public long getIdUsuario() {
+        return idUsuario;
+    }
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
     }
     public String getPermiso() {
         return permiso;
@@ -37,5 +45,6 @@ public class Profesores{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    
     
 }
