@@ -32,7 +32,7 @@ public class UsuariosDaoImpl implements UsuariosDao {
             usuario.setFotoPerfil(rs.getString("fotoPerfil"));
             usuario.setCodUsuario(rs.getString("codUsuario"));
             usuario.setTelefono(rs.getInt("telefono"));
-            usuario.setPais(rs.getString("pais"));
+            usuario.setIdPais(rs.getLong("idpais"));
             usuario.setFechaRegistro(rs.getDate("fechaRegistro"));
             return usuario;
         }
@@ -53,18 +53,18 @@ public class UsuariosDaoImpl implements UsuariosDao {
 
     @Override
     public void save(Usuarios entity) {
-        String sql = "INSERT INTO Usuarios (tipoUsuario, nombres, apellidos, usuario, contrasena, email, fotoPerfil, codUsuario, telefono, pais, fechaRegistro) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Usuarios (tipoUsuario, nombres, apellidos, usuario, contrasena, email, fotoPerfil, codUsuario, telefono, idPais, fechaRegistro) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, entity.getTipoUsuario(), entity.getNombres(), entity.getApellidos(),
                 entity.getUsuario(), entity.getContrasena(), entity.getEmail(), entity.getFotoPerfil(),
-                entity.getCodUsuario(), entity.getTelefono(), entity.getPais(), entity.getFechaRegistro());
+                entity.getCodUsuario(), entity.getTelefono(), entity.getIdPais(), entity.getFechaRegistro());
     }
 
     @Override
     public void update(Usuarios entity) {
-        String sql = "UPDATE Usuarios SET tipoUsuario = ?, nombres = ?, apellidos = ?, usuario = ?, contrasena = ?, email = ?, fotoPerfil = ?, codUsuario = ?, telefono = ?, pais = ?, fechaRegistro = ? WHERE idUsuario = ?";
+        String sql = "UPDATE Usuarios SET tipoUsuario = ?, nombres = ?, apellidos = ?, usuario = ?, contrasena = ?, email = ?, fotoPerfil = ?, codUsuario = ?, telefono = ?, idPais = ?, fechaRegistro = ? WHERE idUsuario = ?";
         jdbcTemplate.update(sql, entity.getTipoUsuario(), entity.getNombres(), entity.getApellidos(),
                 entity.getUsuario(), entity.getContrasena(), entity.getEmail(), entity.getFotoPerfil(),
-                entity.getCodUsuario(), entity.getTelefono(), entity.getPais(), entity.getFechaRegistro(),
+                entity.getCodUsuario(), entity.getTelefono(), entity.getIdPais(), entity.getFechaRegistro(),
                 entity.getIdUsuario());
     }
 

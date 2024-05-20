@@ -1,8 +1,8 @@
 package com.example.demo.model;
 
 import java.util.Date;
+
 public class Usuarios {
-    //Atributos
     private Long idUsuario;
     private String tipoUsuario;
     private String nombres;
@@ -13,14 +13,16 @@ public class Usuarios {
     private String fotoPerfil;
     private String codUsuario;
     private int telefono;
-    private String pais;
+    private Long idPais; // Cambiado a idPais
     private Date fechaRegistro;
 
-    //Constructores
-    public Usuarios() {}
+    // Constructores, getters y setters
+
+    public Usuarios() {
+    }
 
     public Usuarios(Long idUsuario, String tipoUsuario, String nombres, String apellidos, String usuario,
-            String contrasena, String email, String fotoPerfil, String codUsuario, int telefono, String pais,
+            String contrasena, String email, String fotoPerfil, String codUsuario, int telefono, Long idPais,
             Date fechaRegistro) {
         this.idUsuario = idUsuario;
         this.tipoUsuario = tipoUsuario;
@@ -32,10 +34,11 @@ public class Usuarios {
         this.fotoPerfil = fotoPerfil;
         this.codUsuario = codUsuario;
         this.telefono = telefono;
-        this.pais = pais;
+        this.idPais = idPais;
         this.fechaRegistro = fechaRegistro;
     }
-    //Getters y Setters
+
+    // Getters y setters
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -117,12 +120,12 @@ public class Usuarios {
         this.telefono = telefono;
     }
 
-    public String getPais() {
-        return pais;
+    public Long getIdPais() {
+        return idPais;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
+    public void setIdPais(Long idPais) {
+        this.idPais = idPais;
     }
 
     public Date getFechaRegistro() {
@@ -132,7 +135,4 @@ public class Usuarios {
     public void setFechaRegistro(Date fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
-    
-
 }
-
