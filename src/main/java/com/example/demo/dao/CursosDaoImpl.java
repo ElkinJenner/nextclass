@@ -1,43 +1,35 @@
 package com.example.demo.dao;
+
 import com.example.demo.model.Cursos;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.util.List;
 
 @Repository
 public class CursosDaoImpl extends CrudDaoImpl<Cursos, Long> {
 
     @Override
     protected String getTableName() {
-        return "Cursos";
+        return "cursos";
     }
 
     @Override
     protected RowMapper<Cursos> getRowMapper() {
-        return new RowMapper<Cursos>() {
-            @Override
-            public Cursos mapRow(@NonNull ResultSet rs, int rowNum) throws SQLException {
-                Cursos curso = new Cursos();
-                curso.setIdCurso(rs.getLong("idCurso"));
-                curso.setIdCategoriaCurso(rs.getLong("idCategoriaCurso"));
-                curso.setNombreCurso(rs.getString("nombreCurso"));
-                curso.setImagenCurso(rs.getString("imagenCurso"));
-                return curso;
-            }
+        return (rs, rowNum) -> {
+            Cursos curso = new Cursos();
+            curso.setIdCurso(rs.getLong("idCurso"));
+            curso.setNombreCurso(rs.getString("curso"));
+            curso.setImagenCurso(rs.getString("imagenCurso"));
+            curso.setCategoriaCurso(rs.getString("categoriaCurso"));
+            return curso;
         };
     }
 
-    @Override
-    public void save(Cursos entity) {
-        String sql = "INSERT INTO Cursos (idCategoriaCurso, nombreCurso, imagenCurso) VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql, entity.getIdCategoriaCurso(), entity.getNombreCurso(), entity.getImagenCurso());
-    }
-
-    @Override
-    public void update(Cursos entity) {
-        String sql = "UPDATE Cursos SET idCategoriaCurso = ?, nombreCurso = ?, imagenCurso = ? WHERE idCurso = ?";
-        jdbcTemplate.update(sql, entity.getIdCategoriaCurso(), entity.getNombreCurso(), entity.getImagenCurso(), entity.getIdCurso());
+    public List<Cursos> findAllWithCategoriaNombre() {
+        String sql = "SELECT c.idCurso, c.curso, c.imagenCurso, cc.categoriaCurso " +
+                "FROM cursos c " +
+                "INNER JOIN categoriaCursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso";
+        return jdbcTemplate.query(sql, getRowMapper());
     }
 }

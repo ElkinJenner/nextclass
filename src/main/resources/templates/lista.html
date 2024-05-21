@@ -1,39 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Usuarios</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- Si tienes algún archivo CSS -->
+    <title>Lista de Cursos</title>
 </head>
 
 <body>
-    <h1>Lista de Usuarios</h1>
+    <h1>Lista de Cursos</h1>
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Tipo de Usuario</th>
-                <th>Nombres</th>
-                <th>Apellidos</th>
-                <th>Usuario</th>
-                <th>Email</th>
-                <th>Teléfono</th>
-                <th>País</th>
-                <th>Fecha de Registro</th>
+                <th>ID Curso</th>
+                <th>ID Categoría Curso</th>
+                <th>Nombre del Curso</th>
+                <th>Imagen del Curso</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="usuario : ${usuarios}">
-                <td th:text="${usuario.idUsuario}"></td>
-                <td th:text="${usuario.tipoUsuario}"></td>
-                <td th:text="${usuario.nombres}"></td>
-                <td th:text="${usuario.apellidos}"></td>
-                <td th:text="${usuario.usuario}"></td>
-                <td th:text="${usuario.email}"></td>
-                <td th:text="${usuario.telefono}"></td>
-                <td th:text="${usuario.idPais}"></td>
-                <td th:text="${#dates.format(usuario.fechaRegistro, 'yyyy-MM-dd')}"></td>
+            <tr th:each="curso : ${cursos}">
+                <td th:text="${curso.idCurso}">ID Curso</td>
+                <td th:text="${curso.categoriaCurso}">Nombre de la Categoría</td>
+                <td th:text="${curso.nombreCurso}">Nombre del Curso</td>
+                <td>
+                    <img th:src="@{upload/courses/{img}(img=${curso.imagenCurso})}" style="max-width: 100px; max-height: 100px;" />
+                </td>
             </tr>
         </tbody>
     </table>

@@ -15,11 +15,11 @@ public class UsuariosController {
     @Autowired
     private UsuariosService usuariosService;
 
-    @GetMapping("/lista")
+    @GetMapping("/lista2")
     public String listarUsuarios(Model model) {
         List<Usuarios> usuarios = usuariosService.findAll();
         model.addAttribute("usuarios", usuarios);
-        return "lista";
+        return "lista2";
     }
 
     @GetMapping("/usuarios")
