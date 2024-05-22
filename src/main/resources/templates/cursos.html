@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cursos | Nextclass</title>
-    <links th:include="components/link"></links>
+    <link th:include="components/link"></link>
 </head>
 <body class="light_mode">
     <header th:include="components/menu_app"></header>
@@ -34,6 +35,18 @@
                         </div>
                     </a>
             </div>
+
+            <div class="pagination_pages">
+                <ul>
+                    <li th:each="i : ${#numbers.sequence(1, totalPages)}">
+                        <a th:href="@{/cursos(page=${i})}" th:text="${i}" th:classappend="${i == currentPage} ? 'active'"></a>
+                    </li>
+                </ul>
+                <ol class="page_info">
+                    <p>Página <span th:text="${currentPage}"></span> de <span th:text="${totalPages}"></span></p>
+                </ol>
+            </div>
+            
 
         </section>
     </main>

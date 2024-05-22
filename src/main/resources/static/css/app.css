@@ -387,3 +387,52 @@ Advisory
 .buttons_contender{
     padding: 1rem 0rem;
 }
+/*------
+Pagination
+------ */
+.pagination_pages {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: -5rem;
+    left: 0;
+    right: 0;
+}
+
+.pagination_pages ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 5px;
+}
+
+.pagination_pages li {
+    display: inline;
+}
+
+.pagination_pages a {
+    display: block;
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: var(--color_dark);
+    font-family: var(--font_semibold);
+    border: 2px solid var(--color_dark);
+    border-radius: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination_pages a:hover {
+    background-color: var(--color_focus);
+    color: var(--color_dark);
+}
+
+.pagination_pages a.active {
+    background: var(--color_dark);
+    color: var(--color_light);
+    pointer-events: none;
+}
+.page_info{
+    display: grid;
+    align-items: center;
+}
