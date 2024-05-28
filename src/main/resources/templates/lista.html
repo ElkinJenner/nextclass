@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Cursos</title>
+</head>
+
+<body>
+    <h1>Lista de Cursos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Curso</th>
+                <th>ID Categoría Curso</th>
+                <th>Nombre del Curso</th>
+                <th>Imagen del Curso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="curso : ${cursos}">
+                <td th:text="${curso.idCurso}">ID Curso</td>
+                <td th:text="${curso.categoriaCurso}">Nombre de la Categoría</td>
+                <td th:text="${curso.nombreCurso}">Nombre del Curso</td>
+                <td>
+                    <img th:src="@{upload/courses/{img}(img=${curso.imagenCurso})}" style="max-width: 100px; max-height: 100px;" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

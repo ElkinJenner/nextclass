@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'Asap Thin';
+    src: url('../fonts/Asap-Thin.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Asap Regular';
+    src: url('../fonts/Asap-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'AurulentSans Regular';
+    src: url('../fonts/AurulentSans-Regular.otf') format('truetype');
+}
+@font-face {
+    font-family: 'Asap Medium';
+    src: url('../fonts/Asap-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Asap SemiBold';
+    src: url('../fonts/Asap-SemiBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Asap Bold';
+    src: url('../fonts/Asap-Bold.ttf') format('truetype');
+}
+:root {
+    --font_bold: 'Asap Bold';
+    --font_semibold: 'Asap SemiBold';
+    --font_medium: 'Asap Medium';
+    --font_regular: 'Asap Regular';
+    --font_regularSans: 'AurulentSans Regular';
+    --font_thin: 'Asap Thin';
+}
+
+.font_b{font-family: var(--font_bold);}
+.font_s{font-family: var(--font_semibold);}
+.font_m{font-family: var(--font_medium);}
+.font_r{font-family: var(--font_regular);}
+.font_rs{font-family: var(--font_regularSans); font-weight: 300;}
+.font_t{font-family: var(--font_thin);}
+
+h1,h2,h3,h4,h5{
+    font-family: var(--font_semibold);
+}
+h1{font-size: 60px; line-height: 60px;}
+h2{font-size: 48px; line-height: 48px;}
+h3{font-size: 42px; line-height: 42px;}
+h4{font-size: 36px; line-height: 36px;}
+h5{font-size: 30px; line-height: 30px;}
+h6{font-size: 22px; line-height: 22px;}
+
+.sz16{font-size: 16px!important;}
+.sz18{font-size: 18px!important;}
+.sz20{font-size: 20px!important;}
+.sz22{font-size: 22px!important;}
+.sz24{font-size: 24px!important;}
+.sz32{font-size: 32px!important;}
+.sz42{font-size: 42px!important;}
+
