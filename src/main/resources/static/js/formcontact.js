@@ -73,36 +73,36 @@ for (let i = 0; i < validarForm.length; i++) {
             case "nombres":
                 if (nombres != "") {
                     c_nombres.innerHTML = ``;
-                    document.getElementById("nombres").classList.add('c_security');
-                    document.getElementById("nombres").classList.remove('c_danger');
-                    document.getElementById("nombres").classList.add('border_security');
+                    document.getElementById("nombres").classList.add('color_verify');
+                    document.getElementById("nombres").classList.remove('color_danger');
+                    document.getElementById("nombres").classList.add('border_verify');
                     document.getElementById("nombres").classList.remove('border_danger');
                 }
                 else {
                     c_nombres.innerHTML = `
-                <h6 class="c_danger f_r"> Debes escribir nombres</h6><br>
+                <p class="color_danger"> Debes escribir nombres</p><br>
                 `;
-                    document.getElementById("nombres").classList.remove('c_security');
+                    document.getElementById("nombres").classList.remove('color_verify');
                     document.getElementById("nombres").classList.add('border_danger');
-                    document.getElementById("nombres").classList.add('c_danger');
+                    document.getElementById("nombres").classList.add('color_danger');
                 }
                 break;
             
             case "apellidos":
                 if (apellidos != "") {
                     c_apellidos.innerHTML = ``;
-                    document.getElementById("apellidos").classList.add('c_security');
-                    document.getElementById("apellidos").classList.remove('c_danger');
-                    document.getElementById("apellidos").classList.add('border_security');
+                    document.getElementById("apellidos").classList.add('color_verify');
+                    document.getElementById("apellidos").classList.remove('color_danger');
+                    document.getElementById("apellidos").classList.add('border_verify');
                     document.getElementById("apellidos").classList.remove('border_danger');
                 }
                 else {
                     c_apellidos.innerHTML = `
-                <h6 class="c_danger f_r"> Debes escribir tus apellidos</h6><br>
+                <p class="color_danger"> Debes escribir tus apellidos</p><br>
                 `;
-                    document.getElementById("apellidos").classList.remove('c_security');
+                    document.getElementById("apellidos").classList.remove('color_verify');
                     document.getElementById("apellidos").classList.add('border_danger');
-                    document.getElementById("apellidos").classList.add('c_danger');
+                    document.getElementById("apellidos").classList.add('color_danger');
                 }
                 break;   
             case "email":
@@ -135,12 +135,12 @@ for (let i = 0; i < validarForm.length; i++) {
                     c_telefono.innerHTML = ``;
                     document.getElementById("telefono").classList.add('c_security');
                     document.getElementById("telefono").classList.remove('c_danger');
-                    document.getElementById("telefono").classList.add('border_security');
+                    document.getElementById("telefono").classList.add('border_verify');
                     document.getElementById("telefono").classList.remove('border_danger');
                 }
                 else {
                     c_telefono.innerHTML = `
-                <h6 class="c_danger f_r"> Es necesario añadir un número telefónico</h6> <br>
+                <p class="color_danger">Es necesario añadir un número telefónico</p> <br>
                 `;
                     document.getElementById("telefono").classList.remove('c_security');
                     document.getElementById("telefono").classList.add('border_danger');
@@ -150,18 +150,18 @@ for (let i = 0; i < validarForm.length; i++) {
             case "usuario":
                 if (usuario != "") {
                     c_usuario.innerHTML = ``;
-                    document.getElementById("usuario").classList.add('c_security');
-                    document.getElementById("usuario").classList.remove('c_danger');
-                    document.getElementById("usuario").classList.add('border_security');
+                    document.getElementById("usuario").classList.add('color_verify');
+                    document.getElementById("usuario").classList.remove('color_danger');
+                    document.getElementById("usuario").classList.add('border_verify');
                     document.getElementById("usuario").classList.remove('border_danger');
                 }
                 else {
                     c_usuario.innerHTML = `
-                <h6 class="c_danger f_r"> Debes escribir un usuario</h6><br>
+                <p class="color_danger"> Debes escribir un usuario</p><br>
                 `;
-                    document.getElementById("usuario").classList.remove('c_security');
+                    document.getElementById("usuario").classList.remove('color_verify');
                     document.getElementById("usuario").classList.add('border_danger');
-                    document.getElementById("usuario").classList.add('c_danger');
+                    document.getElementById("usuario").classList.add('color_danger');
                 }
                 break;
 
@@ -193,7 +193,7 @@ for (let i = 0; i < validarForm.length; i++) {
                 }
                 else {
                     c_tema.innerHTML = `
-                <h6 class="c_danger f_r"> Debes escribir el tema</h6><br>
+                <p class="color_danger"> Debes escribir el tema</p><br>
                 `;
                     document.getElementById("tema").classList.remove('c_security');
                     document.getElementById("tema").classList.add('border_danger');

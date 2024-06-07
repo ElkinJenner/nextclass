@@ -6,16 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+//Componentes para mapear
+import com.example.demo.components.UsuarioComponent;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Controller
-public class PaisesController {
+public class RegistroController {
 
     @Autowired
     private PaisesDaoImpl paisesDao;
+
+    @Autowired
+    private UsuarioComponent usuarioComponent;
 
     // Método para obtener la lista de países y renderizar la página registrarse
     @GetMapping("/registrarse")
@@ -48,6 +52,7 @@ public class PaisesController {
 
         model.addAttribute("paisesList", paisesList);
         model.addAttribute("paisesImages", paisesImages);
+        model.addAttribute("tiposUsuarioImages", usuarioComponent.getTiposUsuarioImages());
         return "registrarse";
     }
 }

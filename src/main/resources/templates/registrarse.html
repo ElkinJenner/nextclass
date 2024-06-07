@@ -17,21 +17,15 @@
                 </ul>
                 <form class="form_users" method="POST" id="FormContact">
                     <article class="users_form">
-                        <fieldset class="user_contender">
-                            <input type="radio" name="tipoUsuario" id="tipousuario"/>
-                            <label for="tipoUsuario">
-                                <img src="img/estudiante_acceso.png">
-                                <h5>Estudiante</h5>
-                            </label>
-                        </fieldset>
-
-                        <fieldset class="user_contender">
-                            <input type="radio" name="tipoUsuario" id="tipousuario"/>
-                            <label class="btn_abrir" for="tipoUsuario">
-                                <img src="img/profesor_acceso.png">
-                                <h5>Profesor</h5>
-                            </label>
-                        </fieldset>
+                        <div th:each="entry : ${tiposUsuarioImages}">
+                            <fieldset class="user_contender">
+                                <input type="radio" name="tipoUsuario" th:id="'tipoUsuario' + ${entry.key}" th:value="${entry.key}" />
+                                <label th:for="'tipoUsuario_' + ${entry.key}">
+                                    <img th:src="${entry.value}" />
+                                    <h5 th:text="${entry.key}"></h5>
+                                </label>
+                            </fieldset>
+                        </div>
                     </article>
 
                     <div class="users_btn">
