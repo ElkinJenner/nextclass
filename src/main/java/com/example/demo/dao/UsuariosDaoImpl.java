@@ -1,11 +1,13 @@
 package com.example.demo.dao;
+
 import com.example.demo.model.Usuarios;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.List;
 
 @Repository
 public class UsuariosDaoImpl extends CrudDaoImpl<Usuarios, Long> {
@@ -31,7 +33,8 @@ public class UsuariosDaoImpl extends CrudDaoImpl<Usuarios, Long> {
                 usuario.setFotoPerfil(rs.getString("fotoPerfil"));
                 usuario.setCodUsuario(rs.getString("codUsuario"));
                 usuario.setTelefono(rs.getInt("telefono"));
-                usuario.setIdPais(rs.getLong("idpais"));
+                usuario.setIdPais(rs.getLong("idPais"));
+                usuario.setNombrePais(rs.getString("pais"));
                 usuario.setFechaRegistro(rs.getDate("fechaRegistro"));
                 return usuario;
             }
@@ -39,8 +42,21 @@ public class UsuariosDaoImpl extends CrudDaoImpl<Usuarios, Long> {
     }
 
     @Override
+    public List<Usuarios> findAll() {
+        String sql = "SELECT u.*, p.pais FROM usuarios u INNER JOIN paises p ON u.idPais = p.idPais";
+        return jdbcTemplate.query(sql, getRowMapper());
+    }
+
+    @Override
+    public Usuarios findById(Long id) {
+        String sql = "SELECT u.*, p.pais FROM usuarios u INNER JOIN paises p ON u.idPais = p.idPais WHERE u.idUsuario = ?";
+        List<Usuarios> results = jdbcTemplate.query(sql, getRowMapper(), id);
+        return results.isEmpty() ? null : results.get(0);
+    }
+
+    @Override
     public void save(Usuarios entity) {
-        String sql = "INSERT INTO Usuarios (tipoUsuario, nombres, apellidos, usuario, contrasena, email, fotoPerfil, codUsuario, telefono, idPais, fechaRegistro) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO usuarios (tipoUsuario, nombres, apellidos, usuario, contrasena, email, fotoPerfil, codUsuario, telefono, idPais, fechaRegistro) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, entity.getTipoUsuario(), entity.getNombres(), entity.getApellidos(),
                 entity.getUsuario(), entity.getContrasena(), entity.getEmail(), entity.getFotoPerfil(),
                 entity.getCodUsuario(), entity.getTelefono(), entity.getIdPais(), entity.getFechaRegistro());
@@ -48,7 +64,7 @@ public class UsuariosDaoImpl extends CrudDaoImpl<Usuarios, Long> {
 
     @Override
     public void update(Usuarios entity) {
-        String sql = "UPDATE Usuarios SET tipoUsuario = ?, nombres = ?, apellidos = ?, usuario = ?, contrasena = ?, email = ?, fotoPerfil = ?, codUsuario = ?, telefono = ?, idPais = ?, fechaRegistro = ? WHERE idUsuario = ?";
+        String sql = "UPDATE usuarios SET tipoUsuario = ?, nombres = ?, apellidos = ?, usuario = ?, contrasena = ?, email = ?, fotoPerfil = ?, codUsuario = ?, telefono = ?, idPais = ?, fechaRegistro = ? WHERE idUsuario = ?";
         jdbcTemplate.update(sql, entity.getTipoUsuario(), entity.getNombres(), entity.getApellidos(),
                 entity.getUsuario(), entity.getContrasena(), entity.getEmail(), entity.getFotoPerfil(),
                 entity.getCodUsuario(), entity.getTelefono(), entity.getIdPais(), entity.getFechaRegistro(),
@@ -57,7 +73,13 @@ public class UsuariosDaoImpl extends CrudDaoImpl<Usuarios, Long> {
 
     @Override
     public void deleteById(Long id) {
-        String sql = "DELETE FROM Usuarios WHERE idUsuario = ?";
+        String sql = "DELETE FROM usuarios WHERE idUsuario = ?";
         jdbcTemplate.update(sql, id);
+    }
+
+    public Usuarios findByEmailAndPassword(String email, String password) {
+        String sql = "SELECT u.*, p.pais FROM usuarios u INNER JOIN paises p ON u.idPais = p.idPais WHERE u.email = ? AND u.contrasena = ?";
+        List<Usuarios> results = jdbcTemplate.query(sql, getRowMapper(), email, password);
+        return results.isEmpty() ? null : results.get(0);
     }
 }

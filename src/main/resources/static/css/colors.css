@@ -12,6 +12,7 @@
     --color_fifth: #31d1ab;
     --color_verify: #0eae21;
     --color_danger: #ff7070;
+    --color_alert: #ffee00;
 }
 
 .light_mode {
@@ -48,6 +49,7 @@
 .color_fifth{color: var(--color_fifth)!important;}
 .color_verify{color: var(--color_verify)!important;}
 .color_danger{color: var(--color_danger)!important;}
+.color_alert{color: var(--color_alert)!important;}
 
 .bg_body{background: var(--color_body)!important;}
 .bg_index{background: var(--color_index)!important;}
@@ -65,3 +67,7 @@
 .bg_fifth{background: var(--color_fifth)!important;}
 .bg_verify{background: var(--color_verify)!important;}
 .bg_danger{background: var(--color_danger)!important;}
+
+.border_verify{border: 1px solid var(--color_verify)!important;}
+.border_danger{border: 1px solid var(--color_danger)!important;}
+.border_alert{border: 1px solid var(--color_alert)!important;}

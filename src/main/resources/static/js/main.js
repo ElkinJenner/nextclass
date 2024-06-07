@@ -28,7 +28,7 @@ for (let i = 0; i < btna.length; i++) {
         }
     });
 }
-
+//Filter categories
 document.addEventListener('DOMContentLoaded', function () {
     const categoryButtons = document.querySelectorAll('.category-btn');
     const items = document.querySelectorAll('.item_course');
@@ -49,3 +49,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+//Menu despegable -Profile
+let dropdow_toogle = document.getElementById("dropdow_toogle");
+let dropdow_menu = document.getElementById("dropdow_menu");
+let count_mc = 0;
+
+function menu_overlay() {
+    if (count_mc == 0) {
+        dropdow_menu.classList.remove('hidden');
+        count_mc = 1;
+        dropdow_menu_not.classList.add('hidden');
+        count_not = 0;
+    }
+    else {
+        dropdow_menu.classList.add('hidden');
+        count_mc = 0;
+    }
+}
+dropdow_toogle.addEventListener('click', menu_overlay, true);

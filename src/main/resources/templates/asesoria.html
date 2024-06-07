@@ -19,45 +19,57 @@
                         <h6 class="color_span font_rs">Programación web <span class="sz18">|</span> Tecnologia</h6>
                     </article>
 
-                    <article class="desc_theme">
-                       <p class="sz18">Spring Boot es una tecnología y extensión del framework Spring Framework para aplicaciones
+                    <article class="desc_theme b1 br1 p1 mb05">
+                       <p class="color_lead sz18">Spring Boot es una tecnología y extensión del framework Spring Framework para aplicaciones
                         Java basadas en web que simplifica el proceso de configuración y desarrollo de aplicaciones Java. 
                         </p>
                     </article>
 
-                    <article class="profile_contender">
+                    <article class="profile_contender p1">
                         <div class="profile_picture">
                             <img src="upload/professors/docente.jpg">
                         </div>
                         <div class="profile_info">
-                            <h6 class="color_dark sz18">Marcos Salvatierra Rua Limas</h6>
-                            <small class="color_lead">Ing. Computacional</small>
+                            <h6 class="color_dark sz22 mb025">Marcos Salvatierra Rua Limas</h6>
+                            <small class="color_lead sz16">Ing. Computacional</small>
                         </div>
-                    </article>
-
-                    <article class="desc_prof">
-                        <p class="color_lead sz18">En esta asesoria despejarás dudas de como implentar
-                        Spring boot, configurar correctamente el entorno de desarrollo.
-                        Además de consultarme en vivo cualquier
-                        problema ocurrido.</p>
                     </article>
 
                     <article class="desc_theme_m">
                         <div class="desc_pay">
                             <div class="pay_t">
-                                <p>Precio:</p>
+                                <p class="sz18">Precio:</p>
                             </div>
                             <div class="pay_m">
-                                <p><strong>90.0 US$</strong></p>
+                                <p class="sz20 mb05"><strong>180.0 US$</strong></p>
                                 <small>Sesion completa <br>10 %DSCT</small>
                             </div>
                         </div>
                         <div class="desc_abi">
-                            <p>Sesiones: <strong class="sz18"> 4 </strong> </p>
+                            <div class="pay_t">
+                                <p class="sz18">Tiempo:</p>
+                            </div>
+                            <div class="pay_m">
+                                <p class="sz20 mb05"><strong>8 horas</strong></p>
+                                <small>2 horas por <br> sesión</small>
+                            </div>
                         </div>
                     </article>
+
+                    <article class="desc_theme_m">
+                            <div class="desc_pay">
+                                <div class="pay_t">
+                                    <p class="sz18">Sesiones:</p>
+                                </div>
+                                <div class="pay_m">
+                                    <p class="sz20 mb05"><strong>4</strong></p>
+                                </div>
+                            </div>
+                    </article>
+
                     <article class="buttons_contender">
-                        <a class="button button_2 bg_fifth" id="btn-abrir"><i class="ai-paper-airplane"></i> Inscribirse</a>
+                        <a class="button button_2 bg_fifth btn_abrir"><i class="ai-paper-airplane"></i> Inscribirse</a>
+                        <main class="modal_ventana_content hidden" id="modal" th:include="components/inscribirse_asesoria"></main>
                     </article>
 
                 </div>
@@ -66,5 +78,4 @@
     </main>
     <links th:include="components/footer"></links>
 </body>
-
 </html>

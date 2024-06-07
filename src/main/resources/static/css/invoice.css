@@ -63,7 +63,7 @@
             }
         }
         tr:nth-of-type(odd) {
-                background-color: rgb(176 187 217 / 16%);
+                background-color: rgb(101 110 137 / 16%);
         }
     }
 }

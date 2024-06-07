@@ -13,32 +13,11 @@ public class Usuarios {
     private String fotoPerfil;
     private String codUsuario;
     private int telefono;
-    private Long idPais; // Cambiado a idPais
+    private Long idPais;
+    private String nombrePais; // Nuevo campo
     private Date fechaRegistro;
 
-    // Constructores, getters y setters
-
-    public Usuarios() {
-    }
-
-    public Usuarios(Long idUsuario, String tipoUsuario, String nombres, String apellidos, String usuario,
-            String contrasena, String email, String fotoPerfil, String codUsuario, int telefono, Long idPais,
-            Date fechaRegistro) {
-        this.idUsuario = idUsuario;
-        this.tipoUsuario = tipoUsuario;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.usuario = usuario;
-        this.contrasena = contrasena;
-        this.email = email;
-        this.fotoPerfil = fotoPerfil;
-        this.codUsuario = codUsuario;
-        this.telefono = telefono;
-        this.idPais = idPais;
-        this.fechaRegistro = fechaRegistro;
-    }
-
-    // Getters y setters
+    // Getters y Setters
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -126,6 +105,14 @@ public class Usuarios {
 
     public void setIdPais(Long idPais) {
         this.idPais = idPais;
+    }
+
+    public String getNombrePais() {
+        return nombrePais;
+    }
+
+    public void setNombrePais(String nombrePais) {
+        this.nombrePais = nombrePais;
     }
 
     public Date getFechaRegistro() {

@@ -6,14 +6,16 @@
     <link th:include="components/link"></link>
 </head>
 <body class="light_mode">
-    <main class="invoice column-8 mc mt5">
+    <main class="invoice column-8 mc mt5" th:each="recibo : ${recibosList}">
         <article class="inv_header">
             <div class="inv_date">
-                <p class="color_lead sz16">Factura n° <small>1100991</small></p>
-                <small class="color_span">16/05/2024</small>
+                <p class="color_lead sz16">Factura n° <small th:text="${recibo.idRecibo}"></small></p>
+                <small class="color_span">05/06/2024</small>
             </div>
             <div class="inv_act color_span">
-                <i class='bx bx-file-blank'></i>
+                <form action="/recibos/download" method="get">
+                    <button type="submit"><i class='bx bx-file-blank'></i></button>
+                </form>
                 <i class='bx bx-envelope'></i>
                 <i class='bx bx-printer'></i>
             </div>
@@ -24,7 +26,7 @@
         <article class="inv_idd">
             <div class="ind_des">
                 <p>Factura de </p>
-                <p><strong>Doc. Javier Santoalla </strong></p><br>
+                <p><strong> Ing. <span th:text="${recibo.nombreProfesor}"></span></strong></p><br>
                 <p class="color_lead sz16">1200 Anfiteatro Parkway
                 Mountain View, CA 10486</p>
                 <p class="color_lead sz16">Teléfono: +1 888-555-0000</p>
@@ -32,7 +34,7 @@
 
             <div class="ind_det">
                 <p>Factura Para:</p>
-                <p><strong>John Duarte Lima</strong></p><br>
+                <p><strong><div th:text="${recibo.nombreEstudiante}"></div></strong></p><br>
                 <p class="color_lead sz16">Calle Alegada Way
                 Filadelfia, PA 10486</p>
                 <p class="color_lead sz16">Teléfono: +7 313-020-0207</p>
@@ -51,11 +53,11 @@
 
             <tbody>
                 <tr>
-                    <td>A12</td>
-                    <td>Programación web con Spring boot</td>
-                    <td>3</td>
-                    <td>$5.0</td>
-                    <td>$15.0</td>
+                    <td th:text="${recibo.idRecibo}"></td>
+                    <td th:text="${recibo.curso}"></td>
+                    <td th:text="${recibo.horas}"></td>
+                    <td th:text="${recibo.precio}"></td>
+                    <td th:text="${recibo.precio}"></td>
                 </tr>
                 
             </tbody>

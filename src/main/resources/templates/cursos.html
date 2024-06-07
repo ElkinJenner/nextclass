@@ -42,9 +42,7 @@
                         <a th:href="@{/cursos(page=${i})}" th:text="${i}" th:classappend="${i == currentPage} ? 'active'"></a>
                     </li>
                 </ul>
-                <ol class="page_info">
-                    <p>Página <span th:text="${currentPage}"></span> de <span th:text="${totalPages}"></span></p>
-                </ol>
+                
             </div>
             
 

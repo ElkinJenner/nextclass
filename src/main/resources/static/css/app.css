@@ -84,6 +84,7 @@ HEADER PANEL
     padding: 1.5rem 2rem;
     gap: 1.5rem;
     align-items: center;
+    z-index: 111;
 }
 .notification_contender, .profile_contender{
     position: relative;
@@ -116,15 +117,15 @@ HEADER PANEL
 .profile_info p{
     font-family: var(--font_semibold);
     color: var(--color_span);
-    text-align: right;
 }
 .profile_info h6{
     font-size: 20px;
     font-weight: 600;
 }
 .profile_picture img{
-    max-width: 60px;
+    max-width: 50px;
     border-radius: 50%;
+    cursor: pointer;
 }
 .searcher_contender{
     display: flex;
@@ -228,13 +229,13 @@ FORM
     display: block;
     margin-top: .3rem;
 }
-.flags_form input[type="radio"]:checked+label {
+.flags_form input[type="radio"]:checked+label, .flags_form input[type="checkbox"]:checked+label {
     display: block;
     border-radius: 1rem;
     outline: 2px solid var(--color_focus);
     background: var(--color_light);
 }
-.flags_form input[type="radio"]:checked+label small {
+.flags_form input[type="radio"]:checked+label small, .flags_form input[type="checkbox"]:checked+label small {
     color: var(--color_dark);
 }
 .form_login{
@@ -355,30 +356,24 @@ Advisory
 ------ */
 .advisory_contender{
     position: relative;
-    right: 2rem;
+    max-width: 99%;
     padding: 1rem 2rem;
     display: grid;
+    min-height: 80vh;
    align-content: center;
    justify-content: center;
 }
 .advisory_c{
-    max-width: 550px;
+    max-width: 600px;
 }
 .advisory_c .title h2{
     margin-bottom: 1rem;
 }
-.advisory .desc_theme, .advisory .profile_contender{
-    padding: 1rem 0rem;
-}
-.desc_prof{
-    border: 1px solid var(--color_input);
-    padding: 1.65rem;
-    border-radius: 1rem;
-}
 .desc_theme_m{
     display: flex;
     justify-content: space-between;
-    padding: 1rem 0rem;
+    padding: 1rem 1rem;
+    max-width: 80%;
 }
 .desc_pay, .desc_abi{
     display: flex;
@@ -435,4 +430,41 @@ Pagination
 .page_info{
     display: grid;
     align-items: center;
+}
+/*------
+DROPDOW
+------ */
+.dropdow_menu {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    min-width: 300px;
+    background: var(--color_light);
+    border: 1px solid var(--color_focus);
+    right: 4px;
+    margin: 1rem .2rem;
+    box-shadow: var(--box_shadow);
+    padding: .5rem 1rem 2rem;
+    border-radius: 0.8rem 0.8rem 0.6em 0.6em;
+    transition: transform .2s ease-out;
+    opacity: 1;
+}
+.dropdow_menu ul {
+    margin-top: 1rem;
+    padding: .5rem;
+    border-top: 1px solid var(--color_input);
+}
+.dropdow_menu ul li {
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+}
+.dropdow_menu ul li a {
+    color: var(--color_span);
+    font-family: var(--font_medium);
+    font-size: 1.12rem;
+    padding: .8rem;
+    border-radius: .5rem;
+}
+.dropdow_menu ul li a i{
+    margin-right: .5rem;
 }
