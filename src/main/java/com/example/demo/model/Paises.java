@@ -24,5 +24,13 @@ public class Paises {
         this.pais = pais;
     }
     
+    @Override
+    public String toString() {
+        return "Paises{" +
+                "idPais=" + idPais +
+                ", pais='" + pais + '\'' +
+                '}';
+    }
+    
 
 }

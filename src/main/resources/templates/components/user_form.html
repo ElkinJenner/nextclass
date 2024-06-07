@@ -27,131 +27,14 @@
 
             <div class="group">
                 <label>Selecciona tu país</label>
-
                 <fieldset class="flags_form">
-                    
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/argentina.png">
-                            <small>Argentina</small>
+                    <div th:each="pais : ${paisesList}" class="flags_item">
+                        <input type="radio" name="paises" th:id="'pais-' + ${pais.idPais}" th:value="${pais.idPais}">
+                        <label th:for="'pais-' + ${pais.idPais}">
+                            <img th:src="@{${paisesImages[pais.pais]}}" alt="Flag">
+                            <small th:text="${pais.pais}"></small>
                         </label>
                     </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/bolivia.png">
-                            <small>Bolivia</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/brasil.png">
-                            <small>Brasil</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/chile.png">
-                            <small>Chile</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/colombia.png">
-                            <small>Colombia</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/costarica.png">
-                            <small>Costa Rica</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/cuba.png">
-                            <small>Cuba</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/ecuador.png">
-                            <small>Ecuador</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/elsalvador.png">
-                            <small>El Salvador</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/guatemala.png">
-                            <small>Guatemala</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/honduras.png">
-                            <small>Honduras</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/mexico.png">
-                            <small>México</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/panama.png">
-                            <small>Pánama</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/peru.png">
-                            <small>Perú</small>
-                        </label>
-                    </div>
-
-                    <div class="flags_item">
-                        <input type="radio" name="paises" id="paises">
-                        <label for="paises">
-                            <img src="img/flags/repdominicana.png">
-                            <small>República Dominicana</small>
-                        </label>
-                    </div>
-
-
-
                 </fieldset>
             </div>
 
