@@ -4,6 +4,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.stereotype.Controller;
 
+/*
+Mapeo de todos los archivos estaticos como HTML de la aplicación, esto gracias a la libreria
+thymeleaf, lo que nos proporciona controlar su direccion URL
+*/
 @Controller
 public class NavegacionController {
     @GetMapping("/{pagina}")

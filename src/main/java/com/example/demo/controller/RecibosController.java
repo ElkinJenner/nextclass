@@ -18,7 +18,11 @@ public class RecibosController {
 
     @Autowired
     private RecibosDaoImpl recibosDao;
-
+    
+    /*
+     * @GetMapping hace referencia a la anotación, en donde el método listRecibos
+     * manejará las solicitudes HTTP GET dirigidas a la URL /recibos
+     */
     @GetMapping("/recibos")
     public String listRecibos(Model model) {
         List<Recibos> recibosList = recibosDao.findAll();
@@ -30,15 +34,15 @@ public class RecibosController {
     public void downloadExcel(HttpServletResponse response) throws IOException {
         List<Recibos> recibosList = recibosDao.findAll();
 
-        // Set content type
+        // Establecer tipo de contenido
         response.setContentType("application/vnd.ms-excel");
         response.setHeader("Content-Disposition", "attachment; filename=recibos.xlsx");
 
-        // Create Workbook
+        // Crea libro de trabajo
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Recibos");
 
-        // Create header row
+        // Crea fila de encabezado
         Row headerRow = sheet.createRow(0);
         String[] columns = { "ID Recibo", "Nombre del Profesor", "Nombre del Estudiante", "Curso", "Precio", "Horas",
                 "Tema", "Descripción" };
@@ -47,7 +51,7 @@ public class RecibosController {
             cell.setCellValue(columns[i]);
         }
 
-        // Create data rows
+        // Crea filas de datos para excell
         int rowNum = 1;
         for (Recibos recibo : recibosList) {
             Row row = sheet.createRow(rowNum++);
@@ -61,12 +65,12 @@ public class RecibosController {
             row.createCell(7).setCellValue(recibo.getDescripcionC());
         }
 
-        // Resize columns to fit the content
+        //Cambia el tamaño de las columnas para que se ajusten al contenido
         for (int i = 0; i < columns.length; i++) {
             sheet.autoSizeColumn(i);
         }
 
-        // Write the output to the response output stream
+        // Escribe la salida en el flujo de salida de respuesta
         workbook.write(response.getOutputStream());
         workbook.close();
     }

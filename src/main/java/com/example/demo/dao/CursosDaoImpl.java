@@ -12,9 +12,10 @@ import java.util.List;
 @Repository
 public class CursosDaoImpl extends CrudDaoImpl<Cursos, Long> {
 
-    @Autowired
+    @Autowired //Anotación que permite acceder a la capa de datos
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+    // Método para obtener el nombre de la tabla
     @Override
     protected String getTableName() {
         return "cursos";

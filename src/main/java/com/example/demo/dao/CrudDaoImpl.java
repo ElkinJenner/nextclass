@@ -8,12 +8,15 @@ import org.springframework.stereotype.Repository;
 @Repository
 public abstract class CrudDaoImpl<T, ID> implements CrudDao<T, ID> {
 
-    @Autowired
+    @Autowired // Anotación que permite acceder a la capa de datos
     protected JdbcTemplate jdbcTemplate;
 
     protected abstract String getTableName();
     protected abstract RowMapper<T> getRowMapper();
-
+    /*
+     * Implementamos el modelo CRUD atravez de nuestro interfaz CRUD donde solo se modelo los
+     * métodos genericos
+     */
     @Override
     public List<T> findAll() {
         String sql = "SELECT * FROM " + getTableName();

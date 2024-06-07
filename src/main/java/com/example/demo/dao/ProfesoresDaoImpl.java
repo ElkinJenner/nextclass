@@ -7,11 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProfesoresDaoImpl extends CrudDaoImpl<Profesores,Long>{
+    // Método para obtener el nombre de la tabla
   @Override
     protected String getTableName() {
         return "profesores";
     }
-
+    
+    // Método para mapear filas de resultados de la base de datos a objetos
     @Override
     protected RowMapper<Profesores> getRowMapper() {
         return new RowMapper<Profesores>() {
@@ -27,12 +29,15 @@ public class ProfesoresDaoImpl extends CrudDaoImpl<Profesores,Long>{
             }
         };
     }
+    
+    // Método para guardar un nuevo profesor en la base de datos, tabla Profesores
     @Override
     public void save(Profesores entity) {
         String sql = "INSERT INTO profesores (idUsuario, permiso, profesion, descripcion) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(sql, entity.getIdUsuario(), entity.getPermiso(), entity.getProfesion(), entity.getDescripcion());
     }
-
+    
+    // Método para actualizar un nuevo profesor en la base de datos, tabla Profesores
     @Override
     public void update(Profesores entity) {
         String sql = "UPDATE profesores SET idUsuario = ?, permiso = ?, profesion = ?, descripcion = ? WHERE idProfesor = ?";

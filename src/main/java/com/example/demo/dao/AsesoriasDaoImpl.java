@@ -9,7 +9,7 @@ import com.example.demo.model.Asesorias;
 
 @Repository
 public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
-
+    // Método para obtener el nombre de la tabla
     @Override
     protected String getTableName() {
         return "asesorias";
@@ -33,14 +33,16 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
             }
         };
     }
-
+    
+    // Método para registrar, guardar el nombre de la tabla
     @Override
     public void save(Asesorias entity) {
         String sql = "INSERT INTO asesorias (idCurso, idProfesor, tema, descripcionC, descripcionL, capacidad, precio) VALUES (?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, entity.getIdCurso(), entity.getIdProfesor(), entity.getTema(),
                 entity.getDescripcionC(), entity.getDescripcionL(), entity.getCapacidad(), entity.getPrecio());
     }
-
+    
+    // Método para eliminar el nombre de la tabla
     @Override
     public void update(Asesorias entity) {
         String sql = "UPDATE asesorias SET idCurso = ?, idProfesor = ?, tema = ?, descripcionC = ?, descripcionL = ?, capacidad = ?, precio = ? WHERE idAsesoria = ?";

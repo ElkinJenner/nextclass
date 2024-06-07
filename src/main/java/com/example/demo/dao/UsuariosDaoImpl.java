@@ -11,12 +11,12 @@ import java.util.List;
 
 @Repository
 public class UsuariosDaoImpl extends CrudDaoImpl<Usuarios, Long> {
-
+    // Método para obtener el nombre de la tabla
     @Override
     protected String getTableName() {
         return "usuarios";
     }
-
+    // Método para mapear filas de resultados de la base de datos a objetos Usuarios
     @Override
     protected RowMapper<Usuarios> getRowMapper() {
         return new RowMapper<Usuarios>() {
@@ -40,20 +40,20 @@ public class UsuariosDaoImpl extends CrudDaoImpl<Usuarios, Long> {
             }
         };
     }
-
+    // Método para encontrar todos los usuarios en la base de datos
     @Override
     public List<Usuarios> findAll() {
         String sql = "SELECT u.*, p.pais FROM usuarios u INNER JOIN paises p ON u.idPais = p.idPais";
         return jdbcTemplate.query(sql, getRowMapper());
     }
-
+    // Método para encontrar un usuario por su ID
     @Override
     public Usuarios findById(Long id) {
         String sql = "SELECT u.*, p.pais FROM usuarios u INNER JOIN paises p ON u.idPais = p.idPais WHERE u.idUsuario = ?";
         List<Usuarios> results = jdbcTemplate.query(sql, getRowMapper(), id);
         return results.isEmpty() ? null : results.get(0);
     }
-
+    // Método para guardar un nuevo usuario en la base de datos
     @Override
     public void save(Usuarios entity) {
         String sql = "INSERT INTO usuarios (tipoUsuario, nombres, apellidos, usuario, contrasena, email, fotoPerfil, codUsuario, telefono, idPais, fechaRegistro) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -61,7 +61,7 @@ public class UsuariosDaoImpl extends CrudDaoImpl<Usuarios, Long> {
                 entity.getUsuario(), entity.getContrasena(), entity.getEmail(), entity.getFotoPerfil(),
                 entity.getCodUsuario(), entity.getTelefono(), entity.getIdPais(), entity.getFechaRegistro());
     }
-
+    // Método para actualizar un usuario existente en la base de datos
     @Override
     public void update(Usuarios entity) {
         String sql = "UPDATE usuarios SET tipoUsuario = ?, nombres = ?, apellidos = ?, usuario = ?, contrasena = ?, email = ?, fotoPerfil = ?, codUsuario = ?, telefono = ?, idPais = ?, fechaRegistro = ? WHERE idUsuario = ?";
@@ -70,13 +70,13 @@ public class UsuariosDaoImpl extends CrudDaoImpl<Usuarios, Long> {
                 entity.getCodUsuario(), entity.getTelefono(), entity.getIdPais(), entity.getFechaRegistro(),
                 entity.getIdUsuario());
     }
-
+    // Método para eliminar un usuario por su ID
     @Override
     public void deleteById(Long id) {
         String sql = "DELETE FROM usuarios WHERE idUsuario = ?";
         jdbcTemplate.update(sql, id);
     }
-
+    // Método para encontrar un usuario por su correo electrónico y contraseña
     public Usuarios findByEmailAndPassword(String email, String password) {
         String sql = "SELECT u.*, p.pais FROM usuarios u INNER JOIN paises p ON u.idPais = p.idPais WHERE u.email = ? AND u.contrasena = ?";
         List<Usuarios> results = jdbcTemplate.query(sql, getRowMapper(), email, password);

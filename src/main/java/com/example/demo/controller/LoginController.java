@@ -13,13 +13,15 @@ public class LoginController {
 
     @Autowired
     private LoginService loginService;
-
+    // Método que maneja las solicitudes de inicio de sesión.
     @PostMapping("/login")
     public ModelAndView login(@RequestParam("email") String email, @RequestParam("contrasena") String password) {
         Usuarios user = loginService.validateUser(email, password);
         if (user != null) {
+            //Si los credenciales son correctos, se accede a la plataforma de la aplicación
             return new ModelAndView("redirect:/index");
         } else {
+            //En caso contrario, no te permite el acceso y te quedas en la página login.html
             ModelAndView mav = new ModelAndView("login");
             mav.addObject("error", "Correo eléctronico o contraseña inválido");
             return mav;

@@ -23,6 +23,7 @@ public class CursosController {
 
     private static final int PAGE_SIZE = 10;
 
+    // Método para listar cursos y categorías, paginados
     @GetMapping("/cursos")
     public String listarCursosYcategorias(
             @RequestParam(value = "page", defaultValue = "1") int page,
@@ -31,14 +32,14 @@ public class CursosController {
         List<Cursos> listaCursos = cursosDao.findAllWithCategoriaNombre(offset, PAGE_SIZE);
         List<CategoriaCursos> listaCategorias = categoriaCursosDao.findAll();
 
-        int totalCursos = cursosDao.count();
+        int totalCursos = cursosDao.count();// Contador total de cursos
         int totalPages = (int) Math.ceil((double) totalCursos / PAGE_SIZE);
-
+        // Agrega atributos al modelo para pasarlos a la vista, osea a mi archivo HTML
         model.addAttribute("cursos", listaCursos);
         model.addAttribute("categorias", listaCategorias);
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", totalPages);
 
-        return "cursos";
+        return "cursos";// Devolver el nombre de la vista, cursos.HTML
     }
 }

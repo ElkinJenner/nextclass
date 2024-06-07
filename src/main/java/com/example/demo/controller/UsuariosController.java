@@ -15,6 +15,7 @@ public class UsuariosController {
     @Autowired
     private UsuariosDaoImpl usuariosDao;
 
+    // Método para obtener por el método GET toda la lista de Usuarios
     @GetMapping("/usuarios")
     public String listarUsuarios(Model model) {
         List<Usuarios> listaUsuarios = usuariosDao.findAll();

@@ -11,12 +11,19 @@ import java.util.List;
 
 @Repository
 public class RecibosDaoImpl extends CrudDaoImpl<Recibos, Long> {
-
+    /*
+     * Anotación para capturar la capa de datos de
+     * nuestro modelo clase Recibos
+    */
     @Override
     protected String getTableName() {
         return "recibos";
     }
-
+    
+    /*
+     * El método RowMapper permite mapear filas de
+     * resultados SQL
+     */
     @Override
     protected RowMapper<Recibos> getRowMapper() {
         return new RowMapper<Recibos>() {
@@ -40,26 +47,44 @@ public class RecibosDaoImpl extends CrudDaoImpl<Recibos, Long> {
         };
     }
 
+    /*
+     * El método findAll busca y devuelve todos los campos disponibles en la base
+     * de datos de la tabla Recibos.
+     */
     @Override
     public List<Recibos> findAll() {
-        String sql = "SELECT r.idRecibo, r.idPago, r.idProfesor, p.idAsesoria, p.idEstudiante, "
+        String sql = "SELECT r.idRecibo, r.idPago, r.idProfesor, p.idAsesoria, p.idEstudiante, " 
                 + "profesor.nombres as nombreProfesor, estudiante.nombres as nombreEstudiante, "
                 + "c.curso, a.precio, a.capacidad as horas, a.tema, a.descripcionC "
                 + "FROM recibos r "
+                /*
+                 * Selecciona atraves de JOINS (Inner JOINS) la relación de la tabla Recibos de la base de
+                 * datos con las otras tablas que tienen relación y asi poder capturar los otros campos
+                 */
                 + "INNER JOIN pagos p ON r.idPago = p.idPago "
                 + "INNER JOIN usuarios profesor ON r.idProfesor = profesor.idUsuario "
                 + "INNER JOIN usuarios estudiante ON p.idEstudiante = estudiante.idUsuario "
                 + "INNER JOIN asesorias a ON p.idAsesoria = a.idAsesoria "
                 + "INNER JOIN cursos c ON a.idCurso = c.idCurso";
-        return jdbcTemplate.query(sql, getRowMapper());
+        return jdbcTemplate.query(sql, getRowMapper()); //Devuelve SQL implementado por la clase proporcionada por Spring JDBC
     }
-
+    
+    /*
+     * Este método findById(Long id) se utiliza para buscar un recibo en la base de
+     * datos basado atravez de su id.
+     */
     @Override
     public Recibos findById(Long id) {
         String sql = "SELECT r.idRecibo, r.idPago, r.idProfesor, p.idAsesoria, p.idEstudiante, "
                 + "profesor.nombres as nombreProfesor, estudiante.nombres as nombreEstudiante, "
                 + "c.curso, a.precio, a.capacidad as horas, a.tema, a.descripcionC "
                 + "FROM recibos r "
+                /*
+                 * Selecciona atraves de JOINS (Inner JOINS) la relación de la tabla Recibos de
+                 * la base de
+                 * datos con las otras tablas que tienen relación y asi poder capturar los otros
+                 * campos
+                 */
                 + "INNER JOIN pagos p ON r.idPago = p.idPago "
                 + "INNER JOIN usuarios profesor ON r.idProfesor = profesor.idUsuario "
                 + "INNER JOIN usuarios estudiante ON p.idEstudiante = estudiante.idUsuario "
