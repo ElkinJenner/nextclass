@@ -254,7 +254,7 @@ FORM
     font-family: var(--font_semibold)!important;
 }
 /*------
-COURSES & COURSE
+COURSES & COURSE / PROFESSORS & PROFESSOR
 ------ */
 .courses{
     display: flex;
@@ -264,7 +264,7 @@ COURSES & COURSE
      margin-bottom: .25rem;
      font-family: var(--font_regularSans);
 }
-.courses_category{
+.courses_category, .professors_category{
     position: relative;
     display: inline-block;
     padding-left: 1rem;
@@ -279,13 +279,13 @@ COURSES & COURSE
     cursor: pointer;
     padding-bottom: 1rem;
 }
-.courses_item, .theme_item{
+.courses_item, .theme_item, .professors_item{
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     width: 100%;
 }
-.item_course{
+.item_course, .item_professor{
     position: relative;
     background: var(--color_light);
     box-shadow: var(--box_shadow);
@@ -296,7 +296,10 @@ COURSES & COURSE
     width: 18.8%;
     padding: 1rem;
 }
-.item_course figure{
+.item_professor{
+    padding: 0;
+}
+.item_course figure, .item_professor figure{
     height: 220px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -304,10 +307,16 @@ COURSES & COURSE
     border-radius: 2rem;
     margin-bottom: 1rem;
 }
-.item_course img{
+.item_course img, .item_professor img{
     height: 220px;
 }
-.desc_course{
+.item_professor figure{
+    position: relative;
+    height: 360px;
+    filter: brightness(.8);
+    opacity: 0.91;
+}
+.desc_course, .desc_professor{
     padding: .5rem;
 }
 .desc_course h5{
