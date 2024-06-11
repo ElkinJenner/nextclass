@@ -470,7 +470,7 @@ DROPDOW
 .dropdow_menu ul li a {
     color: var(--color_span);
     font-family: var(--font_medium);
-    font-size: 1.12rem;
+    font-size: 1.08rem;
     padding: .8rem;
     border-radius: .5rem;
 }
