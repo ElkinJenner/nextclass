@@ -176,6 +176,26 @@ COLUMNS
 .column-2 {width: 16.666667%;}
 .column-s-2 {width: 20%;}
 .column-1 {width: 8.333333333333334%;}
+
+
+.column_w{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1%;
+}
+.column_w75{width: calc(75%-1%);}
+.column_w55{width: calc(55%-1%);}
+.column_w50{width: calc(50%-1%);}
+.column_w33{width: calc(33.33333%-1%);}
+.column_w25{width: calc(25%-1%);}
+.column_w20{width: calc(20%-1%);}
+.column_w16{width: calc(16.666667%-1%);}
+.column_w15{width: calc(15%-1%);}
+.column_w14{width: calc(14.28571428571429%-1%);}
+.column_w12{width: calc(12.5%-1%);}
+.column_w10{width: calc(10%-1%);}
+
 /*------
 FORMS & INPUTS
 ------ */

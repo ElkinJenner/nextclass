@@ -12,7 +12,6 @@
     <main class="main_wrapper">
         <header th:include="components/nav_panel"></header>
         <section class="courses">
-            
 
             <ul class="courses_category">
                 <li class="category-btn" data-filter="all">Todos</li>
@@ -42,7 +41,6 @@
                         <a th:href="@{/cursos(page=${i})}" th:text="${i}" th:classappend="${i == currentPage} ? 'active'"></a>
                     </li>
                 </ul>
-                
             </div>
             
 
