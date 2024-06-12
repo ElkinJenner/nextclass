@@ -128,6 +128,7 @@ SPACES
 .mr4{margin-right: 4rem;}
 .mr5{margin-right: 5rem;}
 .mr10{margin-right: 10rem;}
+.p05{padding: .5rem;}
 .p1{padding: 1rem;}
 .p2{padding: 2rem;}
 /*------
@@ -152,7 +153,9 @@ BUTTONS
     padding-right: 5px;
 }
 .b1{border: 1px solid var(--color_input);}
+.b2{border: 2px solid var(--color_input);}
 .br1{border-radius: 1rem;}
+.br2{border-radius: 2rem;}
 .bn{border-radius: 0!important;}
 /*------
 COLUMNS
@@ -208,6 +211,7 @@ FORMS & INPUTS
 }
 .form_column .group {
     width: 99.8%;
+    position: relative;
 }
 form label {
     color: var(--color_dark);
@@ -238,8 +242,33 @@ input::placeholder {
 /*------
 POSITIONS
 ------ */
-.posit_abs{
-    position: absolute;
-}
-.top1{bottom: 1rem;}
+.posit_abs{position: absolute;}
+.posit_rel{position: relative;}
+.left1{left: 1rem;}
+.left2{left: 2rem;}
+.left3{left: 3rem;}
+.right1{right: 1rem;}
+.right2{right: 2rem;}
+.right3{right: 3rem;}
+.top1{top: 1rem;}
+.top2{top: 2rem;}
+.top3{top: 3rem;}
 .bottom1{bottom: 1rem;}
+.bottom2{bottom: 2rem;}
+.bottom3{bottom: 3rem;}
+/*------
+HEIGHTS
+------ */
+.height20{height: 20px!important;}
+.height30{height: 30px!important;}
+.height40{height: 40px!important;}
+.height50{height: 50px!important;}
+.height100{height: 100px!important;}
+
+/*------
+DISPLAYS
+------ */
+.df{display: flex;}
+.dif{display: inline-flex;}
+.db{display: block;}
+.gap05{gap: .5rem;}
