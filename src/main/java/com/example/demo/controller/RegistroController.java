@@ -28,27 +28,27 @@ public class RegistroController {
 
         // Mapear imágenes a países
         Map<String, String> paisesImages = new HashMap<>();
-        paisesImages.put("Argentina", "img/flags/argentina.png");
-        paisesImages.put("Bolivia", "img/flags/bolivia.png");
-        paisesImages.put("Brasil", "img/flags/brasil.png");
-        paisesImages.put("Chile", "img/flags/chile.png");
-        paisesImages.put("Colombia", "img/flags/colombia.png");
-        paisesImages.put("Costa Rica", "img/flags/costarica.png");
-        paisesImages.put("Cuba", "img/flags/cuba.png");
-        paisesImages.put("Ecuador", "img/flags/ecuador.png");
-        paisesImages.put("España", "img/flags/espana.png");
-        paisesImages.put("El Salvador", "img/flags/elsalvador.png");
-        paisesImages.put("Guatemala", "img/flags/guatemala.png");
-        paisesImages.put("Honduras", "img/flags/honduras.png");
-        paisesImages.put("México", "img/flags/mexico.png");
-        paisesImages.put("Nicaragua", "img/flags/nicaragua.png");
-        paisesImages.put("Panamá", "img/flags/panama.png");
-        paisesImages.put("Paraguay", "img/flags/paraguay.png");
-        paisesImages.put("Perú", "img/flags/peru.png");
-        paisesImages.put("Puerto Rico", "img/flags/puertorico.png");
-        paisesImages.put("República Dominicana", "img/flags/repdominicana.png");
-        paisesImages.put("Uruguay", "img/flags/uruguay.png");
-        paisesImages.put("Venezuela", "img/flags/venezuela.png");
+        paisesImages.put("Argentina", "upload/flags/argentina.png");
+        paisesImages.put("Bolivia", "upload/flags/bolivia.png");
+        paisesImages.put("Brasil", "upload/flags/brasil.png");
+        paisesImages.put("Chile", "upload/flags/chile.png");
+        paisesImages.put("Colombia", "upload/flags/colombia.png");
+        paisesImages.put("Costa Rica", "upload/flags/costarica.png");
+        paisesImages.put("Cuba", "upload/flags/cuba.png");
+        paisesImages.put("Ecuador", "upload/flags/ecuador.png");
+        paisesImages.put("España", "upload/flags/espana.png");
+        paisesImages.put("El Salvador", "upload/flags/elsalvador.png");
+        paisesImages.put("Guatemala", "upload/flags/guatemala.png");
+        paisesImages.put("Honduras", "upload/flags/honduras.png");
+        paisesImages.put("México", "upload/flags/mexico.png");
+        paisesImages.put("Nicaragua", "upload/flags/nicaragua.png");
+        paisesImages.put("Panamá", "upload/flags/panama.png");
+        paisesImages.put("Paraguay", "upload/flags/paraguay.png");
+        paisesImages.put("Perú", "upload/flags/peru.png");
+        paisesImages.put("Puerto Rico", "upload/flags/puertorico.png");
+        paisesImages.put("República Dominicana", "upload/flags/repdominicana.png");
+        paisesImages.put("Uruguay", "upload/flags/uruguay.png");
+        paisesImages.put("Venezuela", "upload/flags/venezuela.png");
 
         model.addAttribute("paisesList", paisesList);
         model.addAttribute("paisesImages", paisesImages);

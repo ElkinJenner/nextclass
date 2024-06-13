@@ -12,10 +12,9 @@ import java.util.List;
 @Repository
 public class CursosDaoImpl extends CrudDaoImpl<Cursos, Long> {
 
-    @Autowired //Anotación que permite acceder a la capa de datos
+    @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    // Método para obtener el nombre de la tabla
     @Override
     protected String getTableName() {
         return "cursos";
@@ -46,9 +45,36 @@ public class CursosDaoImpl extends CrudDaoImpl<Cursos, Long> {
         return namedParameterJdbcTemplate.query(sql, params, getRowMapper());
     }
 
+    public List<Cursos> findByCategoriaWithPagination(String categoria, int offset, int limit) {
+        String sql = "SELECT c.idCurso, c.curso, c.imagenCurso, cc.categoriaCurso " +
+                "FROM cursos c " +
+                "INNER JOIN categoriaCursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
+                "WHERE cc.categoriaCurso = :categoria " +
+                "LIMIT :limit OFFSET :offset";
+
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("categoria", categoria);
+        params.addValue("limit", limit);
+        params.addValue("offset", offset);
+
+        return namedParameterJdbcTemplate.query(sql, params, getRowMapper());
+    }
+
     public int count() {
         String sql = "SELECT COUNT(*) FROM cursos";
-        Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
+        Integer count = namedParameterJdbcTemplate.getJdbcTemplate().queryForObject(sql, Integer.class);
+        return (count != null) ? count : 0;
+    }
+
+    public int countByCategoria(String categoria) {
+        String sql = "SELECT COUNT(*) FROM cursos c " +
+                "INNER JOIN categoriaCursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
+                "WHERE cc.categoriaCurso = :categoria";
+
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("categoria", categoria);
+
+        Integer count = namedParameterJdbcTemplate.queryForObject(sql, params, Integer.class);
         return (count != null) ? count : 0;
     }
 }

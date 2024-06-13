@@ -272,12 +272,14 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
     width: 12%;
 }
 .courses_category li{
-    font-size: 20px;
-    color: var(--color_text);
-    font-family: var(--font_medium);
     text-align: left;
     cursor: pointer;
     padding-bottom: 1rem;
+}
+.courses_category li a{
+    font-size: 20px;
+    color: var(--color_text);
+    font-family: var(--font_medium);
 }
 .courses_item, .theme_item, .professors_item{
     display: flex;

@@ -23,23 +23,34 @@ public class CursosController {
 
     private static final int PAGE_SIZE = 10;
 
-    // Método para listar cursos y categorías, paginados
     @GetMapping("/cursos")
     public String listarCursosYcategorias(
             @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "categoria", required = false) String categoria,
             Model model) {
-        int offset = (page - 1) * PAGE_SIZE;
-        List<Cursos> listaCursos = cursosDao.findAllWithCategoriaNombre(offset, PAGE_SIZE);
-        List<CategoriaCursos> listaCategorias = categoriaCursosDao.findAll();
 
-        int totalCursos = cursosDao.count();// Contador total de cursos
+        int offset = (page - 1) * PAGE_SIZE;
+        List<Cursos> listaCursos;
+        int totalCursos;
+
+        if (categoria == null || categoria.equals("all")) {
+            listaCursos = cursosDao.findAllWithCategoriaNombre(offset, PAGE_SIZE);
+            totalCursos = cursosDao.count();
+        } else {
+            listaCursos = cursosDao.findByCategoriaWithPagination(categoria, offset, PAGE_SIZE);
+            totalCursos = cursosDao.countByCategoria(categoria);
+        }
+
+        List<CategoriaCursos> listaCategorias = categoriaCursosDao.findAll();
         int totalPages = (int) Math.ceil((double) totalCursos / PAGE_SIZE);
-        // Agrega atributos al modelo para pasarlos a la vista, osea a mi archivo HTML
+
         model.addAttribute("cursos", listaCursos);
         model.addAttribute("categorias", listaCategorias);
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", totalPages);
+        model.addAttribute("selectedCategoria", categoria != null ? categoria : "all");
+        model.addAttribute("showPagination", totalCursos > PAGE_SIZE);
 
-        return "cursos";// Devolver el nombre de la vista, cursos.HTML
+        return "cursos";
     }
 }

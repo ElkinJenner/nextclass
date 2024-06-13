@@ -12,38 +12,41 @@
     <main class="main_wrapper">
         <header th:include="components/nav_panel"></header>
         <section class="courses">
-
             <ul class="courses_category">
-                <li class="category-btn" data-filter="all">Todos</li>
-                <!-- Iteración sobre las categorías -->
-                <th:block th:each="categoria : ${categorias}">
-                    <li class="category-btn" th:data-filter="${categoria.categoriaCurso}">
-                        <!-- Aquí usamos el nombre de la categoría como data-filter -->
-                        <span th:text="${categoria.categoriaCurso}">Nombre de la Categoría</span>
+                <h6 class="sz16">CATEGORIA</h6><br>
+                <div class="p1">
+                    <li class="category-btn" th:classappend="${'all' == selectedCategoria} ? 'active'" data-filter="all">
+                        <a th:href="@{/cursos(page=1, categoria='all')}">Todos</a>
                     </li>
-                </th:block>
+                    <th:block th:each="categoria : ${categorias}">
+                        <li class="category-btn" th:classappend="${categoria.categoriaCurso == selectedCategoria} ? 'active'"
+                            th:data-filter="${categoria.categoriaCurso}">
+                            <a th:href="@{/cursos(page=1, categoria=${categoria.categoriaCurso})}"
+                                th:text="${categoria.categoriaCurso}">Nombre de la Categoría</a>
+                        </li>
+                    </th:block>
+                </div>
             </ul>
-
+        
             <div class="courses_item">
-                    <a th:each="curso : ${cursos}" th:href="@{/curso}" th:class="'item_course ' + ${curso.categoriaCurso}" class="item_course">
-                        <figure th:style="'background-image:url(upload/courses/' + ${curso.imagenCurso} + ');'">
-                        </figure>
-                        <div class="desc_course">
-                            <h5 th:text="${curso.nombreCurso}"></h5>
-                            <p th:text="${curso.categoriaCurso}"></p>
-                        </div>
-                    </a>
+                <a th:each="curso : ${cursos}" th:href="@{/curso}" th:class="'item_course ' + ${curso.categoriaCurso}"
+                    class="item_course">
+                    <figure th:style="'background-image:url(upload/courses/' + ${curso.imagenCurso} + ');'"></figure>
+                    <div class="desc_course">
+                        <h5 th:text="${curso.nombreCurso}"></h5>
+                        <p th:text="${curso.categoriaCurso}"></p>
+                    </div>
+                </a>
             </div>
-
-            <div class="pagination_pages">
+        
+            <div class="pagination_pages" th:if="${showPagination}">
                 <ul>
                     <li th:each="i : ${#numbers.sequence(1, totalPages)}">
-                        <a th:href="@{/cursos(page=${i})}" th:text="${i}" th:classappend="${i == currentPage} ? 'active'"></a>
+                        <a th:href="@{/cursos(page=${i}, categoria=${selectedCategoria})}" th:text="${i}"
+                            th:classappend="${i == currentPage} ? 'active'"></a>
                     </li>
                 </ul>
             </div>
-            
-
         </section>
     </main>
     <links th:include="components/footer"></links>
