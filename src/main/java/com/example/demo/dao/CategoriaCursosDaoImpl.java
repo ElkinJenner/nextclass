@@ -1,5 +1,5 @@
 package com.example.demo.dao;
-
+//Importamos la clase modelo, repositoria y librerias
 import com.example.demo.model.CategoriaCursos;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
