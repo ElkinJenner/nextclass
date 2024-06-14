@@ -6,23 +6,22 @@ public class Asesorias {
     private Long idCurso;
     private Long idProfesor;
     private String tema;
-    private String descripcionC;
-    private String descripcionL;
-    private Long capacidad;
-    private double precio;
+    private String nomProfesor;
+    private String nomCurso;
+    private String descripcion;
     //Constructores
     public Asesorias(){}
-    public Asesorias(Long idAsesoria, Long idCurso, Long idProfesor, String tema, String descripcionC,
-            String descripcionL, Long capacidad, double precio) {
+    public Asesorias(Long idAsesoria, Long idCurso, Long idProfesor, String tema, String nomProfesor, String nomCurso,
+            String descripcion) {
         this.idAsesoria = idAsesoria;
         this.idCurso = idCurso;
         this.idProfesor = idProfesor;
         this.tema = tema;
-        this.descripcionC = descripcionC;
-        this.descripcionL = descripcionL;
-        this.capacidad = capacidad;
-        this.precio = precio;
+        this.nomProfesor = nomProfesor;
+        this.nomCurso = nomCurso;
+        this.descripcion = descripcion;
     }
+    // Getters y setters
     public Long getIdAsesoria() {
         return idAsesoria;
     }
@@ -47,29 +46,23 @@ public class Asesorias {
     public void setTema(String tema) {
         this.tema = tema;
     }
-    public String getDescripcionC() {
-        return descripcionC;
+    public String getNomprofesor() {
+        return nomProfesor;
     }
-    public void setDescripcionC(String descripcionC) {
-        this.descripcionC = descripcionC;
+    public void setNomprofesor(String nomProfesor) {
+        this.nomProfesor = nomProfesor;
     }
-    public String getDescripcionL() {
-        return descripcionL;
+    public String getNomCurso() {
+        return nomCurso;
     }
-    public void setDescripcionL(String descripcionL) {
-        this.descripcionL = descripcionL;
+    public void setNomCurso(String nomCurso) {
+        this.nomCurso = nomCurso;
     }
-    public Long getCapacidad() {
-        return capacidad;
+    public String getDescripcion() {
+        return descripcion;
     }
-    public void setCapacidad(Long capacidad) {
-        this.capacidad = capacidad;
-    }
-    public double getPrecio() {
-        return precio;
-    }
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
     
 }

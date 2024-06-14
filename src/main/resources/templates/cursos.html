@@ -29,14 +29,16 @@
             </ul>
         
             <div class="courses_item">
-                <a th:each="curso : ${cursos}" th:href="@{/curso}" th:class="'item_course ' + ${curso.categoriaCurso}"
-                    class="item_course">
-                    <figure th:style="'background-image:url(upload/courses/' + ${curso.imagenCurso} + ');'"></figure>
-                    <div class="desc_course">
-                        <h5 th:text="${curso.nombreCurso}"></h5>
-                        <p th:text="${curso.categoriaCurso}"></p>
-                    </div>
-                </a>
+                <!--<a th:each="curso : ${cursos}" th:href="@{/curso}" th:class="'item_course ' + ${curso.categoriaCurso}">-->
+                <div th:each="curso : ${cursos}" class="item_course" th:class="'item_course ' + ${curso.categoriaCurso}">
+                    <a th:href="@{'/curso?curso=' + ${curso.nombreCurso}}">
+                        <figure th:style="'background-image:url(upload/courses/' + ${curso.imagenCurso} + ');'"></figure>
+                        <div class="desc_course">
+                            <h5 th:text="${curso.nombreCurso}"></h5>
+                            <p th:text="${curso.categoriaCurso}"></p>
+                        </div>
+                    </a>
+                </div>
             </div>
         
             <div class="pagination_pages" th:if="${showPagination}">

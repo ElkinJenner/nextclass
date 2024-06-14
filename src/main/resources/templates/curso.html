@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algebra Lineal | Nextclass</title>
+    <title th:text="${curso}">Curso</title>
     <link th:include="components/link"></link>
 </head>
 
@@ -15,7 +15,7 @@
 
             <div class="course_title">
                 <div class="title">
-                    <h3>Algebra Lineal</h3>
+                    <h2 th:text="${curso}"></h2>
                     <h6 class="color_lead">Ciencia</h6>
                 </div>
             </div>
