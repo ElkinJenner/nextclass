@@ -2,10 +2,9 @@ package com.example.demo.controller;
 
 import com.example.demo.dao.ProfesoresDaoImpl;
 import com.example.demo.dao.UsuariosDaoImpl;
-import com.example.demo.dao.PaisesDaoImpl;
 import com.example.demo.model.Profesores;
 import com.example.demo.model.Usuarios;
-import com.example.demo.model.Paises;
+import com.example.demo.components.PaisesComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,8 +24,10 @@ public class ProfesoresController {
     @Autowired
     private UsuariosDaoImpl usuariosDao;
 
+    
+
     @Autowired
-    private PaisesDaoImpl paisesDao;
+    private PaisesComponent paisesComponent; // Inyectamos PaisesComponent
 
     private static final int PAGE_SIZE = 10; // Tamaño de página para la paginación
 
@@ -41,8 +42,6 @@ public class ProfesoresController {
                                                                                                    // paginación
         int totalProfesores = profesoresDao.count(); // Cuenta el número total de profesores
         List<Usuarios> listaUsuarios = usuariosDao.findAll(); // Obtiene la lista de todos los usuarios
-        List<Paises> listaPaises = paisesDao.findAll(); // Obtiene la lista de todos los países
-
         Map<Long, String> mapUsuarioNombres = new HashMap<>(); // Mapa para almacenar los nombres completos de los
                                                                // usuarios
         Map<Long, String> mapUsuarioProfesion = new HashMap<>(); // Mapa para almacenar las profesiones de los usuarios
@@ -55,23 +54,19 @@ public class ProfesoresController {
                 for (Profesores profesor : listaProfesores) {
                     if (profesor.getIdUsuario() == usuario.getIdUsuario()) {
                         mapUsuarioProfesion.put(usuario.getIdUsuario(), profesor.getProfesion());
+                        // Mapear la imagen del país usando el idPais del usuario
+                        String pais = profesor.getNombrePais();
+                        mapPaisImagen.put(usuario.getIdUsuario(), paisesComponent.getBanderaImages().get(pais));
                     }
                 }
             }
-        }
-
-        // Mapear países a sus imágenes
-        for (Paises pais : listaPaises) {
-            mapPaisImagen.put(pais.getIdPais(),
-                    "upload/flags/" + pais.getPais().toLowerCase().replace(" ", "") + ".png");
         }
 
         int totalPages = (int) Math.ceil((double) totalProfesores / PAGE_SIZE); // Calcula el número total de páginas
 
         model.addAttribute("profesores", listaProfesores); // Agrega la lista de profesores al modelo
         model.addAttribute("mapUsuarioNombres", mapUsuarioNombres); // Agrega el mapa de nombres de usuarios al modelo
-        model.addAttribute("mapUsuarioProfesion", mapUsuarioProfesion); // Agrega el mapa de profesiones de usuarios al
-                                                                        // modelo
+        model.addAttribute("mapUsuarioProfesion", mapUsuarioProfesion); // Agrega el mapa de profesiones de usuarios 
         model.addAttribute("mapPaisImagen", mapPaisImagen); // Agrega el mapa de imágenes de países al modelo
         model.addAttribute("currentPage", page); // Agrega la página actual al modelo
         model.addAttribute("totalPages", totalPages); // Agrega el número total de páginas al modelo

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 //Componentes para mapear
 import com.example.demo.components.UsuarioComponent;
 import java.util.HashMap;
@@ -23,7 +24,8 @@ public class RegistroController {
 
     // Método para obtener la lista de países y renderizar la página registrarse
     @GetMapping("/registrarse")
-    public String showPaises(Model model) {
+    // showPaises
+    public String showRegistro(Model model) {
         List<Paises> paisesList = paisesDao.findAll();
 
         // Mapear imágenes a países

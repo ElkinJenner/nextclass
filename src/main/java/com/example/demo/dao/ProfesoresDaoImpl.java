@@ -38,7 +38,7 @@ public class ProfesoresDaoImpl extends CrudDaoImpl<Profesores, Long> {
 
     // Método para obtener una lista de profesores con paginación
     public List<Profesores> findAllWithPagination(int offset, int pageSize) {
-        String sql = "SELECT p.*, u.fotoPerfil AS fotoPerfil, pa.pais AS nombrePais " +
+        String sql = "SELECT p.*, u.fotoPerfil AS fotoPerfil, pa.pais AS nombrePais, pa.idPais AS idPais " +
                 "FROM " + getTableName() + " p " +
                 "INNER JOIN usuarios u ON p.idUsuario = u.idUsuario " +
                 "INNER JOIN paises pa ON u.idPais = pa.idPais " +

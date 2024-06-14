@@ -14,9 +14,9 @@
         <section class="professors">
             <ul class="professors_category">
             </ul>
-            <div class="professors_item" th:each="profesor : ${profesores}">
+            <div class="professors_item">
 
-                <a href="/profesor" class="item_professor">
+                <a href="/profesor" class="item_professor" th:each="profesor : ${profesores}">
                     <figure th:style="'background-image:url(upload/professors/' + ${profesor.fotoPerfil} + ');'"></figure>
                     <div class="posit_abs bottom1">
                         <div class="ml1 p05">
@@ -29,6 +29,7 @@
                         </div>
                     </div>
                 </a>
+                
             </div>
         </section>
     </main>
