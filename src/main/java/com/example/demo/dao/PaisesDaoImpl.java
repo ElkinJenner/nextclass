@@ -16,7 +16,7 @@ public class PaisesDaoImpl extends CrudDaoImpl<Paises, Integer> {
     protected RowMapper<Paises> getRowMapper() {
         return (rs, rowNum) -> {
             Paises paises = new Paises();
-            paises.setIdPais(rs.getInt("idPais"));
+            paises.setIdPais(rs.getLong("idPais"));
             paises.setPais(rs.getString("pais"));
             return paises;
         };

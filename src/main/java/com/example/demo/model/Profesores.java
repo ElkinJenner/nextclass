@@ -6,15 +6,22 @@ public class Profesores{
     private String permiso;
     private String profesion;
     private String descripcion;
-    //Constru
+    // Atributos adicionales para la información de usuarios
+    private String fotoPerfil;
+    private String nombrePais;
+    //Constructores
     public Profesores(){}
-    public Profesores(long idProfesor, long idUsuario, String permiso, String profesion, String descripcion) {
+    public Profesores(long idProfesor, long idUsuario, String permiso, String profesion, String descripcion,
+            String fotoPerfil, String nombrePais) {
         this.idProfesor = idProfesor;
         this.idUsuario = idUsuario;
         this.permiso = permiso;
         this.profesion = profesion;
         this.descripcion = descripcion;
+        this.fotoPerfil = fotoPerfil;
+        this.nombrePais = nombrePais;
     }
+    //Getters Y Setters
     public long getIdProfesor() {
         return idProfesor;
     }
@@ -45,6 +52,20 @@ public class Profesores{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
+    }
+    public String getNombrePais() {
+        return nombrePais;
+    }
+    public void setNombrePais(String nombrePais) {
+        this.nombrePais = nombrePais;
+    }
+    
+    
     
     
 }

@@ -2,19 +2,19 @@ package com.example.demo.model;
 
 public class Paises {
     // Atributos
-    private int idPais;
+    private Long idPais;
     private String pais;
     // Constructores
     public Paises(){}
-    public Paises(int idPais, String pais) {
+    public Paises(Long idPais, String pais) {
         this.idPais = idPais;
         this.pais = pais;
     }
     // Getters y Setters
-    public int getIdPais() {
+    public Long getIdPais() {
         return idPais;
     }
-    public void setIdPais(int idPais) {
+    public void setIdPais(Long idPais) {
         this.idPais = idPais;
     }
     public String getPais() {
