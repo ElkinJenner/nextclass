@@ -12,10 +12,26 @@ public class Recibos {
     private String nombreEstudiante;
     private String curso;
     private BigDecimal precio;
-    private int horas;
     private String tema;
-    private String descripcionC;
-
+    private String descripcion;
+    //Constructores
+    public Recibos(){}
+    
+    public Recibos(Long idRecibo, Long idPago, Long idProfesor, Long idAsesoria, Long idEstudiante,
+            String nombreProfesor, String nombreEstudiante, String curso, BigDecimal precio, String tema,
+            String descripcion) {
+        this.idRecibo = idRecibo;
+        this.idPago = idPago;
+        this.idProfesor = idProfesor;
+        this.idAsesoria = idAsesoria;
+        this.idEstudiante = idEstudiante;
+        this.nombreProfesor = nombreProfesor;
+        this.nombreEstudiante = nombreEstudiante;
+        this.curso = curso;
+        this.precio = precio;
+        this.tema = tema;
+        this.descripcion = descripcion;
+    }
     // Getters and Setters
     public Long getIdRecibo() {
         return idRecibo;
@@ -89,14 +105,6 @@ public class Recibos {
         this.precio = precio;
     }
 
-    public int getHoras() {
-        return horas;
-    }
-
-    public void setHoras(int horas) {
-        this.horas = horas;
-    }
-
     public String getTema() {
         return tema;
     }
@@ -105,11 +113,11 @@ public class Recibos {
         this.tema = tema;
     }
 
-    public String getDescripcionC() {
-        return descripcionC;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescripcionC(String descripcionC) {
-        this.descripcionC = descripcionC;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

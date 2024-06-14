@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${curso}">Curso</title>
+    <title th:text="${curso + ' |' + ' Nextclass'}">Curso</title>
     <link th:include="components/link"></link>
 </head>
 
@@ -14,9 +14,9 @@
         <section class="course">
 
             <div class="course_title">
-                <div class="title">
+                <div class="title mb1 mt1">
                     <h2 th:text="${curso}"></h2>
-                    <h6 class="color_lead">Ciencia</h6>
+                    <h6 class="color_lead pt05">Ciencia</h6>
                 </div>
             </div>
 

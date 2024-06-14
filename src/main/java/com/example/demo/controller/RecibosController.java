@@ -18,11 +18,7 @@ public class RecibosController {
 
     @Autowired
     private RecibosDaoImpl recibosDao;
-    
-    /*
-     * @GetMapping hace referencia a la anotación, en donde el método listRecibos
-     * manejará las solicitudes HTTP GET dirigidas a la URL /recibos
-     */
+
     @GetMapping("/recibos")
     public String listRecibos(Model model) {
         List<Recibos> recibosList = recibosDao.findAll();
@@ -34,24 +30,20 @@ public class RecibosController {
     public void downloadExcel(HttpServletResponse response) throws IOException {
         List<Recibos> recibosList = recibosDao.findAll();
 
-        // Establecer tipo de contenido
         response.setContentType("application/vnd.ms-excel");
         response.setHeader("Content-Disposition", "attachment; filename=recibos.xlsx");
 
-        // Crea libro de trabajo
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Recibos");
 
-        // Crea fila de encabezado
         Row headerRow = sheet.createRow(0);
-        String[] columns = { "ID Recibo", "Nombre del Profesor", "Nombre del Estudiante", "Curso", "Precio", "Horas",
-                "Tema", "Descripción" };
+        String[] columns = { "ID Recibo", "Nombre del Profesor", "Nombre del Estudiante", "Curso", "Precio", "Tema",
+                "Descripción" };
         for (int i = 0; i < columns.length; i++) {
             Cell cell = headerRow.createCell(i);
             cell.setCellValue(columns[i]);
         }
 
-        // Crea filas de datos para excell
         int rowNum = 1;
         for (Recibos recibo : recibosList) {
             Row row = sheet.createRow(rowNum++);
@@ -60,17 +52,14 @@ public class RecibosController {
             row.createCell(2).setCellValue(recibo.getNombreEstudiante());
             row.createCell(3).setCellValue(recibo.getCurso());
             row.createCell(4).setCellValue(recibo.getPrecio().doubleValue());
-            row.createCell(5).setCellValue(recibo.getHoras());
-            row.createCell(6).setCellValue(recibo.getTema());
-            row.createCell(7).setCellValue(recibo.getDescripcionC());
+            row.createCell(5).setCellValue(recibo.getTema());
+            row.createCell(6).setCellValue(recibo.getDescripcion());
         }
 
-        //Cambia el tamaño de las columnas para que se ajusten al contenido
         for (int i = 0; i < columns.length; i++) {
             sheet.autoSizeColumn(i);
         }
 
-        // Escribe la salida en el flujo de salida de respuesta
         workbook.write(response.getOutputStream());
         workbook.close();
     }
