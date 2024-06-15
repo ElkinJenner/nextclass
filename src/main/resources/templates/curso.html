@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${curso + ' |' + ' Nextclass'}">Curso</title>
+    <title th:text="${curso}">Curso</title>
     <link th:include="components/link"></link>
 </head>
 
@@ -16,26 +16,24 @@
             <div class="course_title">
                 <div class="title mb1 mt1">
                     <h2 th:text="${curso}"></h2>
-                    <h6 class="color_lead pt05">Ciencia</h6>
+                    <h6 class="color_lead pt05" th:text="${#lists.isEmpty(asesorias) ? 'Sin categoría' : asesorias[0].categoriaCurso}">Categoria</h6>
                 </div>
             </div>
 
-            <div class="theme_item">
+            <div class="theme_item" th:each="asesoria : ${asesorias}">
 
                 <a th:href="@{/asesoria}" class="item_theme">
                     <div class="desc_course">
-                        <h5 class="font_b">Bases ortonormales y el método de Gram-Schmidt</h5><br>
+                        <h5 class="font_b" th:text="${asesoria.tema}">Tema de Asesoría</h5><br>
                         <img src="img/stars.png">
                     </div>
                     <div class="profile_contender">
-                
                         <div class="profile_picture">
-                            <img src="upload/professors/docente7.jpg">
+                            <img th:src="@{'upload/professors/' + ${asesoria.fotoPerfil}}" alt="Foto del profesor">
                         </div>
-                
                         <div class="profile_info">
-                            <h6 class="color_dark sz18">Diaman Lucas Diaz Montes</h6>
-                            <small class="color_lead">Matemático</small>
+                            <h6 class="color_dark sz18" th:text="${asesoria.nomProfesor}">Nombre del Profesor</h6>
+                            <small class="color_lead" th:text="${asesoria.profesion}">Profesión</small>
                         </div>
                     </div>
                 </a>

@@ -16,6 +16,7 @@ public class AsesoriasController {
     @Autowired
     private AsesoriasDaoImpl asesoriasDao;
 
+    // Mapeo de las asesorias de un curso respectivo
     @RequestMapping("/curso")
     public String getCurso(@RequestParam("curso") String curso, Model model) {
         List<Asesorias> asesorias = asesoriasDao.findByCurso(curso);

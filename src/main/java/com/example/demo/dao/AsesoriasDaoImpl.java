@@ -24,6 +24,7 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
     protected String getTableName() {
         return "asesorias";
     }
+
     // Método para capturar todos los campos de la clase modelo
     @Override
     protected RowMapper<Asesorias> getRowMapper() {
@@ -35,10 +36,12 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
                 asesorias.setIdCurso(rs.getLong("idCurso"));
                 asesorias.setIdProfesor(rs.getLong("idProfesor"));
                 asesorias.setTema(rs.getString("tema"));
-                asesorias.setNomprofesor(rs.getString("nomProfesor"));
-                //Campos para el INNER JOIN de las respectivas tablas relacionadas
+                asesorias.setNomProfesor(rs.getString("nomProfesor"));
                 asesorias.setNomCurso(rs.getString("nomCurso"));
                 asesorias.setDescripcion(rs.getString("descripcion"));
+                asesorias.setProfesion(rs.getString("profesion"));
+                asesorias.setFotoPerfil(rs.getString("fotoPerfil"));
+                asesorias.setCategoriaCurso(rs.getString("categoriaCurso"));
                 return asesorias;
             }
         };
@@ -61,9 +64,15 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
 
     // Método para obtener asesorías por curso
     public List<Asesorias> findByCurso(String curso) {
-        String sql = "SELECT a.*, CONCAT(u.nombres, ' ', u.apellidos) AS nomProfesor, c.curso AS nomCurso " +
+        String sql = "SELECT a.*, " +
+                "CONCAT(u.nombres, ' ', u.apellidos) AS nomProfesor, " +
+                "c.curso AS nomCurso, " +
+                "categ.categoriaCurso AS categoriaCurso, " +
+                "p.profesion, " +
+                "u.fotoPerfil " +
                 "FROM asesorias a " +
                 "INNER JOIN cursos c ON a.idCurso = c.idCurso " +
+                "INNER JOIN categoriacursos categ ON c.idCategoriaCurso = categ.idCategoriaCurso " +
                 "INNER JOIN profesores p ON a.idProfesor = p.idProfesor " +
                 "INNER JOIN usuarios u ON p.idUsuario = u.idUsuario " +
                 "WHERE c.curso = :curso";
