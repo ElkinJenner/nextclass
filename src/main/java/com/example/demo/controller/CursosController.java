@@ -49,10 +49,12 @@ public class CursosController {
         model.addAttribute("categorias", listaCategorias); // Agrega la lista de categorías al modelo
         model.addAttribute("currentPage", page); // Agrega la página actual al modelo
         model.addAttribute("totalPages", totalPages); // Agrega el número total de páginas al modelo
-        model.addAttribute("selectedCategoria", categoria != null ? categoria : "all"); // Agrega la categoría
-                                                                                        // seleccionada al modelo
-        model.addAttribute("showPagination", totalCursos > PAGE_SIZE); // Agrega si se muestra la paginación al modelo
-
+        // Agrega la categoría
+        model.addAttribute("selectedCategoria", categoria != null ? categoria : "all");
+        // Agrega si se muestra la paginación al modelo
+        model.addAttribute("showPagination", totalCursos > PAGE_SIZE); 
+        //Añade la activacion en el href del menu de navegacion
+        model.addAttribute("activePage", "cursos");
         return "cursos"; // Devuelve la vista "cursos"
     }
 }

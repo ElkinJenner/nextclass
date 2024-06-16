@@ -70,9 +70,10 @@ public class ProfesoresController {
         model.addAttribute("mapPaisImagen", mapPaisImagen); // Agrega el mapa de imágenes de países al modelo
         model.addAttribute("currentPage", page); // Agrega la página actual al modelo
         model.addAttribute("totalPages", totalPages); // Agrega el número total de páginas al modelo
-        model.addAttribute("showPagination", totalProfesores > PAGE_SIZE); // Agrega si se muestra la paginación al
-                                                                           // modelo
-
+        // Agrega si se muestra la paginación máxima y mayor a los 10 registros
+        model.addAttribute("showPagination", totalProfesores > PAGE_SIZE); 
+        //Activación  al menu de navegación
+        model.addAttribute("activePage", "profesores");
         return "profesores"; // Devuelve la vista "profesores"
     }
 }
