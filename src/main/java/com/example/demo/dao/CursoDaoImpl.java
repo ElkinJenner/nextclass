@@ -14,7 +14,7 @@ import java.util.List;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 @Repository
-public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
+public class CursoDaoImpl extends CrudDaoImpl<Asesorias, Long> {
 
     @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;

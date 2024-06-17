@@ -11,6 +11,107 @@
     <main class="main_wrapper">
         <header th:include="components/nav_panel"></header>
         <section class="consultancies">
+            <table class="inv_table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Asesoria</th>
+                        <th>Sesiones</th>
+                        <th>Curso /Categoria</th>
+                        <th>Profesor</th>
+                        <th>Monto</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td><i class="ai-hashtag"></i>1</td>
+                        <td>Framework JSF
+                        Java Server Face</td>
+                        <td class="column_w12">
+                            <div class="df gap05">
+                                <div class="b1 p05 br1">
+                                    <small class="color_span sz18">S1</small>
+                                </div>
+                                <div class="b1 p05 br1">
+                                    <small class="color_span sz18">S2</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td><strong class="color_lead">Programacion web</strong> <br/> Tecnología</td>
+                        <td><div class="profile_contender">
+                            <div class="profile_picture">
+                                <img src="upload/professors/docente.jpg" alt="Foto del profesor">
+                            </div>
+                            <div class="profile_info">
+                                <h6 class="color_lead sz18">Baltazar Jim Perrez Quispe</h6>
+                                <small class="color_lead">Ing. Computación</small>
+                            </div>
+                        </div></td>
+                        <td>$$ 180.00</td>
+                        <td>
+                            <div class="df gap05">
+                                <a><i class="ai-eye-open"></i></a>
+                                <a><i class="ai-pencil"></i></a>
+                                <a><i class="ai-trash-can"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><i class="ai-hashtag"></i>2</td>
+                        <td>SCRUM, Metodología agil para  el desarrollo</td>
+                        <td class="column_w12">
+                            <div class="df gap05">
+                                <div class="b1 p05 br1">
+                                    <small class="color_span sz18">S1</small>
+                                </div>
+                                <div class="b1 p05 br1">
+                                    <small class="color_span sz18">S2</small>
+                                </div>
+                                <div class="b1 p05 br1">
+                                    <small class="color_span sz18">S3</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td><strong class="color_lead">Consultoria y Estrategias</strong><br/> Negocios</td>
+                        <td><div class="profile_contender">
+                            <div class="profile_picture">
+                                <img src="upload/professors/docente13.jpg" alt="Foto del profesor">
+                            </div>
+                            <div class="profile_info">
+                                <h6 class="color_lead sz18">Maria Elena Diaz Limas</h6>
+                                <small class="color_lead">Lic. Administración</small>
+                            </div>
+                        </div></td>
+                        <td>$$ 180.00</td>
+                        <td>
+                            <div class="df gap05">
+                                <a><i class="ai-eye-open"></i></a>
+                                <a><i class="ai-pencil"></i></a>
+                                <a><i class="ai-trash-can"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination_pages">
+                <ul>
+                    <li>
+                        <a href="#" class="active">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                   
+                </ul>
+            </div>
         </section>
     </main>
     <links th:include="components/footer"></links>

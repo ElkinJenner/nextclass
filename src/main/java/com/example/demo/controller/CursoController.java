@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.dao.AsesoriasDaoImpl;
+import com.example.demo.dao.CursoDaoImpl;
 import com.example.demo.model.Asesorias;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class AsesoriasController {
+public class CursoController {
 
     @Autowired
-    private AsesoriasDaoImpl asesoriasDao;
+    private CursoDaoImpl asesoriasDao;
 
     // Mapeo de las asesorias de un curso respectivo
     @RequestMapping("/curso")

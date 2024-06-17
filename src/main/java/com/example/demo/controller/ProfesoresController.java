@@ -1,5 +1,5 @@
 package com.example.demo.controller;
-
+// Implementamos librerias
 import com.example.demo.dao.ProfesoresDaoImpl;
 import com.example.demo.dao.UsuariosDaoImpl;
 import com.example.demo.model.Profesores;
@@ -17,14 +17,12 @@ import java.util.Map;
 
 @Controller
 public class ProfesoresController {
-
+    // Inyectamos los DaoImplentes de cada una de las clases
     @Autowired
     private ProfesoresDaoImpl profesoresDao;
 
     @Autowired
     private UsuariosDaoImpl usuariosDao;
-
-    
 
     @Autowired
     private PaisesComponent paisesComponent; // Inyectamos PaisesComponent
@@ -37,13 +35,11 @@ public class ProfesoresController {
             Model model) {
 
         int offset = (page - 1) * PAGE_SIZE; // Calcula el offset para la paginación
-        List<Profesores> listaProfesores = profesoresDao.findAllWithPagination(offset, PAGE_SIZE); // Obtiene la lista
-                                                                                                   // de profesores con
-                                                                                                   // paginación
+        List<Profesores> listaProfesores = profesoresDao.findAllWithPagination(offset, PAGE_SIZE); 
+        // Obtiene la lista  de profesores con paginación
         int totalProfesores = profesoresDao.count(); // Cuenta el número total de profesores
         List<Usuarios> listaUsuarios = usuariosDao.findAll(); // Obtiene la lista de todos los usuarios
-        Map<Long, String> mapUsuarioNombres = new HashMap<>(); // Mapa para almacenar los nombres completos de los
-                                                               // usuarios
+        Map<Long, String> mapUsuarioNombres = new HashMap<>(); // Mapa para almacenar los nombres completos de los usuarios
         Map<Long, String> mapUsuarioProfesion = new HashMap<>(); // Mapa para almacenar las profesiones de los usuarios
         Map<Long, String> mapPaisImagen = new HashMap<>(); // Mapa para almacenar las imágenes de las banderas
 
