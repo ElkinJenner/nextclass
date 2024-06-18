@@ -2,8 +2,12 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Usuarios;
 import com.example.demo.service.LoginService;
+
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,5 +36,12 @@ public class LoginController {
             mav.addObject("error", "Correo eléctronico o contraseña inválido");
             return mav;
         }
+    }
+   
+    // Nuevo método para manejar el cierre de sesión
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // Invalida la sesión actual
+        return "redirect:/login"; // Redirige a la página de inicio de sesión
     }
 }
