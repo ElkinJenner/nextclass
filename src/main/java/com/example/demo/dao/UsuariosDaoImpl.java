@@ -53,7 +53,7 @@ public class UsuariosDaoImpl extends CrudDaoImpl<Usuarios, Long> {
         List<Usuarios> results = jdbcTemplate.query(sql, getRowMapper(), id);
         return results.isEmpty() ? null : results.get(0);
     }
-    // Método para guardar un nuevo usuario en la base de datos
+    // Método para registrar un nuevo usuario en la base de datos
     @Override
     public void save(Usuarios entity) {
         String sql = "INSERT INTO usuarios (tipoUsuario, nombres, apellidos, usuario, contrasena, email, fotoPerfil, codUsuario, telefono, idPais, fechaRegistro) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
