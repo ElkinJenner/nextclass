@@ -6,11 +6,14 @@
 
     <ul class="profile_contender">
         <li class="profile_info">
-            <h6>John Duarte</h6>
-            <p>Estudiante</p>
+            <h6 th:text="${usuarios != null ? usuarios.nombres : 'Nombre Usuario'}">Nombre Usuario</h6>
+            <p th:text="${usuarios != null ? usuarios.tipoUsuario : 'Tipo Usuario'}">Tipo Usuario</p>
         </li>
         <li class="profile_picture" id="dropdow_toogle">
-            <img src="upload/students/estudiante.jpg">
+
+        <img
+            th:src="@{upload/{tipo}/{foto}(tipo=${usuarios != null ? (usuarios.tipoUsuario == 'Estudiante' ? 'students' : 'professors') : 'students'}, foto=${usuarios != null ? usuarios.fotoPerfil : 'default_profile.jpg'})}" />
+        
         </li>
         <article class="dropdow_menu hidden" id="dropdow_menu" th:include="components/profile"></article>
     </ul>

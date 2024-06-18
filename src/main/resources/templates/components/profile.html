@@ -1,10 +1,12 @@
 <div class="profile_contender p1">
     <div class="profile_picture">
-        <img src="upload/students/estudiante.jpg">
+        <img
+            th:src="@{upload/{tipo}/{foto}(tipo=${usuarios != null ? (usuarios.tipoUsuario == 'Estudiante' ? 'students' : 'professors') : 'students'}, foto=${usuarios != null ? usuarios.fotoPerfil : 'default_profile.jpg'})}" />
     </div>
     <div class="profile_info">
-        <h6 class="color_dark sz22 mb025">John Duarte</h6>
-        <p class="color_span sz16"><i class="ai-mention"></i> johnD</p>
+        <h6 class="color_dark sz22 mb025" th:text="${usuarios != null ? usuarios.nombres : 'Nombre Usuario'}">John Duarte</h6>
+        <p class="color_span sz16"><i class="ai-mention"></i> <span th:text="${usuarios != null ? usuarios.usuario : 'Nombre Usuario'}"></span></p>
+        
     </div>
 </div>
 <ul>
