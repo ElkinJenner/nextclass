@@ -19,8 +19,7 @@ NAVIGATION
 .navigation_app ul li {
     display: grid;
     align-content: center;
-    padding: 0.5rem 1.2rem;
-    padding-right: 2rem;
+    padding: 0.5rem 2rem 0.5rem 1.2rem;
 }
 
 .navigation_app ul li:nth-child(5) {
@@ -31,8 +30,7 @@ NAVIGATION
 .navigation_app ul li a {
     padding: .6rem;
     border-radius: 8px;
-    font-family: var(--font_medium);
-    font-size: 18px;
+    font: 18px var(--font_medium);
     color: var(--color_text);
     position: relative;
     display: flex;
@@ -58,9 +56,7 @@ NAVIGATION
     font-size: 1.6rem;
 }
 .logo_app{
-    padding: .65rem 1.2rem;
-    padding-left: 2rem;
-    padding-top: 4rem;
+    padding: 4rem 1.2rem .65rem 2rem;
 }
 .logo_app img{
     max-width: 150px;
@@ -100,8 +96,7 @@ HEADER PANEL
     left: .7rem;
     top: -.2rem;
     border-radius: 2rem;
-    font-family: var(--font_semibold);
-    font-size: .8rem;
+    font: .8rem var(--font_semibold);
     line-height: 1.4rem;
     display: grid;
     justify-content: center;
@@ -119,8 +114,7 @@ HEADER PANEL
     color: var(--color_span);
 }
 .profile_info h6{
-    font-size: 20px;
-    font-weight: 600;
+    font: 600 20px;
 }
 .profile_picture img{
     max-width: 50px;
@@ -147,8 +141,7 @@ HEADER PANEL
     display: grid;
 }
 .searcher input[type="search"]{
-    border: none;
-    border-radius: 0;
+    border: none 0;
     padding: 0;  
     width: 140%;
 }
@@ -249,9 +242,8 @@ FORM
 }
 .form_login button{
     padding: 1rem;
-    font-size: 19px;
     background: var(--color_dark);
-    font-family: var(--font_semibold)!important;
+    font: 19px var(--font_semibold)!important;
 }
 /*------
 COURSES & COURSE / PROFESSORS & PROFESSOR
@@ -277,9 +269,8 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
     padding-bottom: 1rem;
 }
 .courses_category li a{
-    font-size: 20px;
     color: var(--color_text);
-    font-family: var(--font_medium);
+    font: 20px var(--font_medium);
 }
 .courses_item, .theme_item, .professors_item{
     display: flex;
@@ -303,9 +294,7 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
 }
 .item_course figure, .item_professor figure{
     height: 220px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: no-repeat center / cover;
     border-radius: 2rem;
     margin-bottom: 1rem;
 }
@@ -322,10 +311,9 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
     padding: .5rem;
 }
 .desc_course h5{
-    font-size: 1.65rem;
     line-height: 1.35rem;
     color: var(--color_dark);
-    font-family: var(--font_semibold);
+    font: 1.65rem var(--font_semibold);
 }
 .desc_course p {
     color: var(--color_span);
@@ -464,8 +452,7 @@ DROPDOW
 }
 .dropdow_menu ul li a {
     color: var(--color_span);
-    font-family: var(--font_medium);
-    font-size: 1.08rem;
+    font: 1.08rem var(--font_medium);
     padding: .8rem;
     border-radius: .5rem;
 }

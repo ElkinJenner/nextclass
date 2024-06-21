@@ -25,8 +25,7 @@
 .navbar_left li a,
 .navbar_center li a,
 .navbar_right li a {
-   font-family: var(--font_regular);
-   font-size: 19px;
+   font: 19px var(--font_regular);
    letter-spacing: -.5px;
 }
 .logo {
@@ -36,10 +35,7 @@
 1/6 COVER
 ------ */
 .cover{
-    background: url(../img/cover.jpg);
-    background-position: bottom;
-    background-size: contain;
-    background-repeat: no-repeat;
+    background: url(../img/cover.jpg) bottom / contain no-repeat;
     height: 92vh;
 }
 .cover .contender{
