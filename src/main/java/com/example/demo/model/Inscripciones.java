@@ -7,7 +7,8 @@ public class Inscripciones {
     private int idHorario;
     private int idEstudiante;
     //Constructores
-    public Inscripciones(){}
+    public Inscripciones(){}//Constructor Vacio
+    //Constructor con parametros
     public Inscripciones(Long idInscripcion, int idSesion, int idHorario, int idEstudiante) {
         this.idInscripcion = idInscripcion;
         this.idSesion = idSesion;
@@ -38,8 +39,5 @@ public class Inscripciones {
     }
     public void setIdEstudiante(int idEstudiante) {
         this.idEstudiante = idEstudiante;
-    }
-    
-    // Getters y Setter
-    
+    }    
 }
