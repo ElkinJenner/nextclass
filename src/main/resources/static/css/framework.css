@@ -217,8 +217,7 @@ FORMS & INPUTS
 }
 form label {
     color: var(--color_dark);
-    font-family: var(--font_medium);
-    font-size: .91rem;
+    font: .91rem var(--font_medium);
 }
 input[type="text"],
 input[type="email"],
@@ -232,11 +231,10 @@ input[type="time"] {
     padding: .6rem;
     margin: .4rem auto;
     border: 2px solid var(--color_input);
-    font-size: 1.14rem;
+    font: 1.14rem var(--font_medium);
     border-radius: .45rem;
     color: var(--color_dark);
     background: transparent;
-    font-family: var(--font_medium);
 }
 input::placeholder {
     color: var(--color_text);
