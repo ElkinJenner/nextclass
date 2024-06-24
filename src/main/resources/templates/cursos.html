@@ -21,13 +21,15 @@
                     <th:block th:each="categoria : ${categorias}">
                         <li class="category-btn" th:classappend="${categoria.categoriaCurso == selectedCategoria} ? 'active'"
                             th:data-filter="${categoria.categoriaCurso}">
-                            <a th:href="@{/cursos(page=1, categoria=${categoria.categoriaCurso})}"
-                                th:text="${categoria.categoriaCurso}">Nombre de la Categoría</a>
+                            <a th:href="@{/cursos(page=1, categoria=${categoria.categoriaCurso})}" th:classappend="${categoria.categoriaCurso == selectedCategoria} ? 'color_lead'" th:text="${categoria.categoriaCurso}">Nombre de la Categoría</a>
                         </li>
                     </th:block>
                 </div>
-                <div class="mt1">
-                    <img src="img/cursos_widget.png">
+                <div class="posit_rel bg_secondary br2 height20x">
+                    <h5 class="color_light_p p1 font_rs">Asesorias personalizadas <br/><strong>24/7</strong></h5>
+                    <figure class="posit_abs top3 mt3 right1">
+                        <img class="height30x" src="img/widget_item.svg">
+                    </figure>
                 </div>
             </ul>
         

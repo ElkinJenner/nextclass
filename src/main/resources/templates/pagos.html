@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagos | Nextclass</title>
+    <link th:include="components/link"></link>
+</head>
+<body class="light_mode">
+    <header th:include="components/menu_app"></header>
+    <main class="main_wrapper">
+        <header th:include="components/nav_panel"></header>
+        <section class="payments">
+            <table class="inv_table mc br1 column-11">
+               
+                <tbody>
+                    <tr class="bg_light">
+                        <td>
+                            <small>#T0123</small>
+                            <h4 class="font_sb mb1">Framework JSF Java Server Face</h4>
+                            <div class="df gap05">
+                                <p class="bg_third p05 br05">Sesion 1-2-3</p>
+                            </div>
+                        </td>
+                        <td>
+                            <h6 class="font_rs">20/06/2024</h6>
+                        </td>
+                        <td><p class="font_rs sz20 color_verify">Cancelado</p></td>                      
+                        <td><h3 class="font_rs">$ 180.00</h3></td>
+                        <td>
+                        <a class="button bg_secondary">Ver Recibo</a>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <div class="pagination_pages">
+                <ul>
+                    <li>
+                        <a href="#" class="active">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </section>
+    </main>
+    <links th:include="components/footer"></links>
+</body>
+</html>

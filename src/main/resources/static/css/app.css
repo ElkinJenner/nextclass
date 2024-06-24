@@ -41,8 +41,7 @@ NAVIGATION
 .navigation_app ul li a:hover,
 .navigation_app ul li a:focus,
 .navigation_app ul li a.active {
-    background: var(--color_dark);
-    color: var(--color_light);
+    color: var(--color_lead);
 }
 
 .navigation_app ul li a:hover span,
@@ -112,9 +111,6 @@ HEADER PANEL
 .profile_info p{
     font-family: var(--font_semibold);
     color: var(--color_span);
-}
-.profile_info h6{
-    font: 600 20px;
 }
 .profile_picture img{
     max-width: 50px;
@@ -311,13 +307,13 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
     padding: .5rem;
 }
 .desc_course h5{
-    line-height: 1.35rem;
     color: var(--color_dark);
-    font: 1.65rem var(--font_semibold);
+    font: 1.57rem var(--font_semibold);
+    line-height: 1.35rem;
 }
 .desc_course p {
     color: var(--color_span);
-    font-family: var(--font_bold);
+    font-family: var(--font_semibold);
     line-height: 2rem;
 }
 .item_theme {
@@ -447,8 +443,7 @@ DROPDOW
     border-top: 1px solid var(--color_input);
 }
 .dropdow_menu ul li {
-    padding-top: 1rem;
-    padding-bottom: .5rem;
+    padding: 1rem 0 .5rem 0;
 }
 .dropdow_menu ul li a {
     color: var(--color_span);

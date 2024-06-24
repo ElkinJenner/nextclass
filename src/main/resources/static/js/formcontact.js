@@ -119,7 +119,7 @@ for (let i = 0; i < validarForm.length; i++) {
                         document.getElementById("email").classList.remove('color_verify');
                     }
                     else {
-                        c_email.innerHTML = `<svg preserveAspectRatio="xMidYMin" class="posit_abs right1 top3" width="24" height="24" viewBox="0 0 24 24" fill="var(--color_verify)" aria-hidden="true" style="--size: 24px; --rotate: 0deg; width: 24px; height: 24px;"><path fill-rule="evenodd" d="M20.53 5.47a.75.75 0 0 1 0 1.06l-11 11a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06L9 15.94 19.47 5.47a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>`;
+                        c_email.innerHTML = `<svg preserveAspectRatio="xMidYMin" class="bg_verify br1 posit_abs right1 top3" width="22" height="22" viewBox="0 0 24 24" fill="var(--color_light_p)" style="padding:.15rem" aria-hidden="true"><path fill-rule="evenodd" d="M20.53 5.47a.75.75 0 0 1 0 1.06l-11 11a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06L9 15.94 19.47 5.47a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>`;
                     }
                 }
                 else {
@@ -167,9 +167,7 @@ for (let i = 0; i < validarForm.length; i++) {
 
             case "password":
                 if (password != "") {
-                    c_password.innerHTML = `
-                    <svg preserveAspectRatio = "xMidYMin" class="posit_abs right1 top3" width = "24" height = "24" viewBox = "0 0 24 24" fill = "var(--color_verify)" aria - hidden="true" style = "--size: 24px; --rotate: 0deg; width: 24px; height: 24px;" > <path fill-rule="evenodd" d="M20.53 5.47a.75.75 0 0 1 0 1.06l-11 11a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06L9 15.94 19.47 5.47a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>
-                    `;
+                    c_password.innerHTML = ` `;
                     document.getElementById("password").classList.add('color_verify');
                     document.getElementById("password").classList.remove('color_danger');
                     document.getElementById("password").classList.add('border_verify');

@@ -3,7 +3,6 @@
 ------ */
 .navigation {
     display: flex;
-    justify-content: space-between;
     margin-top: 2rem;
 }
 .navbar_left,
@@ -34,10 +33,6 @@
 /*------
 1/6 COVER
 ------ */
-.cover{
-    background: url(../img/cover.jpg) bottom / contain no-repeat;
-    height: 92vh;
-}
 .cover .contender{
     position: relative;
     text-align: center;

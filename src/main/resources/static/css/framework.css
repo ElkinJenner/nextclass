@@ -31,6 +31,9 @@
 ::-webkit-scrollbar-thumb:hover {
     background-color: transparent;
 }
+:root {
+    --height_unit: 10px;
+}
 body {
     background: var(--color_index);
     position: relative;
@@ -133,6 +136,10 @@ SPACES
 .p2{padding: 2rem;}
 .pt05{padding-top: .5rem;}
 .pb05{padding-bottom: .5rem;}
+.jcc{justify-content: center;}
+.jcr{justify-content: right;}
+.jcl{justify-content: left;}
+.jcsb{justify-content: space-between;}
 /*------
 BUTTONS
 ------ */
@@ -156,6 +163,7 @@ BUTTONS
 }
 .b1{border: 1px solid var(--color_input);}
 .b2{border: 2px solid var(--color_input);}
+.br05{border-radius: .5rem;}
 .br1{border-radius: 1rem;}
 .br2{border-radius: 2rem;}
 .bn{border-radius: 0!important;}
@@ -259,12 +267,15 @@ POSITIONS
 /*------
 HEIGHTS
 ------ */
-.height20{height: 20px!important;}
-.height30{height: 30px!important;}
-.height40{height: 40px!important;}
-.height50{height: 50px!important;}
-.height100{height: 100px!important;}
-
+.height2x{height: calc(var(--height_unit) * 2) !important; }
+.height3x{height: calc(var(--height_unit) * 3) !important; }
+.height4x{height: calc(var(--height_unit) * 4) !important; }
+.height5x{height: calc(var(--height_unit) * 5) !important; }
+.height10x{height: calc(var(--height_unit) * 10) !important; }
+.height20x{height: calc(var(--height_unit) * 20) !important; }
+.height30x{height: calc(var(--height_unit) * 30) !important; }
+.height40x{height: calc(var(--height_unit) * 40) !important; }
+.height50x{height: calc(var(--height_unit) * 50) !important; }
 /*------
 DISPLAYS
 ------ */
