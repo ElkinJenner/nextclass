@@ -31,15 +31,15 @@
 
             <div class="group">
                 <label>Selecciona tu país</label>
-                <fieldset class="flags_form">
-                    <div th:each="pais : ${paisesList}" class="flags_item">
+                <div class="checkbox_content mt2 mb2">
+                    <fieldset th:each="pais : ${paisesList}" class="checkbox_item posit_rel checkbox_item_small">
                         <input type="radio" name="paises" th:id="'pais-' + ${pais.idPais}" th:value="${pais.idPais}">
-                        <label th:for="'pais-' + ${pais.idPais}">
-                            <img th:src="@{${paisesImages[pais.pais]}}" alt="Flag">
-                            <small th:text="${pais.pais}"></small>
+                        <label th:for="'pais-' + ${pais.idPais}" class="p05">
+                            <img class="height4x br1" th:src="@{${paisesImages[pais.pais]}}" alt="Flag">
+                            <small class="db" th:text="${pais.pais}"></small>
                         </label>
-                    </div>
-                </fieldset>
+                    </fieldset>
+                </div>
             </div>
 
             <div class="group">
@@ -61,10 +61,8 @@
             </div>
         </aside>
     </article>
-    <article class="mv_footer">
-        <div class="users_btn">
-            <a class="button bg_span color_light_p btn_cerrar sz18"><i class="ai-arrow-left"></i> Atrás </a>
-            <button class="button bg_dark sz18" type="submit"> <i class='bx bx-save'></i> Registrar </button>
-        </div>
-    </article>
+    <div class="mt2 mc tc">
+        <a class="button bg_span color_light_p btn_cerrar sz18"><i class="ai-arrow-left"></i> Atrás </a>
+        <button class="button bg_dark sz18" type="submit"> <i class='bx bx-save'></i> Registrar </button>
+    </div>
 </section>

@@ -10,6 +10,49 @@
     <header th:include="components/menu_app"></header>
     <main class="main_wrapper">
         <header th:include="components/nav_panel"></header>
+        <div class="title_page">
+            <h5 class="color_lead font_b">Mi cuenta</h5>
+        </div>
+        <section class="account df gap1">
+            <aside class="column">
+                <div class="column-4"></div>
+                <div class="column-8">
+                    <form class="form_register" method="POST" id="FormContact" action="/registrarse" autocomplete="off">
+                        <aside class="form_column">
+                            <div class="group_2">
+                                <label>Nombres</label>
+                                <input type="text" name="nombres" id="nombres" />
+                                <div id="r_nombres"></div>
+                            </div>
+                            <div class="group_2">
+                                <label>Apellidos</label>
+                                <input type="text" name="apellidos" id="apellidos" />
+                                <div id="r_apellidos"></div>
+                            </div>
+                            <div class="group_2">
+                                <label>Usuario</label>
+                                <input type="text" name="usuario" id="usuario" />
+                                <div id="r_usuario"></div>
+                            </div>
+                    
+                            <div class="group_2">
+                                <label>Telefono </label>
+                                <input type="number" name="telefono" id="telefono" />
+                                <div id="r_telefono"></div>
+                            </div>
+                    
+                    
+                            <div class="group">
+                                <label>Email</label>
+                                <input type="email" name="email" id="email" />
+                                <div id="r_email"></div>
+                            </div>
+                        </aside>
+                        <button class="button button_2 bg_secondary sz18 mt1" type="submit"> <i class="bx bx-save"></i> Guardar </button>
+                    </form>
+                </div>
+            </aside>
+        </section>
     </main>
     <links th:include="components/footer"></links>
 </body>

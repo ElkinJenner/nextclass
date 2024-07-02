@@ -11,10 +11,13 @@
     <header th:include="components/menu_app"></header>
     <main class="main_wrapper">
         <header th:include="components/nav_panel"></header>
+        <div class="title_page">
+            <h5 class="color_lead font_b">Cursos</h5>
+        </div>
         <section class="courses">
             <ul class="courses_category">
-                <h6 class="sz16">CATEGORIA</h6><br>
-                <div class="p1">
+                <h6 class="sz16 color_lead">CATEGORIA</h6><br>
+                <div class="pt1">
                     <li class="category-btn" th:classappend="${'all' == selectedCategoria} ? 'active'" data-filter="all">
                         <a th:href="@{/cursos(page=1, categoria='all')}">Todos</a>
                     </li>

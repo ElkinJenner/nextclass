@@ -10,6 +10,7 @@ NAVIGATION
     background: var(--color_light);
     min-height: 100vh;
     z-index: 1;
+    width: 15rem;
 }
 
 .navigation_app ul {
@@ -29,7 +30,7 @@ NAVIGATION
 
 .navigation_app ul li a {
     padding: .6rem;
-    border-radius: 8px;
+    border-radius: 1rem;
     font: 18px var(--font_medium);
     color: var(--color_text);
     position: relative;
@@ -42,6 +43,7 @@ NAVIGATION
 .navigation_app ul li a:focus,
 .navigation_app ul li a.active {
     color: var(--color_lead);
+    background: var(--color_focus);
 }
 
 .navigation_app ul li a:hover span,
@@ -65,7 +67,7 @@ MAIN WRAPPER
 ------ */
 .main_wrapper {
     position: relative;
-    margin-left: 15.2rem;
+    margin-left: 17rem;
 }
 /*------
 HEADER PANEL
@@ -119,11 +121,10 @@ HEADER PANEL
 }
 .searcher_contender{
     display: flex;
-    border-radius: .75rem;
+    border-radius: .95rem;
     border: 2px solid var(--color_input);
-    height: 45px;
+    height: 40px;
     gap: 1rem;
-    min-width: 350px;
 }
 .searcher_icon{
     display: grid;
@@ -139,29 +140,26 @@ HEADER PANEL
 .searcher input[type="search"]{
     border: none 0;
     padding: 0;  
-    width: 140%;
+    width: 100%;
 }
 /*------
 FORM
 ------ */
-.users_form{
+.checkbox_content{
     display: flex;
-    gap: 2.4rem;
-    padding-bottom: 1rem;
-    justify-content: center;
     flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: start;
 }
-.user_contender, .flags_form{
-    position: relative;
-    display: inline;
-    text-align: center;
+.checkbox_item{
+    display: grid;
     border: none;
     transition: transform .2s;
 }
-.user_contender:hover{
-    transform: scale(1.06);
+.checkbox_content .checkbox_item_small{
+    width: 70px;
 }
-.user_contender input, .flags_item input{
+.checkbox_item input {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -170,62 +168,21 @@ FORM
     z-index: 1;
     opacity: 0;
 }
-.user_contender img{
-    width: 360px;
+.checkbox_item:hover {
+    transform: scale(1.06);
+}
+.checkbox_item input[type="radio"]:checked+label, .checkbox_item input[type="checkbox"]:checked+label {
+    display: initial;
     border-radius: 3rem;
+    outline: 2px solid var(--color_span);
 }
-.user_contender input[type="radio"]:checked+label {
-    display: block;
-    border-radius: 3rem;
-    outline: 2px solid var(--color_fifth);
-}
-.user_contender input[type="radio"]:checked+label h5 {
-    color: var(--color_fifth);
-}
-.user_contender h5{
-    color: var(--color_dark);
-    font-family: var(--font_regularSans);
-    padding: 1rem;
-}
-.users_btn{
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-.flags_form{
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: start;
-    padding-top: 1rem;
-}
-.flags_item{
-    display: grid;
-    position: relative;
-    border-radius: .5rem;
-    width: 60px;
-}
-.flags_item label{
-    padding: .5rem;
-}
-.flags_item label img{
-    width: 40px;
-    border-radius: 50%;
-}
-.flags_item small {
-    color: var(--color_span);
-    display: block;
-    margin-top: .3rem;
-}
-.flags_form input[type="radio"]:checked+label, .flags_form input[type="checkbox"]:checked+label {
-    display: block;
+.checkbox_item_small input[type="radio"]:checked+label, .checkbox_item_small input[type="checkbox"]:checked+label{
     border-radius: 1rem;
-    outline: 2px solid var(--color_focus);
+    outline: 1px solid var(--color_span);
     background: var(--color_light);
 }
-.flags_form input[type="radio"]:checked+label small, .flags_form input[type="checkbox"]:checked+label small {
-    color: var(--color_dark);
+.form_register label{
+    display: table;
 }
 .form_login{
     padding: 1rem 2rem 4rem;
@@ -233,13 +190,13 @@ FORM
     background: var(--color_light);
 }
 .form_login input{
-    padding: .9rem;
+    padding: .75rem;
     margin: .7rem auto;
 }
 .form_login button{
-    padding: 1rem;
+    padding: .85rem;
     background: var(--color_dark);
-    font: 19px var(--font_semibold)!important;
+    font-size: 18px;
 }
 /*------
 COURSES & COURSE / PROFESSORS & PROFESSOR
@@ -255,7 +212,6 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
 .courses_category, .professors_category{
     position: relative;
     display: inline-block;
-    padding-left: 1rem;
     margin-top: 1rem;
     width: 16%;
 }
@@ -266,7 +222,7 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
 }
 .courses_category li a{
     color: var(--color_text);
-    font: 20px var(--font_medium);
+    font: 18px var(--font_medium);
 }
 .courses_item, .theme_item, .professors_item{
     display: flex;
@@ -278,8 +234,8 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
     position: relative;
     background: var(--color_light);
     box-shadow: var(--box_shadow);
-    border-radius: 2rem;
-    height: 360px;
+    border-radius: 1.5rem;
+    height: 330px;
     display: block;
     transition: transform 250ms;
     width: 18.8%;
@@ -287,11 +243,12 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
 }
 .item_professor{
     padding: 0;
+    background: none;
 }
 .item_course figure, .item_professor figure{
-    height: 220px;
+    height: 200px;
     background: no-repeat center / cover;
-    border-radius: 2rem;
+    border-radius: 1rem;
     margin-bottom: 1rem;
 }
 .item_course img, .item_professor img{
@@ -299,16 +256,17 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
 }
 .item_professor figure{
     position: relative;
-    height: 360px;
+    height: 340px;
     filter: brightness(.8);
     opacity: 0.91;
+    border-radius: 2rem;
 }
 .desc_course, .desc_professor{
     padding: .5rem;
 }
 .desc_course h5{
     color: var(--color_dark);
-    font: 1.57rem var(--font_semibold);
+    font: 1.5rem var(--font_semibold);
     line-height: 1.35rem;
 }
 .desc_course p {

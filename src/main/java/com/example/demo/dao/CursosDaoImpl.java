@@ -39,7 +39,7 @@ public class CursosDaoImpl extends CrudDaoImpl<Cursos, Long> {
         String sql = "SELECT c.idCurso, c.curso, c.imagenCurso, cc.categoriaCurso " +
                 "FROM cursos c " +
                 "INNER JOIN categoriaCursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
-                "ORDER BY RAND() " +
+                "ORDER BY c.curso ASC " +
                 "LIMIT :limit OFFSET :offset";
 
         MapSqlParameterSource params = new MapSqlParameterSource();
@@ -55,7 +55,7 @@ public class CursosDaoImpl extends CrudDaoImpl<Cursos, Long> {
                 "FROM cursos c " +
                 "INNER JOIN categoriaCursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
                 "WHERE cc.categoriaCurso = :categoria " +
-                "ORDER BY RAND() " +
+                "ORDER BY c.curso ASC " +
                 "LIMIT :limit OFFSET :offset";
 
         MapSqlParameterSource params = new MapSqlParameterSource();

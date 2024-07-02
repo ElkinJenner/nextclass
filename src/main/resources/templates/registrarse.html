@@ -11,25 +11,23 @@
         <div class="container">
             <section class="contender">
                 <ul class="navbar_center">
-                    <figure class="mb5">
+                    <figure class="mb4">
                         <img src="img/logo.png">
-                    </figure>
+                    </figure> 
                 </ul>
-                <form class="form_users" method="POST" id="FormContact" action="/registrarse">
-                    <article class="users_form">
-                        <div th:each="entry : ${tiposUsuarioImages}">
-                            <fieldset class="user_contender">
+                <form class="form_register" method="POST" id="FormContact" action="/registrarse" autocomplete="off">
+                    <article class="df gap2">
+                            <fieldset class="checkbox_item posit_rel"  th:each="entry : ${tiposUsuarioImages}">
                                 <input type="radio" name="tipoUsuario" th:id="'tipoUsuario' + ${entry.key}" th:value="${entry.key}" />
                                 <label th:for="'tipoUsuario_' + ${entry.key}">
-                                    <img th:src="${entry.value}" />
-                                    <h5 th:text="${entry.key}"></h5>
+                                    <img class="br3 height45x" th:src="${entry.value}" />
+                                   <h5 class="sz24 p1 tc" th:text="${entry.key}"></h5>
                                 </label>
                             </fieldset>
-                        </div>
                     </article>
 
-                    <div class="users_btn">
-                        <a class="button bg_span color_light_p  btn_abrir sz18">Siguiente <i class="ai-arrow-right"></i></a>
+                    <div class="mt2  tc">
+                        <a class="button bg_dark color_light_p  btn_abrir sz18">Siguiente <i class="ai-arrow-right"></i></a>
                         <main class="modal_ventana_content hidden" id="modal" th:include="components/user_form"></main>
                     </div>
                 </form>
