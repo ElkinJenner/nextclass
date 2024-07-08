@@ -167,6 +167,7 @@ BUTTONS
 .br1{border-radius: 1rem;}
 .br2{border-radius: 2rem;}
 .br3{border-radius: 3rem;}
+.br50{border-radius: 50%;}
 .brr1{border-radius: 1rem 0rem 0rem 1rem;}
 .brr2{border-radius: 2rem 0rem 0rem 2rem;}
 .brl1{border-radius: 0rem 1rem 1rem 0rem;}
@@ -201,6 +202,7 @@ COLUMNS
     flex-wrap: wrap;
     gap: 1%;
 }
+.column_w90{width: calc(90% - 1%);}
 .column_w75{width: calc(75% - 1%);}
 .column_w55{width: calc(55% - 1%);}
 .column_w50{width: calc(50% - 1%);}

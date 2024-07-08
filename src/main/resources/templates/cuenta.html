@@ -13,29 +13,37 @@
         <div class="title_page">
             <h5 class="color_lead font_b">Mi cuenta</h5>
         </div>
-        <section class="account df gap1">
-            <aside class="column">
-                <div class="column-4"></div>
-                <div class="column-8">
-                    <form class="form_register" method="POST" id="FormContact" action="/registrarse" autocomplete="off">
+        <section class="account">
+            <aside class="column df gap1 jcsb">
+                <div class="column_w20">
+                    <article class="bg_light p2 tc br2">
+                            <img class="height20x br50" src="upload/professors/docente.jpg">
+                        <div class="dg mt1">
+                            <h6 class="color_dark sz22 mb025">Marcos Salvatierra Rua Limas</h6>
+                            <small class="color_lead sz16">Ing. Computacional</small>
+                        </div>
+                    </article>
+                </div>
+                <div class="column_w75">
+                    <form class="bg_light p2 br1 form_register" method="POST" id="FormContact" action="/registrarse" autocomplete="off">
                         <aside class="form_column">
-                            <div class="group_2">
+                            <div class="group">
                                 <label>Nombres</label>
                                 <input type="text" name="nombres" id="nombres" />
                                 <div id="r_nombres"></div>
                             </div>
-                            <div class="group_2">
+                            <div class="group">
                                 <label>Apellidos</label>
                                 <input type="text" name="apellidos" id="apellidos" />
                                 <div id="r_apellidos"></div>
                             </div>
-                            <div class="group_2">
+                            <div class="group">
                                 <label>Usuario</label>
                                 <input type="text" name="usuario" id="usuario" />
                                 <div id="r_usuario"></div>
                             </div>
                     
-                            <div class="group_2">
+                            <div class="group">
                                 <label>Telefono </label>
                                 <input type="number" name="telefono" id="telefono" />
                                 <div id="r_telefono"></div>
