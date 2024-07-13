@@ -7,32 +7,26 @@ NAVIGATION
 .navigation_app {
     position: fixed;
     display: inline-block;
-    background: var(--color_light);
+    background: var(--color_body);
     min-height: 100vh;
     z-index: 1;
     width: 15rem;
+    border-right: 1px solid var(--color_border);
 }
-
 .navigation_app ul {
     margin-top: 6rem;
 }
-
 .navigation_app ul li {
     display: grid;
     align-content: center;
-    padding: 0.5rem 2rem 0.5rem 1.2rem;
+    padding: 0.5rem 2rem .5rem 1.2rem;
 }
-
-.navigation_app ul li:nth-child(5) {
-    margin-top: 4rem;
-    padding-top: 1.25rem;
-}
-
 .navigation_app ul li a {
-    padding: .6rem;
-    border-radius: 1rem;
-    font: 18px var(--font_medium);
-    color: var(--color_text);
+    padding: .45rem;
+    border-radius: .5rem;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color_span);
     position: relative;
     display: flex;
     align-items: center;
@@ -43,7 +37,7 @@ NAVIGATION
 .navigation_app ul li a:focus,
 .navigation_app ul li a.active {
     color: var(--color_lead);
-    background: var(--color_focus);
+    background: var(--color_hover);
 }
 
 .navigation_app ul li a:hover span,
@@ -54,7 +48,7 @@ NAVIGATION
 }
 
 .navigation_app ul li a i {
-    font-size: 1.6rem;
+    font-size: 21px;
 }
 .logo_app{
     padding: 4rem 1.2rem .65rem 2rem;
@@ -78,7 +72,8 @@ HEADER PANEL
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    padding: 1.5rem 2rem;
+    padding: .5rem 1rem;
+    margin-top: .5rem;
     gap: 1.5rem;
     align-items: center;
     z-index: 111;
@@ -111,18 +106,19 @@ HEADER PANEL
     align-items: center;
 }
 .profile_info p{
-    font-family: var(--font_semibold);
-    color: var(--color_span);
+    font-family: var(--font_body);
+    color: var(--color_subspan);
+    font-weight: 600;
 }
 .profile_picture img{
-    max-width: 50px;
+    max-width: 45px;
     border-radius: 50%;
     cursor: pointer;
 }
 .searcher_contender{
     display: flex;
-    border-radius: .95rem;
-    border: 2px solid var(--color_input);
+    border-radius: .75rem;
+    border: 1px solid var(--color_border);
     height: 40px;
     gap: 1rem;
 }
@@ -187,11 +183,11 @@ FORM
 .form_login{
     padding: 1rem 2rem 4rem;
     border-radius: 2rem;
-    background: var(--color_light);
+    border: 1px solid var(--color_border);
+    box-shadow: var(--box_shadow);
 }
 .form_login input{
     padding: .75rem;
-    margin: .7rem auto;
 }
 .form_login button{
     padding: .85rem;
@@ -212,17 +208,19 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
 .courses_category, .professors_category{
     position: relative;
     display: inline-block;
-    margin-top: 1rem;
     width: 16%;
 }
 .courses_category li{
     text-align: left;
     cursor: pointer;
-    padding-bottom: 1rem;
 }
 .courses_category li a{
-    color: var(--color_text);
-    font: 18px var(--font_medium);
+    display: grid;
+    color: var(--color_span);
+    font-size: 16px;
+    font-weight: 500;
+    padding: .5rem;
+    border-radius: .5rem;
 }
 .courses_item, .theme_item, .professors_item{
     display: flex;
@@ -235,6 +233,7 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
     background: var(--color_light);
     box-shadow: var(--box_shadow);
     border-radius: 1.5rem;
+    border: 1px solid var(--color_border);
     height: 330px;
     display: block;
     transition: transform 250ms;
@@ -249,7 +248,7 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
     height: 200px;
     background: no-repeat center / cover;
     border-radius: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
 }
 .item_course img, .item_professor img{
     height: 220px;
@@ -265,13 +264,14 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
     padding: .5rem;
 }
 .desc_course h5{
-    color: var(--color_dark);
-    font: 1.5rem var(--font_semibold);
-    line-height: 1.35rem;
+    color: var(--color_title);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.25rem;
 }
 .desc_course p {
     color: var(--color_span);
-    font-family: var(--font_semibold);
+    font-weight: 500;
     line-height: 2rem;
 }
 .item_theme {
@@ -357,7 +357,7 @@ Pagination
     margin: 0 5px;
     text-decoration: none;
     color: var(--color_dark);
-    font-family: var(--font_semibold);
+    font-weight: 500;
     border: 2px solid var(--color_dark);
     border-radius: 1rem;
     transition: background-color 0.3s, color 0.3s;
@@ -384,31 +384,45 @@ DROPDOW
     position: absolute;
     top: 100%;
     width: 100%;
-    min-width: 300px;
-    background: var(--color_light);
-    border: 1px solid var(--color_focus);
+    min-width: 250px;
+    box-shadow: var(--box_shadow);
+    background: var(--color_body);
     right: 4px;
     margin: 1rem .2rem;
-    box-shadow: var(--box_shadow);
-    padding: .5rem 1rem 2rem;
     border-radius: 0.8rem 0.8rem 0.6em 0.6em;
     transition: transform .2s ease-out;
+    border: 1px solid var(--color_border);
     opacity: 1;
 }
 .dropdow_menu ul {
-    margin-top: 1rem;
     padding: .5rem;
-    border-top: 1px solid var(--color_input);
+    border-top: 1px solid var(--color_border);
 }
 .dropdow_menu ul li {
-    padding: 1rem 0 .5rem 0;
+    padding: .5rem 0 .5rem 0;
 }
 .dropdow_menu ul li a {
-    color: var(--color_span);
-    font: 1.08rem var(--font_medium);
+    color: var(--color_subspan);
+    font-size: 15px;
+    font-weight: 500;
     padding: .8rem;
     border-radius: .5rem;
 }
 .dropdow_menu ul li a i{
     margin-right: .5rem;
+}
+.switch_contender {
+    border-radius: 1rem;
+    background: var(--color_border);
+    width: 35px;
+    height: 22px;
+    padding: .2rem;
+    cursor: pointer;
+    gap: .125rem;
+}
+.switch_l, .switch_r {
+    background: var(--color_light);
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
 }

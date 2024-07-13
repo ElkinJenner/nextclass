@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes | Nextclass</title>
+    <link th:include="components/link">
+    </link>
+</head>
+
+<body class="light_mode">
+    <header th:include="components/menu_app"></header>
+    <main class="main_wrapper">
+        <header th:include="components/nav_panel"></header>
+        <article class="title_page df jcsb mt1">
+            <div class="dg">
+                <small class="df alit_c gap025 font_w500 mb05 color_subspan">
+                    <i class="ki-outline ki-home color_span"></i>
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>App</span>
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>Cuenta</span>
+                </small>
+                <h6 class="color_subtitle font_w600">Configuración</h6>
+            </div>
+        </article>
+        <section class="account mr1">
+            <aside class="df gap1 jcsb br1 b1 p1 mb1">
+                <div class="df gap1 alit_c">
+                    <figure>
+                        <img class="br1 height20x" src="upload/professors/docente6.jpg">
+                    </figure>
+                    <article class="dg alit_c">
+                        <div class="df alit_c gap05 mb05">
+                            <h6 class="color_subtitle font font_w600">Juan Carlos</h6>
+                            <i class="ki-outline ki-verify color_primary sz22"></i>
+                        </div>
+                        <div class="df alit_b gap05 mb1 color_subspan font_w500 sz18">
+                            <small><i class="ki-outline ki-profile-circle"></i> Profesor</small>
+                            <small><i class="ki-outline ki-geolocation"></i> Lima, Perú</small>
+                            <small><i class="ki-outline ki-sms"></i> juanitol@kt.com</small>
+                        </div>
+                        <div class="df alit_c gap1 font_w500 sz18">
+                            <div class="bd1 br1 p1">
+                                <h6><i class="ki-outline ki-arrow-up color_verify"></i> $4,500</h6>
+                                <small class="color_subspan">Saldo Actual</small>
+                            </div>
+                            <div class="bd1 br1 p1">
+                                <h6><i class="ki-outline ki-arrow-down color_danger"></i> $80.00</h6>
+                                <small class="color_subspan">Gasto actual</small>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="df gap025 alit_c">
+                    <button class="button button_2"> Mi perfil</button>
+                    <button class="button button_2 bg_dark color_light">Ajustes</button>
+                </div>
+            </aside>
+
+            <aside class="gap1 jcs br1 b1">
+                <div class="blb1 p1">
+                    <h6 class="color_subtitle font_w600 sz20">Configuración de perfil</h6>
+                </div>
+                <form class="form_registrar" method="POST">
+                    <aside class="form_column p2">
+                        <div class="group">
+                            <label>Foto Perfil</label>
+                            <div class="profile-pic-container mt1">
+                                <img id="profile-pic" src="upload/professors/docente6.jpg" alt="FotoPerfil">
+                                <input type="file" id="file-input" accept="image/*" onchange="loadFile(event)">
+                                <label for="file-input">
+                                    <i class="ki-outline ki-pencil"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="group_2">
+                            <label>Nombres</label>
+                            <input type="text" name="nombres" id="nombres" value="Juan Carlos">
+                            <div id="r_nombres"></div>
+                        </div>
+                        <div class="group_2">
+                            <label>Apellidos</label>
+                            <input type="text" name="apellidos" id="apellidos" value="Lopez Diaz">
+                            <div id="r_apellidos"></div>
+                        </div>
+                        <div class="group_2">
+                            <label>Usuario</label>
+                            <input type="text" name="usuario" id="usuario" value="juanitol">
+                            <div id="r_usuario"></div>
+                        </div>
+                    
+                        <div class="group_2">
+                            <label>Telefono </label>
+                            <input type="text" name="telefono" id="telefono" value="+51 932 708 315">
+                            <div id="r_telefono"></div>
+                        </div>
+                    
+                    
+                    
+                        <div class="group">
+                            <label>Email</label>
+                            <input type="email" name="email" id="email" value="juanitol@mk.com">
+                            <div id="r_email">
+                            </div>
+                        </div>
+                    
+                        <input type="hidden" name="codUsuario">
+                    
+                        <div class="group_2">
+                            <label>Contraseña</label>
+                            <input type="password" name="contrasena" id="password">
+                            <div id="r_password">
+                            </div>
+                        </div>
+                        <div class="group_2">
+                            <label>Repetir Contraseña</label>
+                            <input type="password" name="repetircontrasena">
+                        </div>
+                        <div class="df gap05 alit_c mt1">
+                            <button class="button button_2 sz16 color_dark"> Cancelar</button>
+                            <button class="button button_2 bg_verify color_light sz16"><i class="ai-save"></i> Guardar</button>
+                        </div>
+                    </aside>
+                </form>
+            </aside>
+        </section>
+    </main>
+    <links th:include="components/footer"></links>
+</body>
+
+</html>

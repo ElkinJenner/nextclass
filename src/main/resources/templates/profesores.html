@@ -11,23 +11,37 @@
     <header th:include="components/menu_app"></header>
     <main class="main_wrapper">
         <header th:include="components/nav_panel"></header>
-        <div class="title_page">
-            <h5 class="color_dark font_b">Profesores</h5>
-        </div>
+        <article class="title_page df jcsb mt1">
+            <div class="dg">
+                <small class="df alit_c gap025 font_w500 mb05 color_subspan">
+                    <i class="ki-outline ki-home color_span"></i> 
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>App</span>
+                </small>
+                <h6 class="color_subtitle font_w600">Profesores</h6>
+            </div>
+            <div class="df gap025">
+                <button class="button bg_span color_light"><i class="ki-outline ki-element-plus sz20"></i></button>
+                <button class="button"><i class="ki-outline ki-row-horizontal sz20"></i></button>
+                
+            </div>
+        </article>
         <section class="professors">
             <ul class="professors_category">
             </ul>
             <div class="professors_item">
-                <a href="/profesor" class="item_professor" th:each="profesor : ${profesores}">
+                <a href="/profesor" class="item_professor b0" th:each="profesor : ${profesores}">
                     <figure th:style="'background-image:url(upload/professors/' + ${profesor.fotoPerfil} + ');'"></figure>
                     <div class="posit_abs bottom1">
                         <div class="ml1 p05">
-                            <h6 class="color_light sz20 font_s" th:text="${mapUsuarioNombres[profesor.idUsuario]}"></h6>
-                            <p class="color_light" th:text="${mapUsuarioProfesion[profesor.idUsuario]}"></p>
-                            <div class="bg_light b1 br1 p05 mt1 dif gap05">
-                                <img class="height2x" th:src="${mapPaisImagen[profesor.idUsuario]}">
-                                <p class="color_dark font_m" th:text="${profesor.nombrePais}"></p>
-                            </div>
+                            <h6 class="color_light sz18 font_w600" th:text="${mapUsuarioNombres[profesor.idUsuario]}"></h6>
+                            <p class="color_light sz14 font_w400" th:text="${mapUsuarioProfesion[profesor.idUsuario]}"></p>
+                        </div>
+                    </div>
+                    <div class="posit_abs top0 right1">
+                        <div class="bg_hover br075 p05 mt1 dif gap025">
+                            <img class="height015x" th:src="${mapPaisImagen[profesor.idUsuario]}">
+                            <small class="color_text font_w600" th:text="${profesor.nombrePais}"></small>
                         </div>
                     </div>
                 </a>

@@ -6,30 +6,28 @@
     <title>Nextclass | Home</title>
     <link th:include="components/link"></link>
 </head>
-<body class="bg_index">
+<body class="dark_mode">
     <header>
         <div class="container container_max">
             <nav class="navigation jcr">
                 <ul class="navbar_right">
-                    <li><a class="btn_abrir color_light_p">
-                            <a th:href="@{/login}" class="button bg_secondary">
+                    <li><a th:href="@{/login}" class="button btn_abrir bg_secondary color_dark">
                                 Acceder
-                            </a>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
-    <main class="cover ">
+    <main class="cover">
         <div class="container">
             <section class="contender">
                 <figure class="logo">
                     <img src="img/logo_w.png">
                 </figure>
-                <h1 class="color_light_p font_rs mb2">Aprendizaje ligero y
+                <h1 class="color_dark mb2 font_w500">Aprendizaje ligero y
                 flexible.</h1>
-                <a class="p1 br1 bg_light_p color_dark_p sz20 font_s" th:href="@{/registrarse}">Empezar <i class="ai-arrow-up-right"></i></a>
+                <a class="p1 br1 bg_light color_dark sz20 font_s" th:href="@{/registrarse}">Empezar <i class="ai-arrow-up-right"></i></a>
                 <div class="df mt4">
                     <img class="height50x" src="img/slider-01.png">
                     <img class="height40x" src="img/slider-02.png">

@@ -11,27 +11,42 @@
     <header th:include="components/menu_app"></header>
     <main class="main_wrapper">
         <header th:include="components/nav_panel"></header>
-        <div class="title_page">
-            <h5 class="color_lead font_b">Cursos</h5>
-        </div>
+        <article class="title_page df jcsb mt1">
+            <div class="dg">
+                <small class="df alit_c gap025 font_w500 mb05 color_subspan">
+                    <i class="ki-outline ki-home color_span"></i> 
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>App</span>
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>Cursos</span>
+                </small>
+                <h6 class="color_subtitle font_w600">Cursos</h6>
+            </div>
+            <div class="df gap025">
+                <button class="button bg_dark color_light"><i class="ki-outline ki-element-plus sz20"></i></button>
+                <button class="button"><i class="ki-outline ki-row-horizontal sz20"></i></button>
+                
+            </div>
+        </article>
         <section class="courses">
             <ul class="courses_category">
-                <h6 class="sz16 color_lead">CATEGORIA</h6><br>
-                <div class="pt1">
+                <div class="p1 b1 br1 mb1">
+                    <h6 class="sz16 font_w600 color_text">Categoria</h6><br>
                     <li class="category-btn" th:classappend="${'all' == selectedCategoria} ? 'active'" data-filter="all">
                         <a th:href="@{/cursos(page=1, categoria='all')}">Todos</a>
                     </li>
                     <th:block th:each="categoria : ${categorias}">
                         <li class="category-btn" th:classappend="${categoria.categoriaCurso == selectedCategoria} ? 'active'"
                             th:data-filter="${categoria.categoriaCurso}">
-                            <a th:href="@{/cursos(page=1, categoria=${categoria.categoriaCurso})}" th:classappend="${categoria.categoriaCurso == selectedCategoria} ? 'color_lead'" th:text="${categoria.categoriaCurso}">Nombre de la Categoría</a>
+                            <a th:href="@{/cursos(page=1, categoria=${categoria.categoriaCurso})}" th:classappend="${categoria.categoriaCurso == selectedCategoria} ? 'color_dark b1'" th:text="${categoria.categoriaCurso}">Nombre de la Categoría</a>
                         </li>
                     </th:block>
                 </div>
-                <div class="posit_rel bg_secondary br2 height20x">
-                    <h5 class="color_light_p p1 font_rs">Asesorias personalizadas <br/><strong>24/7</strong></h5>
-                    <figure class="posit_abs top3 mt3 right1">
-                        <img class="height30x" src="img/widget_item.svg">
+                <div class="posit_rel bg_dark br2 height30x">
+                    <h5 class="color_light p1 sz24 font_w500">Asesorias personalizadas <br/><strong>24/7</strong></h5>
+                    <button class="ml1 button bg_secondary color_light sz15">Obtener</button>
+                    <figure>
+                        <img class="height20x br1" src="https://preview.keenthemes.com/start-react-pro/media/illustrations/terms-2.png">
                     </figure>
                 </div>
             </ul>

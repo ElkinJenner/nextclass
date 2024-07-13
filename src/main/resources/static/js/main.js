@@ -68,3 +68,11 @@ function menu_overlay() {
     }
 }
 dropdow_toogle.addEventListener('click', menu_overlay, true);
+
+function loadFile(event) {
+    const profilePic = document.getElementById('profile-pic');
+    profilePic.src = URL.createObjectURL(event.target.files[0]);
+    profilePic.onload = () => {
+        URL.revokeObjectURL(profilePic.src);
+    }
+}

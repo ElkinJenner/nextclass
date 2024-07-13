@@ -50,4 +50,6 @@ CONTENDER
 .title_page{
     padding-bottom: .5rem;
     margin-bottom: 1rem;
+    padding-right: 1rem;
+    align-items: center;
 }

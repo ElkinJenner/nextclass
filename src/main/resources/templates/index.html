@@ -11,6 +11,64 @@
     <header th:include="components/menu_app"></header>
     <main class="main_wrapper">
         <header th:include="components/nav_panel"></header>
+        <article class="title_page df jcsb mt1">
+            <div class="dg">
+                <small class="df alit_c gap025 font_w500 mb05 color_subspan">
+                    <i class="ki-outline ki-home color_span"></i>
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>App</span>
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>Dashboard</span>
+                </small>
+                <h6 class="color_subtitle font_w600">Dashboard</h6>
+            </div>
+        </article>
+        <form class="form_registrar b1 br1 mr1" method="POST" action="">
+            <aside class="form_column p2">
+                <input type="hidden" name="codUsuario">
+                <div class="group">
+                    <label>Foto Perfil</label>
+                        <div class="profile-pic-container mt1">
+                            <img id="profile-pic" src="upload/students/default_profile.jpg" alt="Default">
+                            <input type="file" id="file-input" accept="image/*" onchange="loadFile(event)">
+                            <label for="file-input">
+                                <i class="ki-outline ki-pencil"></i>
+                            </label>
+                        </div>
+                </div>
+
+                <div class="group">
+                    <label>Nivel Academico</label>
+                    <div class="checkbox_content mt2 mb2">
+                        <fieldset class="checkbox_item posit_rel checkbox_item_small">
+                            <input type="radio" name="nivelAcademico" id="primaria" value="1">
+                            <label for="primaria" class="p05 tc">
+                                <img class="height5x" src="upload/academic/primaria.png">
+                                <small class="db">Primaria</small>
+                            </label>
+                        </fieldset>
+                        <fieldset class="checkbox_item posit_rel checkbox_item_small">
+                            <input type="radio" name="nivelAcademico" id="secundaria" value="2">
+                            <label for="secundaria" class="p05 tc">
+                                <img class="height5x" src="upload/academic/secundaria.png">
+                                <small class="db">Secundaria</small>
+                            </label>
+                        </fieldset>
+                        <fieldset class="checkbox_item posit_rel checkbox_item_small">
+                            <input type="radio" name="nivelAcademico" id="universitaria" value="2">
+                            <label for="universitaria" class="p05 tc">
+                                <img class="height5x mc" src="upload/academic/universitaria.png">
+                                <small class="db">Universitario</small>
+                            </label>
+                        </fieldset>
+                    </div>
+                </div>
+                    
+                <div class="df gap05 alit_c mt1">
+                    <button class="button button_2 bg_verify color_light sz16"><i class="ai-save"></i> Guardar</button>
+                </div>
+            </aside>
+        </form>
     </main>
     <links th:include="components/footer"></links>
 </body>

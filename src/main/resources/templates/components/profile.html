@@ -4,15 +4,24 @@
             th:src="@{upload/{tipo}/{foto}(tipo=${usuarios != null ? (usuarios.tipoUsuario == 'Estudiante' ? 'students' : 'professors') : 'students'}, foto=${usuarios != null ? usuarios.fotoPerfil : 'default_profile.jpg'})}" />
     </div>
     <div class="profile_info">
-        <h6 class="color_dark sz22 mb025" th:text="${usuarios != null ? usuarios.nombres : 'Nombre Usuario'}">John Duarte</h6>
-        <p class="color_span sz16"><i class="ai-mention"></i> <span th:text="${usuarios != null ? usuarios.usuario : 'Nombre Usuario'}"></span></p>
+        <h6 class="color_dark sz18" th:text="${usuarios != null ? usuarios.nombres : 'Nombre Usuario'}">John Duarte</h6>
+        <p class="color_span sz15"><i class="ai-mention"></i> <span th:text="${usuarios != null ? usuarios.usuario : 'Nombre Usuario'}"></span></p>
         
     </div>
 </div>
 <ul>
-    <li><a th:href="@{/cuenta}"><i class='bx bx-user-circle'></i> <span>Mi Cuenta</span></a></li>
-    <li><a th:href="@{/cuenta}"><i class='bx bx-calendar-alt'></i> <span>Mis sesiones</span></a></li>
-    <li><a th:href="@{/cuenta}"><i class='bx bx-help-circle'></i> <span>Ayuda</span></a></li>
-    <li><a th:href="@{/cuenta}"><i class='bx bx-wrench'></i> <span>Configuración</span></a></li>
-    <li><a href="/logout"><i class='bx bx-power-off'></i> <span>Cerrar Sesión</span></a></li>
+    <li><a th:href="@{/cuenta}"><i class="ki-filled ki-badge"></i> <span>Mi Cuenta</span></a></li>
+    <li><a th:href="@{/cuenta}"><i class="ki-filled ki-questionnaire-tablet text-lg"></i> <span>Mis sesiones</span></a></li>
+    <li><a th:href="@{/cuenta}"><i class="ki-filled ki-question"></i> <span>Ayuda</span></a></li>
+    <li><a th:href="@{/configuracion}"><i class="ki-filled ki-setting-2"></i> <span>Configuración</span></a></li>
 </ul>
+<div class="dg blt1 p1">
+    <div class="df jcsb gap1 color_span mb1">
+        <p class="font_w500 sz15 color_subspan"> <i class='bx bx-moon'></i> Modo Oscuro</p>
+        <div class="switch_contender df" id="switch">
+            <div class="switch_l" id="light_mode"></div>
+            <div class="switch_r hidden" id="dark_mode"></div>
+        </div>
+    </div>
+    <a class="button b1 br05 sz14 tc" href="/logout">  <span> Cerrar Sesión</span></a>
+</div>

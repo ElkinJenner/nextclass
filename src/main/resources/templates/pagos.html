@@ -10,31 +10,71 @@
     <header th:include="components/menu_app"></header>
     <main class="main_wrapper">
         <header th:include="components/nav_panel"></header>
+        <article class="title_page df jcsb mt1">
+            <div class="dg">
+                <small class="df alit_c gap025 font_w500 mb05 color_subspan">
+                    <i class="ki-outline ki-home color_span"></i>
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>App</span>
+                </small>
+                <h6 class="color_subtitle font_w600">Pagos</h6>
+            </div>
+            <div class="df gap025">
+                <button class="button"><i class="ki-outline ki-element-plus sz20"></i></button>
+                <button class="button bg_dark color_light"><i class="ki-outline ki-row-horizontal sz20"></i></button>
+            </div>
+        </article>
         <section class="payments">
             <table class="inv_table">
                 <thead>
                     <tr>
-                        <th>Asesoria</th>
-                        <th>Fecha</th>
-                        <th>Estado</th>
-                        <th>Monto</th>
-                        <th>Acciones</th>
+                        <th class="color_subtitle">Ticket</th>
+                        <th class="color_subtitle">Asesoria</th>
+                        <th class="color_subtitle">Fecha</th>
+                        <th class="color_subtitle">Estado</th>
+                        <th class="color_subtitle">Monto</th>
+                        <th class="color_subtitle">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr></tr>
                     <tr>
                         <td>
-                            <small>#T0123</small>
-                            <h5 class="font_sb mb1">Framework JSF Java Server Face</h5>
+                            <strong class="color_span font_w600">#T0123</strong>
                         </td>
                         <td>
-                            <h6 class="font_rs">20/06/2024</h6>
+                            <strong class="font_w600">Framework JSF Java Server Face</strong>
                         </td>
-                        <td><p class="font_rs sz20 color_verify">Cancelado</p></td>                      
-                        <td><h4 class="font_sb">$ 180.00</h4></td>
+                        <td>
+                            <strong class="font_w600">20/06/2024</strong>
+                        </td>
+                        <td>
+                            <strong class="fsz20 color_verify font_w600">Cancelado</strong>
+                        </td>                      
+                        <td><h4 class="color_text sz16">$ 180.00</h4></td>
                         <td >
-                        <a class="button bg_secondary">Ver Recibo</a>
+                        <a class="button button_2 bg_secondary color_light">Ver Recibo</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <strong class="color_span font_w600">#T0124</strong>
+                        </td>
+                        <td>
+                            <strong class="font_w600">Grafico por computadora con openGl </strong>
+                        </td>
+                        <td>
+                            <strong class="font_w600">21/06/2024</strong>
+                        </td>
+                        <td>
+                             <strong class="fsz20 color_danger font_w600">Vigente</strong>
+                        </td>
+                        <td>
+                            <h4 class="color_text sz16">$ 220.00</h4>
+                        </td>
+                        <td>
+                            <a class="button button_2 bg_secondary color_light">Ver Recibo</a>
                         </td>
                     </tr>
                     

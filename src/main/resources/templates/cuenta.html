@@ -10,55 +10,90 @@
     <header th:include="components/menu_app"></header>
     <main class="main_wrapper">
         <header th:include="components/nav_panel"></header>
-        <div class="title_page">
-            <h5 class="color_lead font_b">Mi cuenta</h5>
-        </div>
-        <section class="account">
-            <aside class="column df gap1 jcsb">
-                <div class="column_w20">
-                    <article class="bg_light p2 tc br2">
-                            <img class="height20x br50" src="upload/professors/docente.jpg">
-                        <div class="dg mt1">
-                            <h6 class="color_dark sz22 mb025">Marcos Salvatierra Rua Limas</h6>
-                            <small class="color_lead sz16">Ing. Computacional</small>
+        <article class="title_page df jcsb mt1">
+            <div class="dg">
+                <small class="df alit_c gap025 font_w500 mb05 color_subspan">
+                    <i class="ki-outline ki-home color_span"></i>
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>App</span>
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>Ajustes</span>
+                </small>
+                <h6 class="color_subtitle font_w600">Cuenta</h6>
+            </div>
+        </article>
+        <section class="account mr1">
+            <aside class="df gap1 jcsb br1 b1 p1 mb1">
+                <div class="df gap1 alit_c">
+                    <figure>
+                        <img class="br1 height20x" src="upload/professors/docente6.jpg">
+                    </figure>
+                    <article class="dg alit_c">
+                        <div class="df alit_c gap05 mb05">
+                            <h6 class="color_subtitle font font_w600">Juan Carlos</h6>
+                            <i class="ki-outline ki-verify color_primary sz22"></i>
+                        </div>
+                        <div class="df alit_b gap05 mb1 color_subspan font_w500 sz18">
+                            <small><i class="ki-outline ki-profile-circle"></i> Profesor</small>
+                            <small><i class="ki-outline ki-geolocation"></i> Lima, Perú</small>
+                            <small><i class="ki-outline ki-sms"></i> juanitol@kt.com</small>
+                        </div>
+                        <div class="df alit_c gap1 font_w500 sz18">
+                            <div class="bd1 br1 p1">
+                                <h6><i class="ki-outline ki-arrow-up color_verify"></i> $4,500</h6>
+                                <small class="color_subspan">Saldo Actual</small>
+                            </div>
+                            <div class="bd1 br1 p1">
+                                <h6><i class="ki-outline ki-arrow-down color_danger"></i> $80.00</h6>
+                                <small class="color_subspan">Gasto actual</small>
+                            </div>
                         </div>
                     </article>
                 </div>
-                <div class="column_w75">
-                    <form class="bg_light p2 br1 form_register" method="POST" id="FormContact" action="/registrarse" autocomplete="off">
-                        <aside class="form_column">
-                            <div class="group">
-                                <label>Nombres</label>
-                                <input type="text" name="nombres" id="nombres" />
-                                <div id="r_nombres"></div>
-                            </div>
-                            <div class="group">
-                                <label>Apellidos</label>
-                                <input type="text" name="apellidos" id="apellidos" />
-                                <div id="r_apellidos"></div>
-                            </div>
-                            <div class="group">
-                                <label>Usuario</label>
-                                <input type="text" name="usuario" id="usuario" />
-                                <div id="r_usuario"></div>
-                            </div>
-                    
-                            <div class="group">
-                                <label>Telefono </label>
-                                <input type="number" name="telefono" id="telefono" />
-                                <div id="r_telefono"></div>
-                            </div>
-                    
-                    
-                            <div class="group">
-                                <label>Email</label>
-                                <input type="email" name="email" id="email" />
-                                <div id="r_email"></div>
-                            </div>
-                        </aside>
-                        <button class="button button_2 bg_secondary sz18 mt1" type="submit"> <i class="bx bx-save"></i> Guardar </button>
-                    </form>
+                <div class="df gap025 alit_c">
+                    <button class="button button_2 bg_dark color_light"> Mi perfil</button>
+                    <button class="button button_2">Ajustes</button>
                 </div>
+            </aside>
+
+            <aside class="gap1 jcs br1 b1">
+                <div class="blb1 p1">
+                    <h6 class="color_subtitle font_w600 sz20">Detalles de perfil</h6>
+                </div>
+
+                <ul class="dg alit_c p1">
+                    <li class="df alit_c gap3 p1">
+                        <p class="column-1 color_subspan font_w600">Nombres</p>
+                        <p class="font_w600">Juan Carlos</p>
+                    </li>
+                    <li class="df alit_c gap3 p1">
+                        <p class="column-1 color_subspan font_w600">Apellidos</p>
+                        <p class="font_w600">Lopez Quispe</p>
+                    </li>
+                    <li class="df alit_c gap3 p1">
+                        <p class="column-1 color_subspan font_w600">Usuario</p>
+                        <p class="font_w600">@juanitol</p>
+                    </li>
+                    <li class="df alit_c gap3 p1">
+                        <p class="column-1 color_subspan font_w600">Email</p>
+                        <p class="font_w600">juanitol@mk.com</p>
+                    </li>
+                    <li class="df alit_c gap3 p1">
+                        <p class="column-1 color_subspan font_w600">Telefóno</p>
+                        <p class="font_w600">+51 932708193</p>
+                    </li>
+                    <li class="df alit_c gap3 p1">
+                        <p class="column-1 color_subspan font_w600">Ubicación</p>
+                        <p class="font_w600"><img class="height015x" src="upload/flags/peru.png"> Lima, Perú</p>
+                    </li>
+                    
+                    <div class="df bg_subalert bd1 gap05 color_alert br1 p1 mt1 alit_c">
+                        <i class="ki-outline ki-information sz28 color_alert"></i>
+                        <p class="dg color_dark font_w600">¡Necesitamos tu atención!
+                            <small class="color_span font_w500">No utilizamos su información para terceros </small>
+                        </p>
+                    </div>
+                </ul>
             </aside>
         </section>
     </main>

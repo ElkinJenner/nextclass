@@ -11,15 +11,26 @@
     <header th:include="components/menu_app"></header>
     <main class="main_wrapper">
         <header th:include="components/nav_panel"></header>
-        <section class="course">
-
-            <div class="course_title">
-                <div class="title mb1 mt1">
-                    <h2 th:text="${curso}"></h2>
-                    <h6 class="color_lead pt05" th:text="${#lists.isEmpty(asesorias) ? 'Sin categoría' : asesorias[0].categoriaCurso}">Categoria</h6>
-                </div>
+        <article class="title_page df jcsb mt1">
+            <div class="dg">
+                <small class="df alit_c gap025 font_w500 mb05 color_subspan">
+                    <i class="ki-outline ki-home color_span"></i>
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>App</span>
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>Curso</span>
+                </small>
+                <h6 class="color_subtitle font_w600" th:text="${curso}">Curso</h6>
+                <p class="color_span pt05" th:text="${#lists.isEmpty(asesorias) ? 'Sin categoría' : asesorias[0].categoriaCurso}">
+                    Categoria</p>
             </div>
-
+            <div class="df gap025">
+                <button class="button button_2">Historial</button>
+                <button class="button button_2 bg_primary color_light sz15"> <i class="bx bx-message-square-add sz16"></i>
+                <span>Invitar</span></button>
+            </div>
+        </article>
+        <section class="course">
             <div class="theme_item" th:each="asesoria : ${asesorias}">
 
                 <a th:href="@{/asesoria}" class="item_theme">

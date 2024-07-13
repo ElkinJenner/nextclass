@@ -119,7 +119,7 @@ for (let i = 0; i < validarForm.length; i++) {
                         document.getElementById("email").classList.remove('color_verify');
                     }
                     else {
-                        c_email.innerHTML = `<svg preserveAspectRatio="xMidYMin" class="bg_verify br1 posit_abs right1 top3" width="22" height="22" viewBox="0 0 24 24" fill="var(--color_light_p)" style="padding:.15rem" aria-hidden="true"><path fill-rule="evenodd" d="M20.53 5.47a.75.75 0 0 1 0 1.06l-11 11a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06L9 15.94 19.47 5.47a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>`;
+                        c_email.innerHTML = `<svg preserveAspectRatio="xMidYMin" class="bg_verify br1 posit_abs right1 top2" width="22" height="22" viewBox="0 0 24 24" fill="var(--color_light)" style="padding:.15rem" aria-hidden="true"><path fill-rule="evenodd" d="M20.53 5.47a.75.75 0 0 1 0 1.06l-11 11a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06L9 15.94 19.47 5.47a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>`;
                     }
                 }
                 else {
