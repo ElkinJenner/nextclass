@@ -29,40 +29,41 @@
                 <div id="r_telefono"></div>
             </div>
 
-            <div class="group">
-                <label>Selecciona tu país</label>
-                <div class="checkbox_content mt2 mb2">
-                    <fieldset th:each="pais : ${paisesList}" class="checkbox_item posit_rel checkbox_item_small">
-                        <input type="radio" name="paises" th:id="'pais-' + ${pais.idPais}" th:value="${pais.idPais}">
-                        <label th:for="'pais-' + ${pais.idPais}" class="p05">
-                            <img class="height4x br1" th:src="@{${paisesImages[pais.pais]}}" alt="Flag">
-                            <small class="db" th:text="${pais.pais}"></small>
-                        </label>
-                    </fieldset>
-                </div>
-            </div>
-
-            <div class="group">
+            <div class="group_2">
                 <label>Email</label>
                 <input type="email" name="email" id="email" />
                 <div id="r_email"></div>
+
+                <label class="mt1">Contraseña</label>
+                <input type="password" name="contrasena" id="password" />
+                <div id="r_password"></div>
+
+                <label class="mt1">Repetir Contraseña</label>
+                <input type="password" name="repetircontrasena" />
+            </div>
+
+            <div class="group_2">
+                <label>Selecciona tu país</label>
+                <article class="body_select">
+                    <div class="body_select_contender">
+                        <div class="checkbox_content mt2 mb2 tc ml1">
+                            <fieldset th:each="pais : ${paisesList}" class="checkbox_item posit_rel checkbox_item_small">
+                                <input type="radio" name="paises" th:id="'pais-' + ${pais.idPais}" th:value="${pais.idPais}">
+                                <label th:for="'pais-' + ${pais.idPais}" class="p05">
+                                    <img class="height4x br1" th:src="@{${paisesImages[pais.pais]}}" alt="Flag">
+                                    <small class="db sz11" th:text="${pais.pais}"></small>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                </article>
             </div>
             
             <input type="hidden" name="codUsuario"/>
-            
-            <div class="group_2">
-                <label>Contraseña</label>
-                <input type="password" name="contrasena" id="password" />
-                <div id="r_password"></div>
-            </div>
-            <div class="group_2">
-                <label>Repetir Contraseña</label>
-                <input type="password" name="repetircontrasena"/>
-            </div>
         </aside>
     </article>
     <div class="mt2 mc tc">
-        <a class="button bg_span color_light btn_cerrar sz18"><i class="ai-arrow-left"></i> Atrás </a>
-        <button class="button bg_dark color_light sz18" type="submit"> <i class='bx bx-save'></i> Registrar </button>
+        <a class="button button_2 bg_hover color_dark btn_cerrar sz16"><i class="ai-arrow-left"></i> Atrás </a>
+        <button class="button button_2 bg_verify color_light sz16" type="submit"> <i class='bx bx-save'></i> Registrar </button>
     </div>
 </section>

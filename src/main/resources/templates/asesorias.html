@@ -31,6 +31,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Asesoria</th>
+                        <th>Sesiones</th>
                         <th>Curso /Categoria</th>
                         <th>Duración</th>
                         <th>Inscripciones</th>
@@ -46,6 +47,10 @@
                         <td><i class="ai-hashtag"></i>1</td>
                         <td>Framework JSF
                         Java Server Face</td>
+                        <td>
+                        <a class="button button_2 bg_hover color_dark sz12 btn_abrir"><i class="ki-filled ki-plus"></i></a>
+                        <main class="modal_ventana_content hidden" id="modal" th:include="components/registrar_sesion"></main>
+                        </td>
                         <td><strong class="font_w600">Programacion web</strong> <br/> <span class="color_subspan">Tecnología</span> </td>
                         <td>1h,30 min</td>
                         <td class="df gap05">
@@ -69,9 +74,13 @@
                     <tr>
                         <td><i class="ai-hashtag"></i>2</td>
                         <td>SCRUM, Metodología agil para  el desarrollo</td>
+                        <td>
+                            <a class="button button_2 bg_hover color_dark sz12 btn_abrir"><i class="ki-filled ki-plus"></i></a>
+                            <main class="modal_ventana_content hidden" id="modal" th:include="components/registrar_sesion"></main>
+                        </td>
                         <td><strong class="font_w600">Consultoria y Estrategia</strong> <br /> <span class="color_subspan">Negocios</span> </td>
                         <td>1h, 00 min</td>
-                        <td class="df gap05">
+                        <td>
                             Sin Inscripciones
                         </td>
                         <td>$$ 180.00</td>

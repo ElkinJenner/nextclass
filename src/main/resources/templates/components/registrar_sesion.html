@@ -1,0 +1,45 @@
+<section class="modal_ventana mc mt2 bg_light">
+    <article class="mv_head df jcsb blb1">
+        <div class="heading p1">
+            <h4 class="font_w600 sz24"> Registrar sesión </h4>
+        </div>
+        <a class="btn_cerrar">
+            <div class="close color_text"><i class="ai-x-small"></i></div>
+        </a>
+    </article>
+    <article class="mv_body">
+        <form method="POST" class="ml3" action="">
+            <aside class="form_column">
+                <input type="hidden" name="idProfesor" value="idProfesor" />
+                <div class="group">
+                <label class="db mb05" for="dias-semana">Seleccionar:</label>
+                <select id="dias-semana" name="dias" class="custom-select">
+                    <option value="lunes">Lunes</option>
+                    <option value="martes">Martes</option>
+                    <option value="miercoles">Miércoles</option>
+                    <option value="jueves">Jueves</option>
+                    <option value="viernes">Viernes</option>
+                    <option value="sabado">Sábado</option>
+                    <option value="domingo">Domingo</option>
+                </select>
+                </div>
+
+                <div class="group-22">
+                    <label>Hora inicial</label>
+                    <input type="time" name="horainicial" />
+                </div>
+
+                <div class="group-2">
+                    <label>Hora final </label>
+                    <input type="time" name="horaifinal" />
+                </div>
+
+
+                <div class="group users_btn mt1">
+                    <button class="button button_2 bg_verify color_light sz16 font_w500" type="submit"> <i
+                            class="ai-save"></i> Registrar </button>
+                </div>
+            </aside>
+        </form>
+    </article>
+</section>

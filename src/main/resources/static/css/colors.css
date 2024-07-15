@@ -59,6 +59,7 @@
 .bg_body{background: var(--color_body)!important;}
 .bg_text{background: var(--color_text)!important;}
 .bg_span{background: var(--color_span)!important;}
+.bg_subspan{background: var(--color_subspan)!important;}
 .bg_hover{background: var(--color_hover)!important;}
 .bg_cover{background: var(--color_cover)!important;}
 .bg_primary{background: var(--color_primary)!important;}

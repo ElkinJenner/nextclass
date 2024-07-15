@@ -67,6 +67,8 @@
         }
     }
 }
+.consultancies .inv_table tbody td{border-bottom: 1px solid rgb(101 110 137 / 16%); border-right: 1px solid #e9ecef;}
+.consultancies .inv_table tbody tr:nth-of-type(odd){background: none!important;}
 .inv_total{
     display: flex;
     justify-content: right;
