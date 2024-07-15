@@ -21,14 +21,12 @@
                 <h6 class="color_subtitle font_w600">Profesores</h6>
             </div>
             <div class="df gap025">
-                <button class="button bg_span color_light"><i class="ki-outline ki-element-plus sz20"></i></button>
+                <button class="button bg_dark color_light"><i class="ki-outline ki-element-plus sz20"></i></button>
                 <button class="button"><i class="ki-outline ki-row-horizontal sz20"></i></button>
                 
             </div>
         </article>
         <section class="professors">
-            <ul class="professors_category">
-            </ul>
             <div class="professors_item">
                 <a href="/profesor" class="item_professor b0" th:each="profesor : ${profesores}">
                     <figure th:style="'background-image:url(upload/professors/' + ${profesor.fotoPerfil} + ');'"></figure>

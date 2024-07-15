@@ -25,17 +25,17 @@
                     Categoria</p>
             </div>
             <div class="df gap025">
-                <button class="button button_2">Historial</button>
-                <button class="button button_2 bg_primary color_light sz15"> <i class="bx bx-message-square-add sz16"></i>
-                <span>Invitar</span></button>
+                <button class="button bg_dark color_light"><i class="ki-outline ki-element-plus sz20"></i></button>
+                <button class="button"><i class="ki-outline ki-row-horizontal sz20"></i></button>
+            
             </div>
         </article>
         <section class="course">
             <div class="theme_item" th:each="asesoria : ${asesorias}">
 
-                <a th:href="@{/asesoria}" class="item_theme">
+                <a th:href="@{/sesion}" class="item_theme b1">
                     <div class="desc_course">
-                        <h5 class="font_b" th:text="${asesoria.tema}">Tema de Asesoría</h5><br>
+                        <h5 class="font_w600" th:text="${asesoria.tema}">Tema de Asesoría</h5><br>
                         <img src="img/stars.png">
                     </div>
                     <div class="profile_contender">
@@ -43,8 +43,8 @@
                             <img th:src="@{'upload/professors/' + ${asesoria.fotoPerfil}}" alt="Foto del profesor">
                         </div>
                         <div class="profile_info">
-                            <h6 class="color_dark sz18" th:text="${asesoria.nomProfesor}">Nombre del Profesor</h6>
-                            <small class="color_lead" th:text="${asesoria.profesion}">Profesión</small>
+                            <h6 class="color_dark sz18 font_w600" th:text="${asesoria.nomProfesor}">Nombre del Profesor</h6>
+                            <small class="color_subspan" th:text="${asesoria.profesion}">Profesión</small>
                         </div>
                     </div>
                 </a>

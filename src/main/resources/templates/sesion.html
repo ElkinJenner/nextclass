@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposiciones simples y complejas | Nextclass</title>
+    <link th:include="components/link"></link>
+</head>
+
+<body class="light_mode">
+    <header th:include="components/menu_app"></header>
+    <main class="main_wrapper">
+        <header th:include="components/nav_panel"></header>
+        <article class="title_page df jcsb mt1">
+            <div class="dg">
+                <small class="df alit_c gap025 font_w500 mb05 color_subspan">
+                    <i class="ki-outline ki-calendar color_span"></i>
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>Cursos</span>
+                    <i class="ki-outline ki-right sz10 color_span"></i>
+                    <span>Asesoria</span>
+                </small>
+                <h6 class="color_subtitle font_w600">Asesoria</h6>
+            </div>
+        </article>
+        <section class="advisory">
+            <aside class="column">
+                <div class="column-3">
+                    <div class="posit_rel bg_dark br2 height40x mr2">
+                        <h5 class="color_light p1 sz24 font_w500"><br/>Requesitos para tomar la Asesoria </h5>
+                        <div class="p1">
+                            <p class="color_light">Conexión a internet  <span class="sz14">*Óptimas condiciones</span></p>
+                            <p class="color_light">Perifericos (Audifonos, Cámara web)</p>
+                            <p class="color_light">Previo conocimiento</p>
+                        </div>
+                        <button class="ml1 button button_2 bg_secondary color_light sz15">Detalles </button>
+                        <figure>
+                            <img class="height30x br1"
+                                src="https://preview.keenthemes.com/start-react-pro/media/illustrations/terms-2.png">
+                        </figure>
+                    </div>
+                </div>
+                <div class="column-6">
+                    <div class="b1 br1 p2">
+                        <article class="title mt1 mb2">
+                            <h4 class="color_title mb05 font_w700 sz28">Framework Spring Boot, Java Web application</h4>
+                            <p class="color_span font_w500">Programación web </p>
+                        </article>
+
+                        <article class="mt1 mb05">
+                            <small class="color_subspan p05 b1 br075 font_w600">Acerca de</small>
+                            <p class="color_span mt2">Spring Boot es una tecnología y extensión del framework Spring Framework para aplicaciones
+                                Java basadas en web que simplifica el proceso de configuración y desarrollo de aplicaciones Java. 
+                            </p>
+                        </article>
+
+                        <article class="df jcs gap1 mt1 mb05">
+                            <div class="df gap1">
+                                <div class="dg alit_b">
+                                    <small class="dib color_subspan p05 b1 br075 font_w600">Duración</small>
+                                    <p class="color_span mt05 sz15"><i class="ai-calendar"></i> 1 hora, 30 min</p>
+                                </div>
+                                <div class="dg alit_b">
+                                    <small class="color_subspan p05 b1 br075 font_w600">Capacidad</small>
+                                    <p class="color_span mt05 sz15"><i class="ai-people-multiple"></i> 2 personas</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="df jcs gap1 mt1 mb05">
+                                <div class="dg alit_b">
+                                    <small class="color_subspan p05 b1 br075 font_w600">Precio</small>
+                                    <p class="color_span mt05 sz15"><i class="ai-money"></i> 120.00</p>
+                                </div>
+                        </article>
+
+                        <article class="df jcs gap1 mt1 mb05">
+                            <div class="df gap1">
+                                <div class="alit_b">
+                                    <small class="dib color_subspan p05 mb05 b1 br075 font_w600">Horarios</small>
+                                    <div class="bd1 p1 br1 mb05">
+                                        <p class="df color_span sz16">Lunes: 12:00 pm - 13:30 pm</p>
+                                        <p class="df color_span sz16">Martes: 13:30 pm - 15:00 pm</p>
+                                    </div>
+                                    <small class="color_subspan">Disponible del 01 de Julio al 13 de Agosto</small>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="buttons_contender">
+                            <a class="button button_2 bg_verify color_light btn_abrir"><i class="ai-paper-airplane"></i> Inscribirse</a>
+                            <main class="modal_ventana_content hidden" id="modal" th:include="components/inscribirse_asesoria"></main>
+                        </article>
+                    </div>
+                </div>
+                <div class="column-2">
+                    <div class="posit_rel b1 br1 p1 ml1 mr1">
+                        <div class="df jcsb">
+                            <small class="dib color_subspan p05 mb05 b1 br075 font_w600">Tutor</small>
+                            <i class="ai-more-vertical-fill"></i>
+                        </div>
+                        <div class="dg mb05 tc">
+                            <img class="height15x br50 mc" src="upload/professors/docente15.jpg">
+                        </div>
+                        <div class="profile_info tc mb05">
+                            <h6 class="sz18">Luis Javier</h6>
+                            <p class="color_span sz15"><i class="ai-mention"></i> <span>luisj</span></p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
+    <links th:include="components/footer"></links>
+</body>
+</html>

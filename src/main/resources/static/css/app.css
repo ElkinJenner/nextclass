@@ -70,9 +70,9 @@ HEADER PANEL
     position: sticky;
     top: 0;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100%;
-    padding: .5rem 1rem;
+    padding: .5rem 1rem 0rem 0rem;
     margin-top: .5rem;
     gap: 1.5rem;
     align-items: center;
@@ -170,11 +170,11 @@ FORM
 .checkbox_item input[type="radio"]:checked+label, .checkbox_item input[type="checkbox"]:checked+label {
     display: initial;
     border-radius: 3rem;
-    outline: 2px solid var(--color_span);
+    outline: 2px solid var(--color_subspan);
 }
 .checkbox_item_small input[type="radio"]:checked+label, .checkbox_item_small input[type="checkbox"]:checked+label{
     border-radius: 1rem;
-    outline: 1px solid var(--color_span);
+    outline: 1px solid var(--color_subspan);
     background: var(--color_light);
 }
 .form_register label{
@@ -243,6 +243,7 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
 .item_professor{
     padding: 0;
     background: none;
+    height: 380px;
 }
 .item_course figure, .item_professor figure{
     height: 200px;
@@ -255,7 +256,7 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
 }
 .item_professor figure{
     position: relative;
-    height: 340px;
+    height: 380px;
     filter: brightness(.8);
     opacity: 0.91;
     border-radius: 2rem;
@@ -277,7 +278,6 @@ COURSES & COURSE / PROFESSORS & PROFESSOR
 .item_theme {
     position: relative;
     background: var(--color_light);
-    box-shadow: var(--box_shadow);
     border-radius: 1rem;
     height: 320px;
     display: block;
@@ -425,4 +425,11 @@ DROPDOW
     border-radius: 50%;
     width: 15px;
     height: 15px;
+}
+.body_select {
+    height: 350px;
+}
+.body_select_contender {
+    overflow-y: auto;
+    height: 320px;
 }

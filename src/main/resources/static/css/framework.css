@@ -106,6 +106,7 @@ SPACES
 .tl{text-align: left;}
 .tr{text-align: right;}
 .mc{margin: 0 auto;}
+.mt05{margin-top:.5rem;}
 .mt1{margin-top: 1rem;}
 .mt2{margin-top: 2rem;}
 .mt3{margin-top: 3rem;}
@@ -137,10 +138,10 @@ SPACES
 .p2{padding: 2rem;}
 .pt05{padding-top: .5rem;}
 .pb05{padding-bottom: .5rem;}
-.jcc{justify-content: center;}
-.jcr{justify-content: right;}
-.jcl{justify-content: left;}
-.jcsb{justify-content: space-between;}
+.jcc{justify-content: center!important;}
+.jcr{justify-content: right!important;}
+.jcl{justify-content: left!important;}
+.jcsb{justify-content: space-between!important;}
 /*------
 BUTTONS
 ------ */
@@ -262,9 +263,60 @@ input[type="time"] {
     color: var(--color_dark);
     background: transparent;
 }
+input[type="radio"] {
+    opacity: 0;
+}
 input::placeholder {
     color: var(--color_span);
 }
+
+textarea {
+    width: 100%;
+    padding: .8rem;
+    margin: .8rem auto;
+    border: 1px solid var(--color_border);
+    font-size: 1.2rem;
+    border-radius: .5rem;
+    color: var(--color_span);
+    background: transparent;
+    height: 200px;
+    outline: transparent;
+}
+.checkbox_radio label {
+      padding-left: 30px;
+      position: relative;
+      cursor: pointer;
+      color: var(--color_border);
+      font-size: 16px;
+  }
+
+.checkbox_radio label::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--color_border);
+      border-radius: 50%;
+  }
+  .checkbox_radio input[type="radio"]:checked+label::before {
+      border-color: var(--color_primary);
+      background-color: var(--color_primary);
+  }
+
+  .checkbox_radio input[type="radio"]:checked+label::after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--color_light);
+  }
 
 .profile-pic-container {
     position: relative;
@@ -341,7 +393,9 @@ DISPLAYS
 .dt{display: table;}
 .dc{display: contents;}
 .dif{display: inline-flex;}
+.dib{display: inline-block;}
 .db{display: block;}
+.cgap05{column-gap: .5rem;}
 .gap025{gap: .25rem;}
 .gap05{gap: .5rem;}
 .gap1{gap: 1rem;}
