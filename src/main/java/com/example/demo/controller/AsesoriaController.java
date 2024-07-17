@@ -20,14 +20,11 @@ import jakarta.servlet.http.HttpSession;
 public class AsesoriaController {
 
     @Autowired
-    private AsesoriasDaoImpl asesoriaDao; // DAO para acceder a las asesorías
+    private AsesoriasDaoImpl asesoriaDao;
 
     @Autowired
-    private HttpSession session; // Sesión HTTP para almacenar datos de sesión
+    private HttpSession session;
 
-
-
-    // Método para procesar el formulario de registro de asesoría
     @PostMapping("/registrar_asesoria")
     public String registrarAsesoria(@RequestParam("idProfesor") Long idProfesor,
             @RequestParam("tema") String tema,
@@ -40,41 +37,30 @@ public class AsesoriaController {
             @RequestParam("fechafinal") String fechaFinal,
             RedirectAttributes redirectAttributes) {
 
-        // Verificar la sesión del usuario
         Usuarios usuario = (Usuarios) session.getAttribute("usuarios");
         if (usuario != null && usuario.getTipoUsuario().equals("Profesor")) {
-            // El usuario es un profesor, por lo tanto, asignar el ID del profesor a la
-            // asesoría
-            idProfesor = usuario.getIdUsuario(); // devuelve el ID del profesor
+            idProfesor = usuario.getIdUsuario();
         } else {
-            // redirigir a login si el usuario no es profesor.
             return "redirect:/login";
         }
 
-        // Crear una nueva asesoría
         Asesorias nuevaAsesoria = new Asesorias();
         nuevaAsesoria.setIdProfesor(idProfesor);
         nuevaAsesoria.setTema(tema);
         nuevaAsesoria.setCapacidad(capacidad);
         nuevaAsesoria.setDescripcion(descripcion);
 
-        // Convertir duracion de String a LocalTime
         LocalTime duracionTime = LocalTime.parse(duracion);
         nuevaAsesoria.setDuracion(duracionTime);
-
         nuevaAsesoria.setPrecio(precio);
         nuevaAsesoria.setIdCurso(idCurso);
 
-        // Convertir fechas de String a LocalDate
         LocalDate fechaInicio = LocalDate.parse(fechaInicial);
         LocalDate fechaFin = LocalDate.parse(fechaFinal);
         nuevaAsesoria.setFechaInicial(fechaInicio);
         nuevaAsesoria.setFechaFinal(fechaFin);
 
-        // Guardar la nueva asesoría en la base de datos
         asesoriaDao.save(nuevaAsesoria);
-
-        // Redirigir a pagina de index.
 
         return "redirect:/index";
     }

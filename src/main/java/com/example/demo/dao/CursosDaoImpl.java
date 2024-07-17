@@ -28,18 +28,21 @@ public class CursosDaoImpl extends CrudDaoImpl<Cursos, Long> {
             curso.setIdCategoriaCurso(rs.getLong("idCategoriaCurso"));
             curso.setNombreCurso(rs.getString("curso"));
             curso.setImagenCurso(rs.getString("imagenCurso"));
+            curso.setCategoriaCurso(rs.getString("categoriaCurso")); // Mapeo del nuevo campo
             return curso;
         };
     }
 
     @Override
     public List<Cursos> findAll() {
-        String sql = "SELECT idCurso, idCategoriaCurso, curso, imagenCurso FROM cursos";
+        String sql = "SELECT c.idCurso, c.idCategoriaCurso, c.curso, c.imagenCurso, cc.categoriaCurso " +
+                "FROM cursos c " +
+                "INNER JOIN categoriacursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso";
         return namedParameterJdbcTemplate.query(sql, getRowMapper());
     }
 
     public List<Cursos> findAllWithCategoriaNombre(int offset, int limit) {
-        String sql = "SELECT c.idCurso, cc.idCategoriaCurso, c.curso, c.imagenCurso " +
+        String sql = "SELECT c.idCurso, c.idCategoriaCurso, c.curso, c.imagenCurso, cc.categoriaCurso " +
                 "FROM cursos c " +
                 "INNER JOIN categoriacursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
                 "ORDER BY c.curso ASC " +
@@ -53,7 +56,7 @@ public class CursosDaoImpl extends CrudDaoImpl<Cursos, Long> {
     }
 
     public List<Cursos> findByCategoriaWithPagination(String categoria, int offset, int limit) {
-        String sql = "SELECT c.idCurso, cc.idCategoriaCurso, c.curso, c.imagenCurso " +
+        String sql = "SELECT c.idCurso, c.idCategoriaCurso, c.curso, c.imagenCurso, cc.categoriaCurso " +
                 "FROM cursos c " +
                 "INNER JOIN categoriacursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
                 "WHERE cc.categoriaCurso = :categoria " +

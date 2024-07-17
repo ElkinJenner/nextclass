@@ -10,7 +10,7 @@
     <article class="mv_body">
         <form method="POST" class="p1" action="/registrar_asesoria">
             <aside class="form_column">
-                <input type="text" name="idProfesor" value="1"/>
+                <input type="text" name="idProfesor"/>
                 <div class="group_2">
                     <label>Tema</label>
                     <input type="text" name="tema"/>
@@ -34,22 +34,15 @@
                     <label class="db mb05">Categoria / Curso</label>
                     <article class="body_select">
                         <div class="body_select_contender">
-
-
-                            <div th:each="curso : ${cursos}">
-                                <div class="checkbox_content mb2 cgap05 gap025 mt1 ml1">
-                                    <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                                        <input type="radio" name="idCurso" th:value="${curso.idCurso}" id="curso-${curso.idCurso}">
-                                        <label th:for="${'curso-' + curso.idCurso}" class="p05">
-                                            <img class="height10x br1" th:src="${curso.imagenCurso}">
-                                            <small class="db" th:text="${curso.nombreCurso}"></small>
-                                        </label>
-                                    </fieldset>
-                                </div>
+                            <div class="checkbox_content mb2 cgap05 gap025 mt1 ml1">
+                                <fieldset class="checkbox_item posit_rel checkbox_item_small" th:each="curso : ${cursos}" style="width: 100px;">
+                                    <input type="radio" name="idCurso" th:value="${curso.idCurso}" id="curso-${curso.idCurso}">
+                                    <label th:for="${'curso-' + curso.idCurso}" class="p05">
+                                        <img class="db height10x br1" th:src="@{'/upload/courses/' + ${curso.imagenCurso}}">
+                                        <small class="db" th:text="${curso.nombreCurso}"></small>
+                                    </label>
+                                </fieldset>
                             </div>
-
-                                 
-
                         </div>
                     </article>
                 </div>

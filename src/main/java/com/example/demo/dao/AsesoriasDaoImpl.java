@@ -13,7 +13,7 @@ import com.example.demo.model.Asesorias;
 @Repository
 public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
 
-    @Autowired // AnotaciÃ³n que permite acceder a la capa de datos
+    @Autowired
     protected JdbcTemplate jdbcTemplate;
 
     @Override
@@ -31,7 +31,7 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
             asesoria.setTema(rs.getString("tema"));
             asesoria.setDescripcion(rs.getString("descripcion"));
 
-            // COnvert sql.Time a LocalTime
+            // Convert sql.Time a LocalTime
             Time duracionSql = rs.getTime("duracion");
             LocalTime duracion = duracionSql.toLocalTime();
             asesoria.setDuracion(duracion);
@@ -60,7 +60,7 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
     public void save(Asesorias entity) {
         String sql = "INSERT INTO asesorias (idCurso, idProfesor, tema, descripcion, duracion, precio, capacidad, fechaInicial, fechaFinal) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, entity.getIdCurso(), entity.getIdProfesor(), entity.getTema(), entity.getDescripcion(),
-                entity.getDuracion(), entity.getPrecio(), entity.getCapacidad(), entity.getFechaInicial(),
+                Time.valueOf(entity.getDuracion()), entity.getPrecio(), entity.getCapacidad(), entity.getFechaInicial(),
                 entity.getFechaFinal());
     }
 
@@ -68,7 +68,7 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
     public void update(Asesorias entity) {
         String sql = "UPDATE asesorias SET idCurso = ?, idProfesor = ?, tema = ?, descripcion = ?, duracion = ?, precio = ?, capacidad = ?, fechaInicial = ?, fechaFinal = ? WHERE idAsesoria = ?";
         jdbcTemplate.update(sql, entity.getIdCurso(), entity.getIdProfesor(), entity.getTema(), entity.getDescripcion(),
-                entity.getDuracion(), entity.getPrecio(), entity.getCapacidad(), entity.getFechaInicial(),
+                Time.valueOf(entity.getDuracion()), entity.getPrecio(), entity.getCapacidad(), entity.getFechaInicial(),
                 entity.getFechaFinal(), entity.getIdAsesoria());
     }
 
