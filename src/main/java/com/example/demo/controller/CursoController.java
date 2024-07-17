@@ -17,11 +17,12 @@ public class CursoController {
     private CursoDaoImpl asesoriasDao;
 
     // Mapeo de las asesorias de un curso respectivo
-    @RequestMapping("/curso")
+    @RequestMapping("/curso")//Direccion
     public String getCurso(@RequestParam("curso") String curso, Model model) {
         List<Asesorias> asesorias = asesoriasDao.findByCurso(curso);
         model.addAttribute("asesorias", asesorias);
         model.addAttribute("curso", curso);
+        //Interfaz HTML. En Este caso curso.html
         return "curso";
     }
 }

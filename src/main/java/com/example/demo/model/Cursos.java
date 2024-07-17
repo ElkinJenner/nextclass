@@ -38,4 +38,12 @@ public class Cursos {
     public void setCategoriaCurso(String categoriaCurso) {
         this.categoriaCurso = categoriaCurso;
     }
+    
+    @Override
+    public String toString() {
+        return "Cursos{" +
+                "idCurso=" + idCurso +
+                ", curso='" + nombreCurso + '\'' +
+                '}';
+    }
 }

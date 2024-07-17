@@ -6,6 +6,8 @@ import com.example.demo.model.Paises;
 import com.example.demo.model.Usuarios;
 import com.example.demo.utils.Validation;
 
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,13 +39,16 @@ public class RegistroController {
     @Autowired
     private UsuariosDaoImpl usuariosDao; // Inyección de UsuariosDaoImpl
 
+    @Autowired
+    private HttpSession session; // Inyeccion de session HTTPP
+
     // Método para obtener la lista de países y renderizar la página registrarse
     @GetMapping("/registrarse")
     // showPaises
     public String showRegistro(Model model) {
         List<Paises> paisesList = paisesDao.findAll();
 
-        // Mapear imágenes a países
+        // Mapear imágenes de países
         Map<String, String> paisesImages = new HashMap<>();
         paisesImages.put("Argentina", "upload/flags/argentina.png");
         paisesImages.put("Bolivia", "upload/flags/bolivia.png");
@@ -72,17 +77,17 @@ public class RegistroController {
         model.addAttribute("tiposUsuarioImages", usuarioComponent.getTiposUsuarioImages());
         return "registrarse";
     }
-    @PostMapping("/registrarse")
-    public String registrarUsuario(@RequestParam("tipoUsuario") String tipoUsuario,
-                                   @RequestParam("nombres") String nombres,
-                                   @RequestParam("apellidos") String apellidos,
-                                   @RequestParam("usuario") String usuario,
-                                   @RequestParam("contrasena") String contrasena,
-                                   @RequestParam("repetircontrasena") String repetirContrasena,
-                                   @RequestParam("email") String email,
-                                   @RequestParam("telefono") int telefono,
-                                   @RequestParam("paises") Long idPais,
-                                   RedirectAttributes redirectAttributes) {
+        @PostMapping("/registrarse")
+        public String registrarUsuario(@RequestParam("tipoUsuario") String tipoUsuario,
+        @RequestParam("nombres") String nombres,
+        @RequestParam("apellidos") String apellidos,
+        @RequestParam("usuario") String usuario,
+        @RequestParam("contrasena") String contrasena,
+        @RequestParam("repetircontrasena") String repetirContrasena,
+        @RequestParam("email") String email,
+        @RequestParam("telefono") int telefono,
+        @RequestParam("paises") Long idPais,
+        RedirectAttributes redirectAttributes) {
         // Validar que las contraseñas coinciden
         if (!contrasena.equals(repetirContrasena)) {
             redirectAttributes.addFlashAttribute("error", "Las contraseñas no coinciden");
@@ -115,6 +120,9 @@ public class RegistroController {
 
         // Guardar el nuevo usuario
         usuariosDao.save(nuevoUsuario);
+
+        // Crear una session para el nuevo usuario
+        session.setAttribute("usuarios", nuevoUsuario);
 
         // Redirigir a la página de inicio después de un registro exitoso
         return "redirect:/index";

@@ -1,5 +1,9 @@
 package com.example.demo.model;
 
+import java.math.BigDecimal;
+import java.time.LocalTime;
+import java.time.LocalDate;
+
 public class Asesorias {
     // Atributos
     private Long idAsesoria;
@@ -12,8 +16,13 @@ public class Asesorias {
     private String fotoPerfil;
     private String profesion;
     private String categoriaCurso;
+    private LocalTime duracion;
+    private BigDecimal precio;
+    private int capacidad;
+    private LocalDate fechaInicial;
+    private LocalDate fechaFinal;
 
-    // Constructores, getters y setters
+    // Getters and Setters
     public Long getIdAsesoria() {
         return idAsesoria;
     }
@@ -93,4 +102,45 @@ public class Asesorias {
     public void setCategoriaCurso(String categoriaCurso) {
         this.categoriaCurso = categoriaCurso;
     }
+
+    public LocalTime getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(LocalTime duracion) {
+        this.duracion = duracion;
+    }
+
+    public BigDecimal getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(BigDecimal precio) {
+        this.precio = precio;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    public LocalDate getFechaInicial() {
+        return fechaInicial;
+    }
+
+    public void setFechaInicial(LocalDate fechaInicial) {
+        this.fechaInicial = fechaInicial;
+    }
+
+    public LocalDate getFechaFinal() {
+        return fechaFinal;
+    }
+
+    public void setFechaFinal(LocalDate fechaFinal) {
+        this.fechaFinal = fechaFinal;
+    }
+    
 }

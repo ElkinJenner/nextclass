@@ -9,89 +9,46 @@
 </head>
 
 <body class="light_mode">
-    <main class="invoice column-8 mc mt5" th:each="recibo : ${recibosList}">
-        <article class="inv_header">
-            <div class="inv_date">
-                <p class="color_lead sz16">Factura n° <small th:text="${recibo.idRecibo}"></small></p>
-                <small class="color_span">05/06/2024</small>
-            </div>
-            <div class="inv_act color_span">
-                <form action="/recibos/download" method="get">
-                    <button type="submit"><i class='bx bx-file-blank'></i></button>
-                </form>
-                <i class='bx bx-envelope'></i>
-                <i class='bx bx-printer'></i>
-            </div>
-        </article>
-        <figure class="inv_logo">
-            <img src="img/logo.png">
-        </figure>
-        <article class="inv_idd">
-            <div class="ind_des">
-                <p>Factura de </p>
-                <p><strong> Ing. <span th:text="${recibo.nombreProfesor}"></span></strong></p><br>
-                <p class="color_lead sz16">1200 Anfiteatro Parkway
-                    Mountain View, CA 10486</p>
-                <p class="color_lead sz16">Teléfono: +1 888-555-0000</p>
-            </div>
-
-            <div class="ind_det">
-                <p>Factura Para:</p>
-                <p><strong>
-                        <div th:text="${recibo.nombreEstudiante}"></div>
-                    </strong></p><br>
-                <p class="color_lead sz16">Calle Alegada Way
-                    Filadelfia, PA 10486</p>
-                <p class="color_lead sz16">Teléfono: +7 313-020-0207</p>
-            </div>
-        </article>
-        <table class="inv_table">
-            <thead>
-                <tr>
-                    <th><i class="ai-hashtag"></i> ID Recibo</th>
-                    <th>Nombre del Profesor</th>
-                    <th>Nombre del Estudiante</th>
-                    <th>Curso</th>
-                    <th>Precio</th>
-                    <th>Tema</th>
-                    <th>Descripción</th>
-
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                <tr th:each="recibo : ${recibosList}">
-                    <td th:text="${recibo.idRecibo}">ID Recibo</td>
-                    <td th:text="${recibo.nombreProfesor}">Nombre del Profesor</td>
-                    <td th:text="${recibo.nombreEstudiante}">Nombre del Estudiante</td>
-                    <td th:text="${recibo.curso}">Curso</td>
-                    <td th:text="${recibo.precio}">Precio</td>
-                    <td th:text="${recibo.tema}">Tema</td>
-                    <td th:text="${recibo.descripcion}">Descripción</td>
-                </tr>
-                </tr>
-
-            </tbody>
-        </table>
-        <article class="inv_total">
-            <div class="inv_des">
-                <p class="color_lead">SUBTOTAL</p>
-                <p class="color_lead">15% COMISIÓN</p>
-                <p> <strong>TOTAL</strong></p>
-            </div>
-            <div class="inv_pay">
-                <small>$15.0</small>
-                <small>$2,25</small>
-                <p><strong>$17,25</strong></p>
-            </div>
-        </article>
-        <article class="inv_adv">
-            <small><strong>COMUNICADO: </strong> El 15% de comisión aportado por el docente via el pago del estudiante,
-                se utilizará para mantener el software con mejoras continuas y fortalecerlos de nuevas herramientas.
-                Todo para el beneficio del estudiante.</small>
-        </article>
-    </main>
+<main class="invoice column-8 mc mt5" th:each="recibo : ${recibosList}">
+    <article class="inv_header">
+        <div class="inv_date">
+            <p class="color_lead sz16">Factura n° <small th:text="${recibo.idRecibo}"></small></p>
+            <small class="color_span">05/06/2024</small>
+        </div>
+        <div class="inv_barcode"> </div>
+    </article>
+    <section class="inv_data">
+        <div class="inv_data_from">
+            <p class="sz16 color_lead" th:text="${recibo.nombreProfesor}"></p>
+            <p class="sz16" th:text="${recibo.curso}"></p>
+        </div>
+        <div class="inv_data_from">
+            <p class="sz16 color_lead" th:text="${recibo.nombreEstudiante}"></p>
+        </div>
+    </section>
+    <table class="inv_table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${recibo.tema}"></td>
+                <td th:text="${recibo.precio}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="inv_total">
+        <small class="color_span">Total:</small>
+        <p class="color_primary sz40" th:text="${recibo.precio}"></p>
+    </div>
+    <div class="inv_note">
+        <h3 class="color_span mb1">Descripción</h3>
+        <p th:text="${recibo.descripcion}"></p>
+    </div>
+</main>
 </body>
 
 </html>

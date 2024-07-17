@@ -1,19 +1,21 @@
 package com.example.demo.model;
 
+import java.sql.Date;
+
 public class Inscripciones {
     //Atributos
     private Long idInscripcion;
     private int idSesion;
-    private int idHorario;
     private int idEstudiante;
+    private Date fechaInscripcion;
     //Constructores
     public Inscripciones(){}//Constructor Vacio
     //Constructor con parametros
-    public Inscripciones(Long idInscripcion, int idSesion, int idHorario, int idEstudiante) {
+    public Inscripciones(Long idInscripcion, int idSesion, int idEstudiante, Date fechaInscripcion) {
         this.idInscripcion = idInscripcion;
         this.idSesion = idSesion;
-        this.idHorario = idHorario;
         this.idEstudiante = idEstudiante;
+        this.fechaInscripcion = fechaInscripcion;
     }
     //Getters y setters
     public Long getIdInscripcion() {
@@ -28,16 +30,17 @@ public class Inscripciones {
     public void setIdSesion(int idSesion) {
         this.idSesion = idSesion;
     }
-    public int getIdHorario() {
-        return idHorario;
-    }
-    public void setIdHorario(int idHorario) {
-        this.idHorario = idHorario;
-    }
     public int getIdEstudiante() {
         return idEstudiante;
     }
     public void setIdEstudiante(int idEstudiante) {
         this.idEstudiante = idEstudiante;
-    }    
+    }
+    public Date getFechaInscripcion() {
+        return fechaInscripcion;
+    }
+    public void setFechaInscripcion(Date fechaInscripcion) {
+        this.fechaInscripcion = fechaInscripcion;
+    }
+    
 }

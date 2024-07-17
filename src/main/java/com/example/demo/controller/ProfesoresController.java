@@ -27,7 +27,7 @@ public class ProfesoresController {
     @Autowired
     private PaisesComponent paisesComponent; // Inyectamos PaisesComponent
 
-    private static final int PAGE_SIZE = 10; // Tamaño de página para la paginación
+    private static final int PAGE_SIZE = 10; // Tamaño de registros por página para la paginación
 
     @GetMapping("/profesores")
     public String listarProfesores(

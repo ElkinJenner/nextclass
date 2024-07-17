@@ -32,7 +32,7 @@ public class RecibosDaoImpl extends CrudDaoImpl<Recibos, Long> {
                 recibo.setCurso(rs.getString("curso"));
                 recibo.setPrecio(rs.getBigDecimal("precio"));
                 recibo.setTema(rs.getString("tema"));
-                recibo.setDescripcion(rs.getString("descripcionC"));
+                recibo.setDescripcion(rs.getString("descripcion"));
                 return recibo;
             }
         };
@@ -41,15 +41,14 @@ public class RecibosDaoImpl extends CrudDaoImpl<Recibos, Long> {
     @Override
     public List<Recibos> findAll() {
         String sql = "SELECT r.idRecibo, r.idPago, r.idProfesor, p.idEstudiante, " +
-                "profesor.nombres as nombreProfesor, estudiante.nombres as nombreEstudiante, " +
-                "c.curso, s.precio, a.tema, a.descripcion as descripcionC " +
+                "profesor.nombres AS nombreProfesor, estudiante.nombres AS nombreEstudiante, " +
+                "c.curso, a.precio, a.tema, a.descripcion AS descripcionC " +
                 "FROM recibos r " +
                 "INNER JOIN pagos p ON r.idPago = p.idPago " +
                 "INNER JOIN usuarios profesor ON r.idProfesor = profesor.idUsuario " +
                 "INNER JOIN estudiantes e ON p.idEstudiante = e.idEstudiante " +
                 "INNER JOIN usuarios estudiante ON e.idUsuario = estudiante.idUsuario " +
-                "INNER JOIN sesiones s ON p.idSesion = s.idSesion " +
-                "INNER JOIN asesorias a ON s.idAsesoria = a.idAsesoria " +
+                "INNER JOIN asesorias a ON p.idAsesoria = a.idAsesoria " + // Cambio aquí
                 "INNER JOIN cursos c ON a.idCurso = c.idCurso";
         return jdbcTemplate.query(sql, getRowMapper());
     }
@@ -57,15 +56,14 @@ public class RecibosDaoImpl extends CrudDaoImpl<Recibos, Long> {
     @Override
     public Recibos findById(Long id) {
         String sql = "SELECT r.idRecibo, r.idPago, r.idProfesor, p.idEstudiante, " +
-                "profesor.nombres as nombreProfesor, estudiante.nombres as nombreEstudiante, " +
-                "c.curso, s.precio, a.tema, a.descripcion as descripcionC " +
+                "profesor.nombres AS nombreProfesor, estudiante.nombres AS nombreEstudiante, " +
+                "c.curso, a.precio, a.tema, a.descripcion AS descripcionC " +
                 "FROM recibos r " +
                 "INNER JOIN pagos p ON r.idPago = p.idPago " +
                 "INNER JOIN usuarios profesor ON r.idProfesor = profesor.idUsuario " +
                 "INNER JOIN estudiantes e ON p.idEstudiante = e.idEstudiante " +
                 "INNER JOIN usuarios estudiante ON e.idUsuario = estudiante.idUsuario " +
-                "INNER JOIN sesiones s ON p.idSesion = s.idSesion " +
-                "INNER JOIN asesorias a ON s.idAsesoria = a.idAsesoria " +
+                "INNER JOIN asesorias a ON p.idAsesoria = a.idAsesoria " + // Cambio aquí
                 "INNER JOIN cursos c ON a.idCurso = c.idCurso " +
                 "WHERE r.idRecibo = ?";
         List<Recibos> results = jdbcTemplate.query(sql, getRowMapper(), id);

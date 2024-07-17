@@ -15,14 +15,14 @@ import java.util.List;
 @Controller
 public class CursosController {
 
-    @Autowired // Inyecta automáticamente la instancia de CursosDaoImpl
+    @Autowired // Inyecta automáticamente la instancia de CursosDaoImpl y crea una variable
     private CursosDaoImpl cursosDao;
 
-    @Autowired // Inyecta automáticamente la instancia de CategoriaCursosDaoImpl
+    @Autowired // Inyecta automáticamente la instancia de CategoriaCursosDaoImpl y crea una variable
     private CategoriaCursosDaoImpl categoriaCursosDao;
 
-    private static final int PAGE_SIZE = 10; // Tamaño de página para la paginación
-
+    private static final int PAGE_SIZE = 10; // Tamaño de página para la paginación. Esto muestro 10 registros en la primera página
+    
     @GetMapping("/cursos")
     public String listarCursosYcategorias(
             @RequestParam(value = "page", defaultValue = "1") int page, // Parámetro de página

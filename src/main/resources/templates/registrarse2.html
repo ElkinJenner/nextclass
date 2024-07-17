@@ -13,7 +13,6 @@
 <body class="light_mode">
     <header th:include="components/menu_app"></header>
     <main class="main_wrapper">
-        <header th:include="components/nav_panel"></header>
         <article class="title_page df jcsb mt1">
             <div class="dg">
                 <small class="df alit_c gap025 font_w500 mb05 color_subspan">
@@ -33,7 +32,7 @@
                     <label>Foto Perfil</label>
                     <div class="profile-pic-container mt1">
                         <img id="profile-pic" src="upload/students/default_profile.jpg" alt="Default">
-                        <input type="file" id="file-input" accept="image/*" onchange="loadFile(event)">
+                        <input name="fotoPerfil" type="file" id="file-input" accept="image/*" onchange="loadFile(event)">
                         <label for="file-input">
                             <i class="ki-outline ki-pencil"></i>
                         </label>
@@ -79,8 +78,8 @@
                 <div class="group">
                     <label>Foto Perfil</label>
                     <div class="profile-pic-container mt1">
-                        <img id="profile-pic" src="upload/students/default_profile.jpg" alt="Default">
-                        <input type="file" id="file-input" accept="image/*" onchange="loadFile(event)">
+                        <img id="profile-pic" src="upload/professors/default_profile.jpg" alt="Default">
+                        <input name="fotoPerfil" type="file" id="file-input" accept="image/*" onchange="loadFile(event)">
                         <label for="file-input">
                             <i class="ki-outline ki-pencil"></i>
                         </label>
@@ -88,30 +87,13 @@
                 </div>
         
                 <div class="group">
-                    <label>Nivel Academico</label>
-                    <div class="checkbox_content mt2 mb2">
-                        <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                            <input type="radio" name="nivelAcademico" id="primaria" value="1">
-                            <label for="primaria" class="p05 tc">
-                                <img class="height5x" src="upload/academic/primaria.png">
-                                <small class="db">Primaria</small>
-                            </label>
-                        </fieldset>
-                        <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                            <input type="radio" name="nivelAcademico" id="secundaria" value="2">
-                            <label for="secundaria" class="p05 tc">
-                                <img class="height5x" src="upload/academic/secundaria.png">
-                                <small class="db">Secundaria</small>
-                            </label>
-                        </fieldset>
-                        <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                            <input type="radio" name="nivelAcademico" id="universitaria" value="2">
-                            <label for="universitaria" class="p05 tc">
-                                <img class="height5x mc" src="upload/academic/universitaria.png">
-                                <small class="db">Universitario</small>
-                            </label>
-                        </fieldset>
-                    </div>
+                    <label>Profesión</label>
+                    <input type="text" name="profesion">
+                </div>
+
+                <div class="group">
+                    <label>Acerca de mi</label>
+                    <textarea name="profesion"></textarea>
                 </div>
         
                 <div class="df gap05 alit_c mt1">

@@ -27,8 +27,8 @@ public class LoginController {
             throws NoSuchAlgorithmException, IOException, CloneNotSupportedException {
         Usuarios user = loginService.validateUser(email, password);
         if (user != null) {
-            // Si los credenciales son correctos, se accede a la plataforma de la aplicación
-            return new ModelAndView("redirect:/index");
+            // Si los credenciales son correctos, se accede a la plataforma de la aplicación. Página index.html
+            return new ModelAndView("redirect:/.");
         } else {
             // En caso contrario, no te permite el acceso y te quedas en la página
             // login.html

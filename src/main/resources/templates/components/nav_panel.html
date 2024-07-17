@@ -11,8 +11,7 @@
         </li>
         <li class="profile_picture" id="dropdow_toogle">
 
-        <img
-            th:src="@{upload/{tipo}/{foto}(tipo=${usuarios != null ? (usuarios.tipoUsuario == 'Estudiante' ? 'students' : 'professors') : 'students'}, foto=${usuarios != null ? usuarios.fotoPerfil : 'default_profile.jpg'})}" />
+        <img th:src="@{upload/{tipo}/{foto}(tipo=${usuarios != null ? (usuarios.tipoUsuario == 'Estudiante' ? 'students' : 'professors') : 'students'}, foto=${usuarios != null ? usuarios.fotoPerfil : 'default_profile.jpg'})}" />
         
         </li>
         <article class="dropdow_menu hidden" id="dropdow_menu" th:include="components/profile"></article>

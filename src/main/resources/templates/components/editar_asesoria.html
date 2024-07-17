@@ -1,0 +1,113 @@
+<section class="modal_ventana column-8 mc mt2 bg_light">
+    <article class="mv_head df jcsb blb1">
+        <div class="heading p1">
+            <h4 class="font_w600 sz24"> Editar asesoria </h4>
+        </div>
+        <a class="btn_cerrar">
+            <div class="close color_text"><i class="ai-x-small"></i></div>
+        </a>
+    </article>
+    <article class="mv_body">
+        <form method="POST" class="p1">
+            <aside class="form_column">
+                <input type="hidden" name="idProfesor" value="idProfesor" />
+                <div class="group_2">
+                    <label>Tema</label>
+                    <input type="text" name="tema" value="Framework JSF Java Server Face" />
+                </div>
+
+                <div class="group_2">
+                    <label>Capacidad</label>
+                    <input type="number" name="precio" value="2" />
+                </div>
+
+                <div class="group_2">
+                    <label>Descripción</label>
+                    <textarea name="descripcion">Spring Boot es una tecnología y extensión del framework Spring Framework para aplicaciones Java basadas en web que simplifica el proceso de configuración y desarrollo de aplicaciones Java.</textarea>
+                    <label>Duración</label>
+                    <input type="time" name="duracion"  value="10:30"/>
+                    <label>Precio</label>
+                    <input type="number" name="precio" step="0.01" min="0" value="120.00"/>
+                </div>
+
+                <div class="group_2">
+                    <label class="db mb05">Categoria / Curso</label>
+                    <article class="body_select">
+                        <div class="body_select_contender">
+                            <div class="checkbox_content mb2 cgap05 gap025 mt1 ml1">
+                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
+                                    <input type="radio" name="curso" id="curso-1" value="1">
+                                    <label for="curso-1" class="p05">
+                                        <img class="height10x br1" src="upload/courses/administracion_empresarial.jpg">
+                                        <small class="db">Administración empresarial</small>
+                                    </label>
+                                </fieldset>
+                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
+                                    <input type="radio" name="curso" id="curso-1" value="1">
+                                    <label for="curso-1" class="p05">
+                                        <img class="height10x br1" src="upload/courses/aeroespacial.jpg">
+                                        <small class="db">Aeroespacial Meteorológica</small>
+                                    </label>
+                                </fieldset>
+                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
+                                    <input type="radio" name="curso" id="curso-1" value="1">
+                                    <label for="curso-1" class="p05">
+                                        <img class="height10x br1" src="upload/courses/algebra_abstracta.jpg">
+                                        <small class="db">Algebra Abstracta</small>
+                                    </label>
+                                </fieldset>
+                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
+                                    <input type="radio" name="curso" id="curso-1" value="1">
+                                    <label for="curso-1" class="p05">
+                                        <img class="height10x br1" src="upload/courses/aritmetica.jpg">
+                                        <small class="db">Aritmetica</small>
+                                    </label>
+                                </fieldset>
+
+                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
+                                    <input type="radio" name="curso" id="curso-1" value="1">
+                                    <label for="curso-1" class="p05">
+                                        <img class="height10x br1" src="upload/courses/astronomia.jpg">
+                                        <small class="db">Astronomia</small>
+                                    </label>
+                                </fieldset>
+
+                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
+                                    <input type="radio" name="curso" id="curso-1" value="1">
+                                    <label for="curso-1" class="p05">
+                                        <img class="height10x br1" src="upload/courses/automatascom.jpg">
+                                        <small class="db">Automatas y compiladores</small>
+                                    </label>
+                                </fieldset>
+
+                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
+                                    <input type="radio" name="curso" id="curso-1" value="1">
+                                    <label for="curso-1" class="p05">
+                                        <img class="height10x br1" src="upload/courses/base_datos.jpg">
+                                        <small class="db">Base de datos</small>
+                                    </label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="group_2">
+                    <label>Fecha inicial</label>
+                    <input type="date" name="fechainicial" value="2024-05-16" />
+                </div>
+
+                <div class="group_2">
+                    <label>Fecha final </label>
+                    <input type="date" name="fechaifinal" value="2024-07-16"/>
+                </div>
+
+
+                <div class="users_btn">
+                    <button class="button button_2 bg_primary color_light sz16 font_w500" type="submit"> <i
+                            class="ai-save"></i> Guardar </button>
+                </div>
+            </aside>
+        </form>
+    </article>
+</section>

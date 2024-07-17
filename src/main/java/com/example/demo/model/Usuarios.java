@@ -15,6 +15,7 @@ public class Usuarios {
     private int telefono;
     private Long idPais;
     private String nombrePais; // Nuevo campo
+    private String ubicacion;
     private Date fechaRegistro;
 
     // Constructores
@@ -22,7 +23,7 @@ public class Usuarios {
     
     public Usuarios(Long idUsuario, String tipoUsuario, String nombres, String apellidos, String usuario,
             String contrasena, String email, String fotoPerfil, String codUsuario, int telefono, Long idPais,
-            String nombrePais, Date fechaRegistro) {
+            String nombrePais, String ubicacion, Date fechaRegistro) {
         this.idUsuario = idUsuario;
         this.tipoUsuario = tipoUsuario;
         this.nombres = nombres;
@@ -35,6 +36,7 @@ public class Usuarios {
         this.telefono = telefono;
         this.idPais = idPais;
         this.nombrePais = nombrePais;
+        this.ubicacion = ubicacion;
         this.fechaRegistro = fechaRegistro;
     }
     
@@ -133,6 +135,14 @@ public class Usuarios {
 
     public void setNombrePais(String nombrePais) {
         this.nombrePais = nombrePais;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
     public Date getFechaRegistro() {

@@ -37,11 +37,6 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-
-.modal_edit {
-    max-width: 600px;
-}
-
 .modal_completa .mv_head, .modal_ventana .mv_head {
     padding: .5rem;
     display: flex;
@@ -66,14 +61,6 @@
 .modal_ventana .mv_body .column {
     justify-content: space-between;
     padding-left: 3rem;
-}
-
-.modal_ventana .mv_body p {
-    line-height: 0%;
-}
-
-.modal_ventana .mv_footer {
-    padding: 1rem;
 }
 
 .modal_ventana .mv_footer .botons {

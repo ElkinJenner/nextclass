@@ -8,7 +8,7 @@
         </a>
     </article>
     <article class="mv_body">
-        <form method="POST" class="ml3">
+        <form method="POST" class="p1" action="/registrar_asesoria">
             <aside class="form_column">
                 <input type="hidden" name="idProfesor" value="idProfesor"/>
                 <div class="group_2">
@@ -25,16 +25,17 @@
                     <label>Descripción</label>
                     <textarea name="descripcion"></textarea>
                     <label>Duración</label>
-                    <input type="number" name="duracion" />
-                    <label>Precio</label>
-                    <input type="number" name="precio" />
+                    <input type="time" name="duracion" />
+                    <label class="db mt1">Precio</label>
+                    <input type="number" name="precio" step="0.01" min="0"/>
                 </div>
 
                 <div class="group_2">
                     <label class="db mb05">Categoria / Curso</label>
                     <article class="body_select">
                         <div class="body_select_contender">
-                            <div class="checkbox_content mb2 cgap05 gap025 mt1 ml1">
+
+                            <!--<div class="checkbox_content mb2 cgap05 gap025 mt1 ml1">
                                 <fieldset class="checkbox_item posit_rel checkbox_item_small">
                                     <input type="radio" name="curso" id="curso-1" value="1">
                                     <label for="curso-1" class="p05">
@@ -42,52 +43,22 @@
                                         <small class="db">Administración empresarial</small>
                                     </label>
                                 </fieldset>
-                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                                    <input type="radio" name="curso" id="curso-1" value="1">
-                                    <label for="curso-1" class="p05">
-                                        <img class="height10x br1" src="upload/courses/aeroespacial.jpg">
-                                        <small class="db">Aeroespacial Meteorológica</small>
-                                    </label>
-                                </fieldset>
-                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                                    <input type="radio" name="curso" id="curso-1" value="1">
-                                    <label for="curso-1" class="p05">
-                                        <img class="height10x br1" src="upload/courses/algebra_abstracta.jpg">
-                                        <small class="db">Algebra Abstracta</small>
-                                    </label>
-                                </fieldset>
-                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                                    <input type="radio" name="curso" id="curso-1" value="1">
-                                    <label for="curso-1" class="p05">
-                                        <img class="height10x br1" src="upload/courses/aritmetica.jpg">
-                                        <small class="db">Aritmetica</small>
-                                    </label>
-                                </fieldset>
+                            </div>-->
 
-                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                                    <input type="radio" name="curso" id="curso-1" value="1">
-                                    <label for="curso-1" class="p05">
-                                        <img class="height10x br1" src="upload/courses/astronomia.jpg">
-                                        <small class="db">Astronomia</small>
-                                    </label>
-                                </fieldset>
-
-                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                                    <input type="radio" name="curso" id="curso-1" value="1">
-                                    <label for="curso-1" class="p05">
-                                        <img class="height10x br1" src="upload/courses/automatascom.jpg">
-                                        <small class="db">Automatas y compiladores</small>
-                                    </label>
-                                </fieldset>
-
-                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                                    <input type="radio" name="curso" id="curso-1" value="1">
-                                    <label for="curso-1" class="p05">
-                                        <img class="height10x br1" src="upload/courses/base_datos.jpg">
-                                        <small class="db">Base de datos</small>
+                            <div class="checkbox_content mb2 cgap05 gap025 mt1 ml1">
+                                <fieldset th:each="cursos : ${cursosList}" class="checkbox_item posit_rel checkbox_item_small">
+                                    <input type="radio" th:name="curso" th:id="'curso-' + ${curso.idCurso}" th:value="${curso.idCurso}">
+                                    <label th:for="'curso-' + ${curso.idCurso}" class="p05">
+                                        <img class="height4x br1" th:src="@{${cursosImages[curso.imagenCurso]}}">
+                                        <small class="db" th:text="${curso.nombreCurso}"></small>
                                     </label>
                                 </fieldset>
                             </div>
+
+                            
+
+
+                            
                         </div>
                     </article>
                 </div>
