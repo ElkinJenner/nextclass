@@ -12,78 +12,77 @@ import java.util.List;
 @Repository
 public class CursosDaoImpl extends CrudDaoImpl<Cursos, Long> {
 
-    @Autowired // Inyecta automáticamente la instancia de NamedParameterJdbcTemplate
+    @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    // Método para obtener el nombre de la tabla
     @Override
     protected String getTableName() {
         return "cursos";
     }
 
-    // Método para mapear las filas de la base de datos a objetos de tipo Cursos
     @Override
     protected RowMapper<Cursos> getRowMapper() {
         return (rs, rowNum) -> {
             Cursos curso = new Cursos();
-            curso.setIdCurso(rs.getLong("idCurso")); // Mapea el campo idCurso
-            curso.setNombreCurso(rs.getString("curso")); // Mapea el campo curso
-            curso.setImagenCurso(rs.getString("imagenCurso")); // Mapea el campo imagenCurso
-            curso.setCategoriaCurso(rs.getString("categoriaCurso")); // Mapea el campo categoriaCurso
+            curso.setIdCurso(rs.getLong("idCurso"));
+            curso.setIdCategoriaCurso(rs.getLong("idCategoriaCurso"));
+            curso.setNombreCurso(rs.getString("curso"));
+            curso.setImagenCurso(rs.getString("imagenCurso"));
             return curso;
         };
     }
 
-    // Método para obtener todos los cursos con sus categorías con paginación
+    @Override
+    public List<Cursos> findAll() {
+        String sql = "SELECT idCurso, idCategoriaCurso, curso, imagenCurso FROM cursos";
+        return namedParameterJdbcTemplate.query(sql, getRowMapper());
+    }
+
     public List<Cursos> findAllWithCategoriaNombre(int offset, int limit) {
-        String sql = "SELECT c.idCurso, c.curso, c.imagenCurso, cc.categoriaCurso " +
+        String sql = "SELECT c.idCurso, cc.idCategoriaCurso, c.curso, c.imagenCurso " +
                 "FROM cursos c " +
-                "INNER JOIN categoriaCursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
+                "INNER JOIN categoriacursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
                 "ORDER BY c.curso ASC " +
                 "LIMIT :limit OFFSET :offset";
 
         MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("limit", limit); // Establece el límite de registros a obtener
-        params.addValue("offset", offset); // Establece el desplazamiento de registros
+        params.addValue("limit", limit);
+        params.addValue("offset", offset);
 
         return namedParameterJdbcTemplate.query(sql, params, getRowMapper());
     }
 
-    // Método para obtener cursos por categoría con paginación
     public List<Cursos> findByCategoriaWithPagination(String categoria, int offset, int limit) {
-        String sql = "SELECT c.idCurso, c.curso, c.imagenCurso, cc.categoriaCurso " +
+        String sql = "SELECT c.idCurso, cc.idCategoriaCurso, c.curso, c.imagenCurso " +
                 "FROM cursos c " +
-                "INNER JOIN categoriaCursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
+                "INNER JOIN categoriacursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
                 "WHERE cc.categoriaCurso = :categoria " +
                 "ORDER BY c.curso ASC " +
                 "LIMIT :limit OFFSET :offset";
 
         MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("categoria", categoria); // Establece el filtro de categoría
-        params.addValue("limit", limit); // Establece el límite de registros a obtener
-        params.addValue("offset", offset); // Establece el desplazamiento de registros
+        params.addValue("categoria", categoria);
+        params.addValue("limit", limit);
+        params.addValue("offset", offset);
 
         return namedParameterJdbcTemplate.query(sql, params, getRowMapper());
     }
 
-    // Método para contar el total de registros en la tabla cursos
     public int count() {
         String sql = "SELECT COUNT(*) FROM cursos";
         Integer count = namedParameterJdbcTemplate.getJdbcTemplate().queryForObject(sql, Integer.class);
-        return (count != null) ? count : 0; // Devuelve el conteo o 0 si es nulo
+        return (count != null) ? count : 0;
     }
 
-    // Método para contar el total de registros en la tabla cursos filtrados por
-    // categoría
     public int countByCategoria(String categoria) {
         String sql = "SELECT COUNT(*) FROM cursos c " +
-                "INNER JOIN categoriaCursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
+                "INNER JOIN categoriacursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
                 "WHERE cc.categoriaCurso = :categoria";
 
         MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("categoria", categoria); // Establece el filtro de categoría
+        params.addValue("categoria", categoria);
 
         Integer count = namedParameterJdbcTemplate.queryForObject(sql, params, Integer.class);
-        return (count != null) ? count : 0; // Devuelve el conteo o 0 si es nulo
+        return (count != null) ? count : 0;
     }
 }

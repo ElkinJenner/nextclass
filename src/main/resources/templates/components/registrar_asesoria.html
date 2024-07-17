@@ -10,7 +10,7 @@
     <article class="mv_body">
         <form method="POST" class="p1" action="/registrar_asesoria">
             <aside class="form_column">
-                <input type="hidden" name="idProfesor" value="idProfesor"/>
+                <input type="text" name="idProfesor" value="1"/>
                 <div class="group_2">
                     <label>Tema</label>
                     <input type="text" name="tema"/>
@@ -18,7 +18,7 @@
 
                 <div class="group_2">
                     <label>Capacidad</label>
-                    <input type="number" name="precio" />
+                    <input type="number" name="capacidad" />
                 </div>
 
                 <div class="group_2">
@@ -35,30 +35,21 @@
                     <article class="body_select">
                         <div class="body_select_contender">
 
-                            <!--<div class="checkbox_content mb2 cgap05 gap025 mt1 ml1">
-                                <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                                    <input type="radio" name="curso" id="curso-1" value="1">
-                                    <label for="curso-1" class="p05">
-                                        <img class="height10x br1" src="upload/courses/administracion_empresarial.jpg">
-                                        <small class="db">Administración empresarial</small>
-                                    </label>
-                                </fieldset>
-                            </div>-->
 
-                            <div class="checkbox_content mb2 cgap05 gap025 mt1 ml1">
-                                <fieldset th:each="cursos : ${cursosList}" class="checkbox_item posit_rel checkbox_item_small">
-                                    <input type="radio" th:name="curso" th:id="'curso-' + ${curso.idCurso}" th:value="${curso.idCurso}">
-                                    <label th:for="'curso-' + ${curso.idCurso}" class="p05">
-                                        <img class="height4x br1" th:src="@{${cursosImages[curso.imagenCurso]}}">
-                                        <small class="db" th:text="${curso.nombreCurso}"></small>
-                                    </label>
-                                </fieldset>
+                            <div th:each="curso : ${cursos}">
+                                <div class="checkbox_content mb2 cgap05 gap025 mt1 ml1">
+                                    <fieldset class="checkbox_item posit_rel checkbox_item_small">
+                                        <input type="radio" name="idCurso" th:value="${curso.idCurso}" id="curso-${curso.idCurso}">
+                                        <label th:for="${'curso-' + curso.idCurso}" class="p05">
+                                            <img class="height10x br1" th:src="${curso.imagenCurso}">
+                                            <small class="db" th:text="${curso.nombreCurso}"></small>
+                                        </label>
+                                    </fieldset>
+                                </div>
                             </div>
 
-                            
+                                 
 
-
-                            
                         </div>
                     </article>
                 </div>
@@ -70,7 +61,7 @@
                 
                 <div class="group_2">
                     <label>Fecha final </label>
-                    <input type="date" name="fechaifinal" />
+                    <input type="date" name="fechafinal" />
                 </div>
              
 

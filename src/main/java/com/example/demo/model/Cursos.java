@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 public class Cursos {
     private Long idCurso;
+    private Long idCategoriaCurso;
     private String nombreCurso;
     private String imagenCurso;
     private String categoriaCurso;
@@ -37,6 +38,14 @@ public class Cursos {
 
     public void setCategoriaCurso(String categoriaCurso) {
         this.categoriaCurso = categoriaCurso;
+    }
+
+    public Long getIdCategoriaCurso() {
+        return idCategoriaCurso;
+    }
+
+    public void setIdCategoriaCurso(Long idCategoriaCurso) {
+        this.idCategoriaCurso = idCategoriaCurso;
     }
     
     @Override

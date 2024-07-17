@@ -2,24 +2,18 @@ package com.example.demo.controller;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.example.demo.components.CursosComponent;
 import com.example.demo.dao.AsesoriasDaoImpl;
-import com.example.demo.dao.CursosDaoImpl;
 import com.example.demo.model.Asesorias;
-import com.example.demo.model.Cursos;
 import com.example.demo.model.Usuarios;
 
-import org.springframework.ui.Model;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -31,20 +25,7 @@ public class AsesoriaController {
     @Autowired
     private HttpSession session; // Sesión HTTP para almacenar datos de sesión
 
-    @Autowired // Inyecta automáticamente la instancia de CursosDaoImpl
-    private CursosDaoImpl cursosDao;
 
-    @Autowired
-    private CursosComponent cursosComponent;
-
-    @GetMapping("/registrar_asesoria")
-    public String showCursos(Model model) {
-        List<Cursos> cursosList = cursosDao.findAll();
-
-        model.addAttribute("cursosList", cursosList);
-        model.addAttribute("cursosImages", cursosComponent.getCursosImages());
-        return "registrar_asesoria"; // Vista para mostrar los cursos
-    }
 
     // Método para procesar el formulario de registro de asesoría
     @PostMapping("/registrar_asesoria")
@@ -54,7 +35,7 @@ public class AsesoriaController {
             @RequestParam("descripcion") String descripcion,
             @RequestParam("duracion") String duracion,
             @RequestParam("precio") BigDecimal precio,
-            @RequestParam("curso") Long idCurso,
+            @RequestParam("idCurso") Long idCurso,
             @RequestParam("fechainicial") String fechaInicial,
             @RequestParam("fechafinal") String fechaFinal,
             RedirectAttributes redirectAttributes) {
