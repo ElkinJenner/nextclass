@@ -39,9 +39,6 @@ public class Usuarios {
         this.ubicacion = ubicacion;
         this.fechaRegistro = fechaRegistro;
     }
-    
-
-    
 
     // Getters y Setters
     public Long getIdUsuario() {

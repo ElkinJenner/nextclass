@@ -1,7 +1,7 @@
 <section class="modal_ventana mc mt2 bg_light">
     <article class="mv_head df jcsb">
         <div class="heading p2">
-            <h4 class="color_title mb05 font_w700 sz28">Framework Spring Boot, Java Web application</h4>
+            <h4 class="color_title mb05 font_w700 sz28" th:text="${asesoria.tema}">Tema de Asesoria</h4>
             <p class="color_span font_w500">Programación web </p>
         </div>
         <a class="btn_cerrar">
@@ -10,9 +10,7 @@
     </article>
     <article class="p2">
         <small class="color_span font_w600">Acerca de</small>
-        <p class="color_span mt05">Spring Boot es una tecnología y extensión del framework Spring Framework para aplicaciones
-        Java basadas en web que simplifica el proceso de configuración y desarrollo de aplicaciones Java.
-        </p>
+        <p class="color_span mt05" th:text="${asesoria.descripcion}"></p>
         <div class="df gap2 mt2">
             <div class="dg alit_b">
                 <small class="color_span font_w600">Duración</small>
@@ -26,7 +24,7 @@
         <div class="df gap2 mt2">
             <div class="dg">
                 <small class="color_span font_w600">Precio</small>
-                <p class="color_span mt05 sz15"><i class="ai-money"></i> 120.00</p>
+                <p class="color_span mt05 sz15"><i class="ai-money"></i> <span th:text="${asesoria.precio}"></span></p>
             </div>
         </div>
         <div class="df gap2 mt2">

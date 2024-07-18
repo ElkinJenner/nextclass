@@ -3,14 +3,11 @@ package com.example.demo.dao;
 import java.sql.Time;
 import java.time.LocalTime;
 import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-
 import com.example.demo.model.Asesorias;
 
 @Repository
@@ -34,10 +31,17 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
             asesoria.setTema(rs.getString("tema"));
             asesoria.setDescripcion(rs.getString("descripcion"));
 
-            // Convert sql.Time a LocalTime
+            // Añadir el nombre del curso
+            asesoria.setNomCurso(rs.getString("nomCurso"));
+
+            // Añadir la categoría del curso
+            asesoria.setCategoriaCurso(rs.getString("categoriaCurso"));
+
+            // Convertir sql.Time a LocalTime
             Time duracionSql = rs.getTime("duracion");
             LocalTime duracion = duracionSql.toLocalTime();
             asesoria.setDuracion(duracion);
+
             asesoria.setPrecio(rs.getBigDecimal("precio"));
             asesoria.setCapacidad(rs.getInt("capacidad"));
             asesoria.setFechaInicial(rs.getDate("fechaInicial").toLocalDate());
@@ -48,13 +52,24 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
 
     @Override
     public List<Asesorias> findAll() {
-        String sql = "SELECT * FROM asesorias";
+        String sql = "SELECT a.idAsesoria, a.idCurso, a.idProfesor, a.tema, a.descripcion, " +
+                "c.curso AS nomCurso, cc.categoriaCurso, a.duracion, a.precio, a.capacidad, a.fechaInicial, a.fechaFinal "
+                +
+                "FROM asesorias a " +
+                "JOIN cursos c ON a.idCurso = c.idCurso " +
+                "JOIN categoriacursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso";
         return jdbcTemplate.query(sql, getRowMapper());
     }
 
     @Override
     public Asesorias findById(Long id) {
-        String sql = "SELECT * FROM asesorias WHERE idAsesoria = ?";
+        String sql = "SELECT a.idAsesoria, a.idCurso, a.idProfesor, a.tema, a.descripcion, " +
+                "c.curso AS nomCurso, cc.categoriaCurso, a.duracion, a.precio, a.capacidad, a.fechaInicial, a.fechaFinal "
+                +
+                "FROM asesorias a " +
+                "JOIN cursos c ON a.idCurso = c.idCurso " +
+                "JOIN categoriacursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
+                "WHERE a.idAsesoria = ?";
         List<Asesorias> results = jdbcTemplate.query(sql, getRowMapper(), id);
         return results.isEmpty() ? null : results.get(0);
     }
@@ -74,7 +89,7 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
                         entity.getFechaInicial(),
                         entity.getFechaFinal());
             } catch (DataIntegrityViolationException e) {
-                System.out.println("Error insertando asesoria : "+e);
+                System.out.println("Error insertando asesoria : " + e);
                 throw e;
             }
         } else {

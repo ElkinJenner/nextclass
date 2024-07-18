@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis asesorias | Nextclass</title>
-    <link th:include="components/link"></link>
+    <link th:include="components/link">
+    </link>
 </head>
+
 <body class="light_mode">
     <header th:include="components/menu_app"></header>
     <main class="main_wrapper">
@@ -19,41 +22,45 @@
                 </small>
                 <h6 class="color_subtitle font_w600">Asesorias</h6>
             </div>
-            <div class="df gap025">
+            <div class="df gap025" th:if="${usuarios.tipoUsuario == 'Profesor'}">
                 <button class="button bg_primary color_light btn_abrir"><i class="ai-plus sz20"></i>Añadir</button>
                 <main class="modal_ventana_content hidden" id="modal" th:include="components/registrar_asesoria"></main>
                 <button class="button"><i class="ki-outline ki-element-plus sz20"></i></button>
             </div>
         </article>
+
         <section class="consultancies">
             <table class="inv_table">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Asesoria</th>
-                        <th>Sesiones</th>
+                        <th th:if="${usuarios.tipoUsuario == 'Profesor'}">Sesiones</th>
                         <th>Curso /Categoria</th>
-                        <th>Duración</th>
-                        <th>Inscripciones</th>
-                        <th>Precio</th>
+                        <th th:if="${usuarios.tipoUsuario == 'Profesor'}">Duración</th>
+                        <th th:if="${usuarios.tipoUsuario == 'Profesor'}">Inscripciones</th>
+                        <th th:if="${usuarios.tipoUsuario == 'Estudiante'}">Profesor</th>
+                        <th>Monto</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
-            
+
                 <tbody>
-                    <tr>
-                    </tr>
-                    <tr>
-                        <td><i class="ai-hashtag"></i>1</td>
-                        <td>Framework JSF
-                        Java Server Face</td>
-                        <td>
-                        <a class="button button_2 bg_hover color_dark sz12 btn_abrir"><i class="ki-filled ki-plus"></i></a>
-                        <main class="modal_ventana_content hidden" id="modal" th:include="components/registrar_sesion"></main>
+                    <tr th:each="asesoria : ${asesorias}">
+                        <td><i class="ai-hashtag"></i><span th:text="${asesoria.idAsesoria}"></span></td>
+                        <td th:text="${asesoria.tema}"></td>
+                        <td th:if="${usuarios.tipoUsuario == 'Profesor'}">
+                            <a class="button button_2 bg_hover color_dark sz12 btn_abrir"><i
+                                    class="ki-filled ki-plus"></i></a>
+                            <main class="modal_ventana_content hidden" id="modal"
+                                th:include="components/registrar_sesion"></main>
                         </td>
-                        <td><strong class="font_w600">Programacion web</strong> <br/> <span class="color_subspan">Tecnología</span> </td>
-                        <td>1h,30 min</td>
-                        <td class="df gap05">
+                        <td>
+                            <strong class="font_w600" th:text="${asesoria.nomCurso}">Curso</strong> <br />
+                            <span class="color_subspan" th:text="${asesoria.categoriaCurso}"></span>
+                        </td>
+                        <td th:if="${usuarios.tipoUsuario == 'Profesor'}" th:text="${asesoria.duracion}"></td>
+                        <td th:if="${usuarios.tipoUsuario == 'Profesor'}" class="df gap05">
                             <div class="profile_picture">
                                 <img src="upload/students/estudiante.jpg" alt="Foto del profesor">
                             </div>
@@ -61,108 +68,26 @@
                                 <img src="upload/students/estudiante4.jpg" alt="Foto del profesor">
                             </div>
                         </td>
-                        <td>$$ 180.00</td>
-                        <td>
-                            <div class="df gap05">
-                                <a class="btn_abrir"><i class="ai-eye-open"></i></a>
-                                <main class="modal_ventana_content hidden" id="modal" th:include="components/ver_asesoria"></main>
-                                <a class="btn_abrir"><i class="ai-pencil"></i></a>
-                                <main class="modal_ventana_content hidden" id="modal" th:include="components/editar_asesoria"></main>
-                                <a><i class="ai-trash-can"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td><i class="ai-hashtag"></i>2</td>
-                        <td>SCRUM, Metodología agil para  el desarrollo</td>
-                        <td>
-                            <a class="button button_2 bg_hover color_dark sz12 btn_abrir"><i class="ki-filled ki-plus"></i></a>
-                            <main class="modal_ventana_content hidden" id="modal" th:include="components/registrar_sesion"></main>
-                        </td>
-                        <td><strong class="font_w600">Consultoria y Estrategia</strong> <br /> <span class="color_subspan">Negocios</span> </td>
-                        <td>1h, 00 min</td>
-                        <td>
-                            Sin Inscripciones
-                        </td>
-                        <td>$$ 180.00</td>
-                        <td>
-                            <div class="df gap05">
-                                <a class="btn_abrir"><i class="ai-eye-open"></i></a>
-                                <main class="modal_ventana_content hidden" id="modal" th:include="components/ver_asesoria"></main>
-                                <a class="btn_abrir"><i class="ai-pencil"></i></a>
-                                <main class="modal_ventana_content hidden" id="modal" th:include="components/editar_asesoria"></main>
-                                <a><i class="ai-trash-can"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <section class="consultancies">
-            <table class="inv_table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Asesoria</th>
-                        <th>Curso /Categoria</th>
-                        <th>Profesor</th>
-                        <th>Monto</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-        
-                <tbody>
-                    <tr>
-                    </tr>
-                    <tr>
-                        <td><i class="ai-hashtag"></i>1</td>
-                        <td>Framework JSF
-                            Java Server Face</td>
-                        <td><strong class="font_w600">Programacion web</strong> <br /> <span
-                                class="color_subspan">Tecnología</span> </td>
-                        <td>
+                        <td th:if="${usuarios.tipoUsuario == 'Estudiante'}">
                             <div class="profile_contender">
                                 <div class="profile_picture">
                                     <img src="upload/professors/docente.jpg" alt="Foto del profesor">
                                 </div>
                                 <div class="profile_info">
-                                    <strong class="font_w600">Baltazar Jim Perrez Quispe</strong>
+                                    <strong class="font_w600" th:text="${asesoria.idProfesor}"></strong>
                                     <small class="color_subspan">Ing. Computación</small>
                                 </div>
                             </div>
                         </td>
-                        <td>$$ 180.00</td>
+                        <td>$$ <span th:text="${asesoria.precio}"></span></td>
                         <td>
                             <div class="df gap05">
-                                <a><i class="ai-eye-open"></i></a>
-                                <a><i class="ai-pencil"></i></a>
-                                <a><i class="ai-trash-can"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-        
-                    <tr>
-                        <td><i class="ai-hashtag"></i>2</td>
-                        <td>SCRUM, Metodología agil para el desarrollo</td>
-                        <td><strong class="font_w600">Consultoria y Estrategia</strong> <br /> <span
-                                class="color_subspan">Negocios</span> </td>
-                        <td>
-                            <div class="profile_contender">
-                                <div class="profile_picture">
-                                    <img src="upload/professors/docente13.jpg" alt="Foto del profesor">
-                                </div>
-                                <div class="profile_info">
-                                    <strong class="font_w600">Maria Elena Diaz Limas</strong>
-                                    <small class="color_lead">Lic. Administración</small>
-                                </div>
-                            </div>
-                        </td>
-                        <td>$$ 180.00</td>
-                        <td>
-                            <div class="df gap05">
-                                <a><i class="ai-eye-open"></i></a>
-                                <a><i class="ai-pencil"></i></a>
+                                <a class="btn_abrir"><i class="ai-eye-open"></i></a>
+                                <main class="modal_ventana_content hidden" id="modal"
+                                    th:include="components/ver_asesoria"></main>
+                                <a class="btn_abrir"><i class="ai-pencil"></i></a>
+                                <main class="modal_ventana_content hidden" id="modal"
+                                    th:include="components/editar_asesoria"></main>
                                 <a><i class="ai-trash-can"></i></a>
                             </div>
                         </td>
@@ -173,4 +98,5 @@
     </main>
     <links th:include="components/footer"></links>
 </body>
+
 </html>

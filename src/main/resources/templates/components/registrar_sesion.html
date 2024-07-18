@@ -8,12 +8,13 @@
         </a>
     </article>
     <article class="mv_body">
-        <form method="POST" class="p1" action="">
+        <form method="POST" class="p1" action="/registrar_sesion">
             <aside class="form_column">
-                <input type="hidden" name="idProfesor" value="idProfesor" />
+                <input type="hidden" name="idAsesoria" th:value="${asesoria.idAsesoria}"/>
+                <input type="hidden" name="idProfesor" th:value="${asesoria.idProfesor}"/>
                 <div class="group">
                 <label class="db mb05" for="dias-semana">Seleccionar:</label>
-                <select id="dias-semana" name="dias" class="custom-select">
+                <select id="dias-semana" name="dia" class="custom-select">
                     <option value="lunes">Lunes</option>
                     <option value="martes">Martes</option>
                     <option value="miercoles">Miércoles</option>
@@ -26,12 +27,12 @@
 
                 <div class="group-22">
                     <label>Hora inicial</label>
-                    <input type="time" name="horainicial" />
+                    <input type="time" name="horaInicial" />
                 </div>
 
                 <div class="group-2">
                     <label>Hora final </label>
-                    <input type="time" name="horaifinal" />
+                    <input type="time" name="horaFinal" />
                 </div>
 
 

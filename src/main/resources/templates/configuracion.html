@@ -27,7 +27,7 @@
             <aside class="df gap1 jcsb br1 b1 p1 mb1">
                 <div class="df gap1 alit_c">
                     <figure>
-                        <img th:src="@{upload/{tipo}/{foto}(tipo=${usuario != null ? (usuario.tipoUsuario == 'Estudiante' ? 'students' : 'professors') : 'students'}, foto=${usuario != null ? usuario.fotoPerfil : 'default_profile.jpg'})}" />
+                        <img class="br1 height20x" th:src="@{upload/{tipo}/{foto}(tipo=${usuario != null ? (usuario.tipoUsuario == 'Estudiante' ? 'students' : 'professors') : 'students'}, foto=${usuario != null ? usuario.fotoPerfil : 'default_profile.jpg'})}" />
                     </figure>
                     <article class="dg alit_c">
                         <div class="df alit_c gap05 mb05">
@@ -38,6 +38,16 @@
                             <small><i class="ki-outline ki-profile-circle"></i> <span th:text="${usuario != null ? usuario.tipoUsuario : 'Tipo Usuario'}">Tipo Usuario</span></small>
                             <small><i class="ki-outline ki-geolocation"></i> <span th:text="${usuario != null ? usuario.ubicacion : 'Localización'}">Localización</span></small>
                             <small><i class="ki-outline ki-sms"></i> <span th:text="${usuario != null ? usuario.email : 'Email'}">Email</span></small>
+                        </div>
+                        <div class="df alit_c gap1 font_w500 sz18">
+                            <div class="bd1 br1 p1">
+                                <h6><i class="ki-outline ki-arrow-up color_verify"></i> $4,500</h6>
+                                <small class="color_subspan">Saldo Actual</small>
+                            </div>
+                            <div class="bd1 br1 p1">
+                                <h6><i class="ki-outline ki-arrow-down color_danger"></i> $80.00</h6>
+                                <small class="color_subspan">Gasto actual</small>
+                            </div>
                         </div>
                     </article>
                 </div>
@@ -55,7 +65,7 @@
                         <div class="group">
                             <label>Foto Perfil</label>
                             <div class="profile-pic-container mt1">
-                                <img th:src="@{upload/{tipo}/{foto}(tipo=${usuario != null ? (usuario.tipoUsuario == 'Estudiante' ? 'students' : 'professors') : 'students'}, foto=${usuario != null ? usuario.fotoPerfil : 'default_profile.jpg'})}" />
+                                <img id="profile-pic" th:src="@{upload/{tipo}/{foto}(tipo=${usuario != null ? (usuario.tipoUsuario == 'Estudiante' ? 'students' : 'professors') : 'students'}, foto=${usuario != null ? usuario.fotoPerfil : 'default_profile.jpg'})}" />
                                 <input type="file" id="file-input" name="file-input" accept="image/*" onchange="loadFile(event)">
                                 <label for="file-input">
                                     <i class="ki-outline ki-pencil"></i>
