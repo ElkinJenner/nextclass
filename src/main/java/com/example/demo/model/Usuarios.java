@@ -40,6 +40,9 @@ public class Usuarios {
         this.fechaRegistro = fechaRegistro;
     }
     
+
+    
+
     // Getters y Setters
     public Long getIdUsuario() {
         return idUsuario;

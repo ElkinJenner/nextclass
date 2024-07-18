@@ -26,8 +26,7 @@ public class AsesoriaController {
     private HttpSession session;
 
     @PostMapping("/registrar_asesoria")
-    public String registrarAsesoria(@RequestParam("idProfesor") Long idProfesor,
-            @RequestParam("tema") String tema,
+    public String registrarAsesoria(@RequestParam("tema") String tema,
             @RequestParam("capacidad") int capacidad,
             @RequestParam("descripcion") String descripcion,
             @RequestParam("duracion") String duracion,
@@ -37,6 +36,7 @@ public class AsesoriaController {
             @RequestParam("fechafinal") String fechaFinal,
             RedirectAttributes redirectAttributes) {
 
+        Long idProfesor;
         Usuarios usuario = (Usuarios) session.getAttribute("usuarios");
         if (usuario != null && usuario.getTipoUsuario().equals("Profesor")) {
             idProfesor = usuario.getIdUsuario();

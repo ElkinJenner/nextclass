@@ -22,6 +22,8 @@ public class Asesorias {
     private LocalDate fechaInicial;
     private LocalDate fechaFinal;
 
+
+    
     // Getters and Setters
     public Long getIdAsesoria() {
         return idAsesoria;

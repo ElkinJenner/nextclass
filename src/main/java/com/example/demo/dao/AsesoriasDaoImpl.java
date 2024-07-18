@@ -3,7 +3,10 @@ package com.example.demo.dao;
 import java.sql.Time;
 import java.time.LocalTime;
 import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -58,10 +61,26 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
 
     @Override
     public void save(Asesorias entity) {
-        String sql = "INSERT INTO asesorias (idCurso, idProfesor, tema, descripcion, duracion, precio, capacidad, fechaInicial, fechaFinal) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql, entity.getIdCurso(), entity.getIdProfesor(), entity.getTema(), entity.getDescripcion(),
-                Time.valueOf(entity.getDuracion()), entity.getPrecio(), entity.getCapacidad(), entity.getFechaInicial(),
-                entity.getFechaFinal());
+        String checkSql = "SELECT COUNT(*) FROM profesores WHERE idProfesor = ?";
+        @SuppressWarnings("deprecation")
+        Integer count = jdbcTemplate.queryForObject(checkSql, new Object[] { entity.getIdProfesor() }, Integer.class);
+
+        if (count != null && count > 0) {
+            String sql = "INSERT INTO asesorias (idCurso, idProfesor, tema, descripcion, duracion, precio, capacidad, fechaInicial, fechaFinal) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            try {
+                jdbcTemplate.update(sql, entity.getIdCurso(), entity.getIdProfesor(), entity.getTema(),
+                        entity.getDescripcion(),
+                        Time.valueOf(entity.getDuracion()), entity.getPrecio(), entity.getCapacidad(),
+                        entity.getFechaInicial(),
+                        entity.getFechaFinal());
+            } catch (DataIntegrityViolationException e) {
+                System.out.println("Error insertando asesoria : "+e);
+                throw e;
+            }
+        } else {
+            throw new IllegalArgumentException(
+                    "El idProfesor " + entity.getIdProfesor() + " no existe en la tabla profesores.");
+        }
     }
 
     @Override

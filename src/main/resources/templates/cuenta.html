@@ -26,28 +26,30 @@
             <aside class="df gap1 jcsb br1 b1 p1 mb1">
                 <div class="df gap1 alit_c">
                     <figure>
-                        <img class="br1 height20x" src="upload/professors/docente6.jpg">
+                        <img th:src="@{upload/{tipo}/{foto}(tipo=${usuario != null ? (usuario.tipoUsuario == 'Estudiante' ? 'students' : 'professors') : 'students'}, foto=${usuario != null ? usuario.fotoPerfil : 'default_profile.jpg'})}" />
                     </figure>
                     <article class="dg alit_c">
                         <div class="df alit_c gap05 mb05">
-                            <h6 class="color_subtitle font font_w600">Juan Carlos</h6>
+                            <h6 class="color_subtitle font font_w600" th:text="${usuario != null ? usuario.nombres : 'Nombre Usuario'}">Nombre Usuario</h6>
                             <i class="ki-outline ki-verify color_primary sz22"></i>
                         </div>
                         <div class="df alit_b gap05 mb1 color_subspan font_w500 sz18">
-                            <small><i class="ki-outline ki-profile-circle"></i> Profesor</small>
-                            <small><i class="ki-outline ki-geolocation"></i> Lima, Perú</small>
-                            <small><i class="ki-outline ki-sms"></i> juanitol@kt.com</small>
+                            <small><i class="ki-outline ki-profile-circle"></i> <span th:text="${usuario != null ? usuario.tipoUsuario : 'Tipo Usuario'}">Tipo Usuario</span></small>
+                            <small><i class="ki-outline ki-geolocation"></i> <span th:text="${usuario != null ? usuario.ubicacion : 'Localización'}">Localización</span></small>
+                            <small><i class="ki-outline ki-sms"></i> <span th:text="${usuario != null ? usuario.email : 'Email'}">Email</span></small>
                         </div>
+                        <!--
                         <div class="df alit_c gap1 font_w500 sz18">
                             <div class="bd1 br1 p1">
-                                <h6><i class="ki-outline ki-arrow-up color_verify"></i> $4,500</h6>
+                                <h6><i class="ki-outline ki-arrow-up color_verify"></i> $<span th:text="${usuario != null ? usuario.gastoActual : '0.0'}">0.0</span></h6>
                                 <small class="color_subspan">Saldo Actual</small>
                             </div>
                             <div class="bd1 br1 p1">
-                                <h6><i class="ki-outline ki-arrow-down color_danger"></i> $80.00</h6>
+                                <h6><i class="ki-outline ki-arrow-down color_danger"></i> $<span th:text="${usuario != null ? usuario.gastoActual : '0.0'}">0.0</span></h6>
                                 <small class="color_subspan">Gasto actual</small>
                             </div>
                         </div>
+                        -->
                     </article>
                 </div>
                 <div class="df gap025 alit_c">
@@ -64,36 +66,39 @@
                 <ul class="dg alit_c p1">
                     <li class="df alit_c gap3 p1">
                         <p class="column-1 color_subspan font_w600">Nombres</p>
-                        <p class="font_w600">Juan Carlos</p>
+                        <p class="font_w600" th:text="${usuario != null ? usuario.nombres : 'No disponible'}">Nombres</p>
                     </li>
                     <li class="df alit_c gap3 p1">
                         <p class="column-1 color_subspan font_w600">Apellidos</p>
-                        <p class="font_w600">Lopez Quispe</p>
+                        <p class="font_w600" th:text="${usuario != null ? usuario.apellidos : 'No disponible'}">Apellidos</p>
                     </li>
                     <li class="df alit_c gap3 p1">
                         <p class="column-1 color_subspan font_w600">Usuario</p>
-                        <p class="font_w600">@juanitol</p>
+                        <p class="font_w600" th:text="${usuario != null ? usuario.usuario : 'No disponible'}">Usuario</p>
                     </li>
                     <li class="df alit_c gap3 p1">
                         <p class="column-1 color_subspan font_w600">Email</p>
-                        <p class="font_w600">juanitol@mk.com</p>
+                        <p class="font_w600" th:text="${usuario != null ? usuario.email : 'No disponible'}">Email</p>
                     </li>
                     <li class="df alit_c gap3 p1">
-                        <p class="column-1 color_subspan font_w600">Telefóno</p>
-                        <p class="font_w600">+51 932708193</p>
+                        <p class="column-1 color_subspan font_w600">Teléfono</p>
+                        <p class="font_w600" th:text="${usuario != null ? usuario.usuario : 'No disponible'}">Teléfono</p>
                     </li>
                     <li class="df alit_c gap3 p1">
                         <p class="column-1 color_subspan font_w600">Ubicación</p>
-                        <p class="font_w600"><img class="height015x" src="upload/flags/peru.png"> Lima, Perú</p>
-                    </li>
-                    
-                    <div class="df bg_subalert bd1 gap05 color_alert br1 p1 mt1 alit_c">
-                        <i class="ki-outline ki-information sz28 color_alert"></i>
-                        <p class="dg color_dark font_w600">¡Necesitamos tu atención!
-                            <small class="color_span font_w500">No utilizamos su información para terceros </small>
+                        <p class="font_w600">
+                            <img class="height015x" th:src="@{'upload/flags/' + (${usuario != null ? usuario.idPais : 'peru.png'})}"/>
+
                         </p>
-                    </div>
+                    </li>
                 </ul>
+                
+                <div class="df bg_subalert bd1 gap05 color_alert br1 p1 mt1 alit_c">
+                    <i class="ki-outline ki-information sz28 color_alert"></i>
+                    <p class="dg color_dark font_w600">¡Necesitamos tu atención!
+                        <small class="color_span font_w500">No utilizamos su información para terceros </small>
+                    </p>
+                </div>
             </aside>
         </section>
     </main>
