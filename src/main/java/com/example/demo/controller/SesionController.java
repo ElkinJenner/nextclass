@@ -29,11 +29,11 @@ public class SesionController {
 
     @PostMapping("/registrar_sesion")
     public String registrarSesion(@RequestParam("idAsesoria") int idAsesoria,
-                                  @RequestParam("idProfesor") int idProfesor,
-                                  @RequestParam("dia") String dia,
-                                  @RequestParam("horaInicial") String horaInicial,
-                                  @RequestParam("horaFinal") String horaFinal,
-                                  RedirectAttributes redirectAttributes) {
+            @RequestParam("idProfesor") int idProfesor,
+            @RequestParam("dia") String dia,
+            @RequestParam("horaInicial") String horaInicial,
+            @RequestParam("horaFinal") String horaFinal,
+            RedirectAttributes redirectAttributes) {
         Sesiones nuevaSesion = new Sesiones();
         nuevaSesion.setIdAsesoria(idAsesoria);
         nuevaSesion.setIdProfesor(idProfesor);

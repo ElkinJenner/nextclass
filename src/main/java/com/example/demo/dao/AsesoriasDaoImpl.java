@@ -28,6 +28,7 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
             asesoria.setIdAsesoria(rs.getLong("idAsesoria"));
             asesoria.setIdCurso(rs.getLong("idCurso"));
             asesoria.setIdProfesor(rs.getLong("idProfesor"));
+            asesoria.setIdUsuario(rs.getLong("idUsuario"));
             asesoria.setTema(rs.getString("tema"));
             asesoria.setDescripcion(rs.getString("descripcion"));
 
@@ -36,6 +37,11 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
 
             // Añadir la categoría del curso
             asesoria.setCategoriaCurso(rs.getString("categoriaCurso"));
+
+            // Añadir detalles del usuario
+            asesoria.setNombres(rs.getString("nombres"));
+            asesoria.setFotoPerfil(rs.getString("fotoPerfil"));
+            asesoria.setProfesion(rs.getString("profesion"));
 
             // Convertir sql.Time a LocalTime
             Time duracionSql = rs.getTime("duracion");
@@ -52,23 +58,27 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
 
     @Override
     public List<Asesorias> findAll() {
-        String sql = "SELECT a.idAsesoria, a.idCurso, a.idProfesor, a.tema, a.descripcion, " +
-                "c.curso AS nomCurso, cc.categoriaCurso, a.duracion, a.precio, a.capacidad, a.fechaInicial, a.fechaFinal "
+        String sql = "SELECT a.idAsesoria, a.idCurso, a.idProfesor, a.idUsuario, a.tema, a.descripcion, " +
+                "c.curso AS nomCurso, cc.categoriaCurso, u.nombres, u.fotoPerfil, p.profesion, a.duracion, a.precio, a.capacidad, a.fechaInicial, a.fechaFinal "
                 +
                 "FROM asesorias a " +
                 "JOIN cursos c ON a.idCurso = c.idCurso " +
-                "JOIN categoriacursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso";
+                "JOIN categoriacursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
+                "JOIN usuarios u ON a.idUsuario = u.idUsuario " +
+                "JOIN profesores p ON a.idProfesor = p.idProfesor";
         return jdbcTemplate.query(sql, getRowMapper());
     }
 
     @Override
     public Asesorias findById(Long id) {
-        String sql = "SELECT a.idAsesoria, a.idCurso, a.idProfesor, a.tema, a.descripcion, " +
-                "c.curso AS nomCurso, cc.categoriaCurso, a.duracion, a.precio, a.capacidad, a.fechaInicial, a.fechaFinal "
+        String sql = "SELECT a.idAsesoria, a.idCurso, a.idProfesor, a.idUsuario, a.tema, a.descripcion, " +
+                "c.curso AS nomCurso, cc.categoriaCurso, u.nombres, u.fotoPerfil, p.profesion, a.duracion, a.precio, a.capacidad, a.fechaInicial, a.fechaFinal "
                 +
                 "FROM asesorias a " +
                 "JOIN cursos c ON a.idCurso = c.idCurso " +
                 "JOIN categoriacursos cc ON c.idCategoriaCurso = cc.idCategoriaCurso " +
+                "JOIN usuarios u ON a.idUsuario = u.idUsuario " +
+                "JOIN profesores p ON a.idProfesor = p.idProfesor " +
                 "WHERE a.idAsesoria = ?";
         List<Asesorias> results = jdbcTemplate.query(sql, getRowMapper(), id);
         return results.isEmpty() ? null : results.get(0);
@@ -81,9 +91,10 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
         Integer count = jdbcTemplate.queryForObject(checkSql, new Object[] { entity.getIdProfesor() }, Integer.class);
 
         if (count != null && count > 0) {
-            String sql = "INSERT INTO asesorias (idCurso, idProfesor, tema, descripcion, duracion, precio, capacidad, fechaInicial, fechaFinal) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO asesorias (idCurso, idUsuario, idProfesor, tema, descripcion, duracion, precio, capacidad, fechaInicial, fechaFinal) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             try {
-                jdbcTemplate.update(sql, entity.getIdCurso(), entity.getIdProfesor(), entity.getTema(),
+                jdbcTemplate.update(sql, entity.getIdCurso(), entity.getIdUsuario(),
+                        entity.getIdProfesor(), entity.getTema(),
                         entity.getDescripcion(),
                         Time.valueOf(entity.getDuracion()), entity.getPrecio(), entity.getCapacidad(),
                         entity.getFechaInicial(),
@@ -100,8 +111,9 @@ public class AsesoriasDaoImpl extends CrudDaoImpl<Asesorias, Long> {
 
     @Override
     public void update(Asesorias entity) {
-        String sql = "UPDATE asesorias SET idCurso = ?, idProfesor = ?, tema = ?, descripcion = ?, duracion = ?, precio = ?, capacidad = ?, fechaInicial = ?, fechaFinal = ? WHERE idAsesoria = ?";
-        jdbcTemplate.update(sql, entity.getIdCurso(), entity.getIdProfesor(), entity.getTema(), entity.getDescripcion(),
+        String sql = "UPDATE asesorias SET idCurso = ?, idUsuario = ?, idProfesor = ?, tema = ?, descripcion = ?, duracion = ?, precio = ?, capacidad = ?, fechaInicial = ?, fechaFinal = ? WHERE idAsesoria = ?";
+        jdbcTemplate.update(sql, entity.getIdCurso(), entity.getIdUsuario(), entity.getIdProfesor(), entity.getTema(),
+                entity.getDescripcion(),
                 Time.valueOf(entity.getDuracion()), entity.getPrecio(), entity.getCapacidad(), entity.getFechaInicial(),
                 entity.getFechaFinal(), entity.getIdAsesoria());
     }

@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>App | Nextclass</title>
     <link th:include="components/link"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
+            integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body class="light_mode">
     <header th:include="components/menu_app"></header>
@@ -23,7 +26,137 @@
                 <h6 class="color_subtitle font_w600">Dashboard</h6>
             </div>
         </article>
+        <section class="index">
+            <p class="font_w700 sz24 mb05">Bienvenido Luis!</p>
+            <aside class="column gap05">
+                <div class="column_w75 gap05 df fww">
+                    <a href="/index" class="column-3 item_index">
+                        <figure style="background-image:url('/upload/professors/static-image.jpg');"></figure>
+                        <div class="posit_abs bottom1">
+                            <div class="ml1 p05">
+                                <h6 class="color_dark sz18 font_w600">Total de profesores</h6>
+                                <p class="color_dark sz14 font_w400">Profesión Estática</p>
+                            </div>
+                        </div>
+                        <div class="posit_abs top0 right1">
+                            <div class="bg_hover br075 p05 mt1 dif gap025">
+                                <small class="color_text font_w600">Ver más</small>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/index" class="column-3 item_index">
+                        <figure style="background-image:url('/upload/professors/static-image.jpg');"></figure>
+                        <div class="posit_abs bottom1">
+                            <div class="ml1 p05">
+                                <h6 class="color_dark sz18 font_w600">Total de asesorias</h6>
+                                <p class="color_dark sz14 font_w400">Profesión Estática</p>
+                            </div>
+                        </div>
+                        <div class="posit_abs top0 right1">
+                            <div class="bg_hover br075 p05 mt1 dif gap025">
+                                <small class="color_text font_w600">Ver más</small>
+                            </div>
+                        </div>
+                    </a>
+        
+                    <a href="/index" class="column-3 item_index">
+                        <figure style="background-image:url('/upload/professors/static-image.jpg');"></figure>
+                        <div class="posit_abs bottom1">
+                            <div class="ml1 p05">
+                                <h6 class="color_dark sz18 font_w600">Total de sesiones</h6>
+                                <p class="color_dark sz14 font_w400">Profesión Estática</p>
+                            </div>
+                        </div>
+                        <div class="posit_abs top0 right1">
+                            <div class="bg_hover br075 p05 mt1 dif gap025">
+                                <small class="color_text font_w600">Ver más</small>
+                            </div>
+                        </div>
+                    </a>
+        
+                    <a href="/index" class="column-3 item_index">
+                        <figure style="background-image:url('/upload/professors/static-image.jpg');"></figure>
+                        <div class="posit_abs bottom1">
+                            <div class="ml1 p05">
+                                <h6 class="color_dark sz18 font_w600">Total de sesiones</h6>
+                                <p class="color_dark sz14 font_w400">Profesión Estática</p>
+                            </div>
+                        </div>
+                        <div class="posit_abs top0 right1">
+                            <div class="bg_hover br075 p05 mt1 dif gap025">
+                                <small class="color_text font_w600">Ver más</small>
+                            </div>
+                        </div>
+                    </a>
+        
+                    <div class="column-5">
+                        <article class="br1 b1 p1">
+                            <h3 class="mt1">Estadísticas</h3>
+                            <div class="index_data">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </article>
+                    </div>
+        
+                    <div class="column-4">
+                    </div>
+        
+                </div>
+        
+                <div class="column_w25">
+                    <article class="right_section b1 br2">
+                        <div class="index_calendar">
+                            <h1 class="sz24 font_w700">Calendario</h1>
+                            <div class="calendar-container">
+                                <div class="calendar p1">
+                                    <header class="df jcsb">
+                                        <h3 class="sz24"></h3>
+                                        <nav>
+                                            <button id="prev"></button>
+                                            <button id="next"></button>
+                                        </nav>
+                                    </header>
+                                    <section>
+                                        <ul class="days">
+                                            <li>Dom</li>
+                                            <li>Lun</li>
+                                            <li>Mar</li>
+                                            <li>Mie</li>
+                                            <li>Jue</li>
+                                            <li>Vie</li>
+                                            <li>Sab</li>
+                                        </ul>
+                                        <ul class="dates"></ul>
+                                    </section>
+                                </div>
+                            </div>
+                            <script src="/js/calendar.js" defer></script>
+                        </div>
+                    </article>
+                
+                </div>
+            </aside>
+        </section>
     </main>
     <links th:include="components/footer"></links>
+    <script>
+        (function () {
+            var script = document.createElement('script');
+            script.dataset.bot = "669ab152e98ef415b8fee4de";
+            script.dataset.widget = "rCsWZqydeoybie5a9WZfpD";
+            script.dataset.zindex = "99999";
+            script.src = "https://panel.chatfuel.com/widgets/chat-widget/chat-widget.js";
+            script.async = true;
+            script.defer = true;
+            document.getElementsByTagName('head')[0].appendChild(script);
+        })()
+    </script>
+    
+    
+    
+    <!-- Cargar la versión correcta de Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Cargar tu script personalizado -->
+    <script src="/js/stad.js" defer></script>
 </body>
 </html>

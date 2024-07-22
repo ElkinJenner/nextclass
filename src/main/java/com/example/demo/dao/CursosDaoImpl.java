@@ -19,7 +19,7 @@ public class CursosDaoImpl extends CrudDaoImpl<Cursos, Long> {
     protected String getTableName() {
         return "cursos";
     }
-
+    //Trae los datos para visualizar en cursos.html
     @Override
     protected RowMapper<Cursos> getRowMapper() {
         return (rs, rowNum) -> {

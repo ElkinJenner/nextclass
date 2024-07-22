@@ -6,7 +6,6 @@
     <title th:text="${curso}">Curso</title>
     <link th:include="components/link"></link>
 </head>
-
 <body class="light_mode">
     <header th:include="components/menu_app"></header>
     <main class="main_wrapper">
@@ -25,18 +24,17 @@
                     Categoria</p>
             </div>
             <div class="df gap025">
-                <button class="button bg_dark color_light"><i class="ki-outline ki-element-plus sz20"></i></button>
-                <button class="button"><i class="ki-outline ki-row-horizontal sz20"></i></button>
+                <button class="button bg_dark br05 color_light"><i class="ki-outline ki-element-plus sz20"></i></button>
+                <button class="button br05"><i class="ki-outline ki-row-horizontal sz20"></i></button>
             
             </div>
         </article>
         <section class="course">
-            <div class="theme_item" th:each="asesoria : ${asesorias}">
+            <div class="theme_item">
 
-                <a th:href="@{/sesion}" class="item_theme b1">
+                <a th:href="@{'/sesion?sesion=' + ${asesoria.idAsesoria}}" class="item_theme b1" th:each="asesoria : ${asesorias}">
                     <div class="desc_course">
                         <h5 class="font_w600" th:text="${asesoria.tema}">Tema de Asesoría</h5><br>
-                        <img src="img/stars.png">
                     </div>
                     <div class="profile_contender">
                         <div class="profile_picture">

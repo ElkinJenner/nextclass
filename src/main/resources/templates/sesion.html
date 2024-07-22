@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposiciones simples y complejas | Nextclass</title>
+    <title th:text="${asesoria.tema}"> | Nextclass</title>
     <link th:include="components/link"></link>
 </head>
 
@@ -43,26 +43,26 @@
                 <div class="column-6">
                     <div class="b1 br1 p2">
                         <article class="title mt1 mb2">
-                            <h4 class="color_title mb05 font_w700 sz28">Framework Spring Boot, Java Web application</h4>
-                            <p class="color_span font_w500">Programación web </p>
+                            <h4 class="color_title mb05 font_w700 sz28" th:text="${asesoria.tema}"></h4>
+                            <p class="color_span font_w500">Programación Web </p>
                         </article>
 
                         <article class="mt1 mb05">
                             <small class="color_subspan p05 b1 br075 font_w600">Acerca de</small>
-                            <p class="color_span mt2">Spring Boot es una tecnología y extensión del framework Spring Framework para aplicaciones
-                                Java basadas en web que simplifica el proceso de configuración y desarrollo de aplicaciones Java. 
-                            </p>
+                            <p class="color_span mt2" th:text="${asesoria.descripcion}"> </p>
                         </article>
 
                         <article class="df jcs gap1 mt1 mb05">
                             <div class="df gap1">
                                 <div class="dg alit_b">
                                     <small class="dib color_subspan p05 b1 br075 font_w600">Duración</small>
-                                    <p class="color_span mt05 sz15"><i class="ai-calendar"></i> 1 hora, 30 min</p>
+                                    <p class="color_span mt05 sz15"><i class="ai-calendar"></i>
+                                        <span th:text="${asesoria.duracion}"></span></p>
                                 </div>
                                 <div class="dg alit_b">
                                     <small class="color_subspan p05 b1 br075 font_w600">Capacidad</small>
-                                    <p class="color_span mt05 sz15"><i class="ai-people-multiple"></i> 2 personas</p>
+                                    <p class="color_span mt05 sz15"><i class="ai-people-multiple"></i>
+                                        <span th:text="${asesoria.capacidad}"></span> personas</p>
                                 </div>
                             </div>
                         </article>
@@ -70,18 +70,25 @@
                         <article class="df jcs gap1 mt1 mb05">
                                 <div class="dg alit_b">
                                     <small class="color_subspan p05 b1 br075 font_w600">Precio</small>
-                                    <p class="color_span mt05 sz15"><i class="ai-money"></i> 120.00</p>
+                                    <p class="color_span mt05 sz15"><i class="ai-money"></i>
+                                        <span th:text="${asesoria.precio != null} ? ${asesoria.precio} : 'No disponible'"></span></p>
                                 </div>
                         </article>
 
                         <article class="df jcs gap1 mt1 mb05">
                             <div class="df gap1">
                                 <div class="alit_b">
+                                    
                                     <small class="dib color_subspan p05 mb05 b1 br075 font_w600">Horarios</small>
                                     <div class="bd1 p1 br1 mb05">
-                                        <p class="df color_span sz16">Lunes: 12:00 pm - 13:30 pm</p>
-                                        <p class="df color_span sz16">Martes: 13:30 pm - 15:00 pm</p>
+                                        <div th:each="sesion : ${sesiones}">
+                                            <div th:each="sesion : ${asesoria.sesiones}">
+                                                <p class="df color_span sz14" th:text="${sesion.dia + ': ' + sesion.horaInicial + ' - ' + sesion.horaFinal}">
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
+
                                     <small class="color_subspan">Disponible del 01 de Julio al 13 de Agosto</small>
                                 </div>
                             </div>
@@ -100,11 +107,11 @@
                             <i class="ai-more-vertical-fill"></i>
                         </div>
                         <div class="dg mb05 tc">
-                            <img class="height15x br50 mc" src="upload/professors/docente15.jpg">
+                            <img  class="height15x br50 mc" th:src="@{'upload/professors/' + ${asesoria.fotoPerfil}}" alt="Foto del profesor">
                         </div>
                         <div class="profile_info tc mb05">
-                            <h6 class="sz18">Luis Javier</h6>
-                            <p class="color_span sz15"><i class="ai-mention"></i> <span>luisj</span></p>
+                            <h6 class="sz18" th:text="${asesoria.nomProfesor}">Luis Javier</h6>
+                            <p class="color_span sz15"><i class="ai-mention"></i> <span th:text="${asesoria.profesion}"></span></p>
                         </div>
                     </div>
                 </div>

@@ -28,12 +28,12 @@
         </article>
         <section class="professors">
             <div class="professors_item">
-                <a href="/profesor" class="item_professor b0" th:each="profesor : ${profesores}">
+                <a th:href="@{'/profesor?profesor=' + ${profesor.idProfesor}}" class="item_professor b0" th:each="profesor : ${profesores}">
                     <figure th:style="'background-image:url(upload/professors/' + ${profesor.fotoPerfil} + ');'"></figure>
                     <div class="posit_abs bottom1">
                         <div class="ml1 p05">
                             <h6 class="color_light sz18 font_w600" th:text="${mapUsuarioNombres[profesor.idUsuario]}"></h6>
-                            <p class="color_light sz14 font_w400" th:text="${mapUsuarioProfesion[profesor.idUsuario]}"></p>
+                            <p class="color_light sz14 font_w400" th:text="${mapUsuarioProfesion[profesor.idUsuario]}"></p> 
                         </div>
                     </div>
                     <div class="posit_abs top0 right1">

@@ -35,6 +35,7 @@ public class UsuariosDaoImpl extends CrudDaoImpl<Usuarios, Long> {
                 usuario.setTelefono(rs.getInt("telefono"));
                 usuario.setIdPais(rs.getLong("idPais"));
                 usuario.setNombrePais(rs.getString("pais"));
+                usuario.setUbicacion(rs.getString("ubicacion"));
                 usuario.setFechaRegistro(rs.getDate("fechaRegistro"));
                 return usuario;
             }
@@ -82,4 +83,16 @@ public class UsuariosDaoImpl extends CrudDaoImpl<Usuarios, Long> {
         List<Usuarios> results = jdbcTemplate.query(sql, getRowMapper(), email, password);
         return results.isEmpty() ? null : results.get(0);
     }
+
+
+    // Método para encontrar el idProfesor a partir del idUsuario usando JOIN
+    public Long findIdProfesorByIdUsuario(Long idUsuario) {
+        String sql = "SELECT p.idProfesor FROM profesores p INNER JOIN usuarios u ON p.idUsuario = u.idUsuario WHERE u.idUsuario = ?";
+        List<Long> results = jdbcTemplate.query(sql, (rs, rowNum) -> rs.getLong("idProfesor"), idUsuario);
+        return results.isEmpty() ? null : results.get(0);
+    }
+
+
+
+
 }

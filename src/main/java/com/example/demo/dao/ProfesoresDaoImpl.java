@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
 
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -51,5 +52,10 @@ public class ProfesoresDaoImpl extends CrudDaoImpl<Profesores, Long> {
         String sql = "SELECT COUNT(*) FROM " + getTableName();
         Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
         return count != null ? count : 0; // Si count es null, devuelve 0
+    }
+
+    public Profesores findByIdUsuario(Long idUsuario) {
+        String sql = "SELECT * FROM profesores WHERE idUsuario = ?";
+        return jdbcTemplate.queryForObject(sql, getRowMapper(), idUsuario);
     }
 }

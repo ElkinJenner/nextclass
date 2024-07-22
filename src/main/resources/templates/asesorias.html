@@ -71,11 +71,11 @@
                         <td th:if="${usuarios.tipoUsuario == 'Estudiante'}">
                             <div class="profile_contender">
                                 <div class="profile_picture">
-                                    <img src="upload/professors/docente.jpg" alt="Foto del profesor">
+                                    <img th:src="@{'upload/professors/' + ${asesoria.fotoPerfil}}" alt="Foto del profesor">
                                 </div>
                                 <div class="profile_info">
-                                    <strong class="font_w600" th:text="${asesoria.idProfesor}"></strong>
-                                    <small class="color_subspan">Ing. Computación</small>
+                                    <strong class="font_w600" th:text="${asesoria.nombres}"></strong>
+                                    <small class="color_subspan" th:text="${asesoria.profesion}"></small>
                                 </div>
                             </div>
                         </td>
@@ -85,10 +85,12 @@
                                 <a class="btn_abrir"><i class="ai-eye-open"></i></a>
                                 <main class="modal_ventana_content hidden" id="modal"
                                     th:include="components/ver_asesoria"></main>
-                                <a class="btn_abrir"><i class="ai-pencil"></i></a>
-                                <main class="modal_ventana_content hidden" id="modal"
+                                <a class="btn_abrir" th:if="${usuarios.tipoUsuario == 'Profesor'}"><i class="ai-pencil"></i></a>
+                                <main class="modal_ventana_content hidden" id="modal" th:if="${usuarios.tipoUsuario == 'Profesor'}"
                                     th:include="components/editar_asesoria"></main>
-                                <a><i class="ai-trash-can"></i></a>
+                                <a class="btn_abrir"><i class="ai-trash-can"></i></a>
+                                <main class="modal_ventana_content hidden" id="modal"
+                                th:include="components/eliminar_asesoria"></main>
                             </div>
                         </td>
                     </tr>

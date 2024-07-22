@@ -35,7 +35,9 @@
                         </div>
                         <div class="df alit_b gap05 mb1 color_subspan font_w500 sz18">
                             <small><i class="ki-outline ki-profile-circle"></i> <span th:text="${usuario != null ? usuario.tipoUsuario : 'Tipo Usuario'}">Tipo Usuario</span></small>
-                            <small><i class="ki-outline ki-geolocation"></i> <span th:text="${usuario != null ? usuario.ubicacion : 'Localización'}">Localización</span></small>
+                            <small>
+                                <i class="ki-outline ki-geolocation"></i> <span th:text="${usuario != null ? usuario.ubicacion : 'Localización'}"></span>
+                            </small>
                             <small><i class="ki-outline ki-sms"></i> <span th:text="${usuario != null ? usuario.email : 'Email'}">Email</span></small>
                         </div>
                         <div class="df alit_c gap1 font_w500 sz18">
@@ -86,7 +88,7 @@
                         <p class="column-1 color_subspan font_w600">Ubicación</p>
                         <p class="font_w600">
                             <img class="height015x" th:src="@{${usuario != null && usuario.idPais != null ? 'upload/flags/' + usuario.idPais : 'upload/flags/peru.png'}}" />
-
+                            <span th:text="${usuario.ubicacion}"></span>
                         </p>
                     </li>
                 </ul>

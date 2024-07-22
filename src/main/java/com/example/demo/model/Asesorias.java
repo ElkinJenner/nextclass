@@ -1,14 +1,16 @@
 package com.example.demo.model;
 
 import java.math.BigDecimal;
-import java.time.LocalTime;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
 
 public class Asesorias {
     // Atributos
     private Long idAsesoria;
     private Long idCurso;
     private Long idProfesor;
+    private Long idUsuario;
     private String tema;
     private String nomProfesor;
     private String nomCurso;
@@ -21,8 +23,11 @@ public class Asesorias {
     private int capacidad;
     private LocalDate fechaInicial;
     private LocalDate fechaFinal;
+    private String nombres;
+    private List<Sesiones> sesiones; // Nueva lista de sesiones
 
     // Getters and Setters
+
     public Long getIdAsesoria() {
         return idAsesoria;
     }
@@ -45,6 +50,14 @@ public class Asesorias {
 
     public void setIdProfesor(Long idProfesor) {
         this.idProfesor = idProfesor;
+    }
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getTema() {
@@ -142,5 +155,21 @@ public class Asesorias {
     public void setFechaFinal(LocalDate fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
-    
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    // Nuevos métodos para sesiones
+    public List<Sesiones> getSesiones() {
+        return sesiones;
+    }
+
+    public void setSesiones(List<Sesiones> sesiones) {
+        this.sesiones = sesiones;
+    }
 }

@@ -14,7 +14,7 @@ public class SesionesDaoImpl extends CrudDaoImpl<Sesiones, Integer> {
     protected String getTableName() {
         return "sesiones";
     }
-
+    //Captura los atributos del modelo Sesiones
     @Override
     protected RowMapper<Sesiones> getRowMapper() {
         return (rs, rowNum) -> {

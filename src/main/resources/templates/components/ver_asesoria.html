@@ -1,40 +1,60 @@
-<section class="modal_ventana mc mt2 bg_light">
+<section class="modal_ventana column-6 mc mt2 bg_light" style="padding-bottom: 2rem;">
+
     <article class="mv_head df jcsb">
         <div class="heading p2">
-            <h4 class="color_title mb05 font_w700 sz28" th:text="${asesoria.tema}">Tema de Asesoria</h4>
-            <p class="color_span font_w500">Programación web </p>
+            <h4 class="color_title mb05 font_w700 sz28" th:text="${asesoria.tema}"></h4>
+            <p class="color_span font_w500" th:text="${asesoria.categoriaCurso}"></p>
         </div>
         <a class="btn_cerrar">
             <div class="close color_text"><i class="ai-x-small"></i></div>
         </a>
     </article>
-    <article class="p2">
-        <small class="color_span font_w600">Acerca de</small>
-        <p class="color_span mt05" th:text="${asesoria.descripcion}"></p>
-        <div class="df gap2 mt2">
-            <div class="dg alit_b">
-                <small class="color_span font_w600">Duración</small>
-                <p class="color_span mt05 sz15"><i class="ai-calendar"></i> 1 hora, 30 min</p>
-            </div>
-            <div class="dg alit_b">
-                <small class="color_span font_w600">Capacidad</small>
-                <p class="color_span mt05 sz15"><i class="ai-people-multiple"></i> 2 personas</p>
-            </div>
+
+    <article class="p2 df gap2">
+        <div class="posit_rel bg_dark br1 height30x">
+            <h5 class="color_light p1 sz24 font_w500">Asesorias personalizadas <br><strong>24/7</strong></h5>
+            <button class="ml1 button bg_secondary color_light sz15">Conoce</button>
+            <figure>
+                <img class="height20x br1" src="https://preview.keenthemes.com/start-react-pro/media/illustrations/terms-2.png">
+            </figure>
         </div>
-        <div class="df gap2 mt2">
-            <div class="dg">
-                <small class="color_span font_w600">Precio</small>
-                <p class="color_span mt05 sz15"><i class="ai-money"></i> <span th:text="${asesoria.precio}"></span></p>
-            </div>
-        </div>
-        <div class="df gap2 mt2">
-            <div class="dg ">
-                <small class="color_span font_w600 mb05">Horario</small>
-                <div class="bd1 p1 br1 mb05">
-                    <p class="df color_span sz16">Lunes: 12:00 pm - 13:30 pm</p>
-                    <p class="df color_span sz16">Martes: 13:30 pm - 15:00 pm</p>
+        <div class="column-8">
+            <small class="color_span font_w600">Acerca de</small>
+            <p class="color_span mt05" th:text="${asesoria.descripcion}"></p>
+            <div class="df gap2 mt2">
+                <div class="dg alit_b">
+                    <small class="color_span font_w600">Duración</small>
+                    <p class="color_span mt05 sz15"><i class="ai-calendar"></i> <span th:text="${asesoria.duracion}"></span></p>
+                </div>
+                <div class="dg alit_b">
+                    <small class="color_span font_w600">Capacidad</small>
+                    <p class="color_span mt05 sz15"><i class="ai-people-multiple"></i> <span th:text="${asesoria.capacidad}"></span>
+                        personas</p>
                 </div>
             </div>
+            <div class="df gap2 mt2">
+                <div class="dg">
+                    <small class="color_span font_w600">Precio</small>
+                    <p class="color_span mt05 sz15"><i class="ai-money"></i> <span th:text="${asesoria.precio}"></span></p>
+                </div>
+            </div>
+            <small class="color_subspan db mt1">Disponible del 01 de Julio al 13 de Agosto</small>
         </div>
+
+        <div class="column-5">
+             <h6 class="sz18">Sesiones Registradas</h6>
+                <div class="df gap2 mt2">
+                    <div class="dg ">
+                    <small class="color_span font_w600 mb05">Horario</small>
+                    <div class="bd1 p1 br1 mb05">
+                        <div th:each="sesion : ${asesoria.sesiones}">
+                            <p class="df color_span sz14" th:text="${sesion.dia + ': ' + sesion.horaInicial + ' - ' + sesion.horaFinal}">
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+         </div>
     </article>
+    
 </section>
