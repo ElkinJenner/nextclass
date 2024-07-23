@@ -32,7 +32,8 @@ public class RecibosDaoImpl extends CrudDaoImpl<Recibos, Long> {
                 recibo.setCurso(rs.getString("curso"));
                 recibo.setPrecio(rs.getBigDecimal("precio"));
                 recibo.setTema(rs.getString("tema"));
-                recibo.setDescripcion(rs.getString("descripcion"));
+                recibo.setDescripcion(rs.getString("descripcionC")); // Asegúrate de que el alias "descripcionC" es
+                                                                     // correcto
                 return recibo;
             }
         };
@@ -48,7 +49,7 @@ public class RecibosDaoImpl extends CrudDaoImpl<Recibos, Long> {
                 "INNER JOIN usuarios profesor ON r.idProfesor = profesor.idUsuario " +
                 "INNER JOIN estudiantes e ON p.idEstudiante = e.idEstudiante " +
                 "INNER JOIN usuarios estudiante ON e.idUsuario = estudiante.idUsuario " +
-                "INNER JOIN asesorias a ON p.idAsesoria = a.idAsesoria " + // Cambio aquí
+                "INNER JOIN asesorias a ON r.idRecibo = a.idAsesoria " +
                 "INNER JOIN cursos c ON a.idCurso = c.idCurso";
         return jdbcTemplate.query(sql, getRowMapper());
     }

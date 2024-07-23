@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>App | Nextclass</title>
-    <link th:include="components/link"></link>
+    <link th:include="components/link">
+    </link>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
-            integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+
 <body class="light_mode">
     <header th:include="components/menu_app"></header>
     <main class="main_wrapper">
@@ -58,7 +61,7 @@
                             </div>
                         </div>
                     </a>
-        
+
                     <a href="/index" class="column-3 item_index">
                         <figure style="background-image:url('/upload/professors/static-image.jpg');"></figure>
                         <div class="posit_abs bottom1">
@@ -73,7 +76,7 @@
                             </div>
                         </div>
                     </a>
-        
+
                     <a href="/index" class="column-3 item_index">
                         <figure style="background-image:url('/upload/professors/static-image.jpg');"></figure>
                         <div class="posit_abs bottom1">
@@ -88,7 +91,7 @@
                             </div>
                         </div>
                     </a>
-        
+
                     <div class="column-5">
                         <article class="br1 b1 p1">
                             <h3 class="mt1">Estadísticas</h3>
@@ -97,12 +100,12 @@
                             </div>
                         </article>
                     </div>
-        
+
                     <div class="column-4">
                     </div>
-        
+
                 </div>
-        
+
                 <div class="column_w25">
                     <article class="right_section b1 br2">
                         <div class="index_calendar">
@@ -133,7 +136,7 @@
                             <script src="/js/calendar.js" defer></script>
                         </div>
                     </article>
-                
+
                 </div>
             </aside>
         </section>
@@ -151,12 +154,13 @@
             document.getElementsByTagName('head')[0].appendChild(script);
         })()
     </script>
-    
-    
-    
+
+
+
     <!-- Cargar la versión correcta de Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <!-- Cargar tu script personalizado -->
     <script src="/js/stad.js" defer></script>
 </body>
+
 </html>

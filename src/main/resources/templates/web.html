@@ -9,7 +9,12 @@
 <body class="dark_mode">
     <header>
         <div class="container container_max">
-            <nav class="navigation jcr">
+            <nav class="navigation">
+                <ul class="navbar_center">
+                    <figure class="pt1">
+                        <img src="img/logo_w.png">
+                    </figure>
+                </ul>
                 <ul class="navbar_right">
                     <li><a th:href="@{/login}" class="button btn_abrir bg_secondary color_dark font_w700">
                                 Acceder
@@ -19,20 +24,42 @@
             </nav>
         </div>
     </header>
-    <main class="cover">
+    <main class="cover main posit_rel">
         <div class="container">
-            <section class="contender">
-                <figure class="logo">
-                    <img src="img/logo_w.png">
-                </figure>
-                <h1 class="color_dark mb2 font_w500">Aprendizaje ligero y
-                flexible.</h1>
-                <a class="p1 br1 bg_light color_dark sz20 font_s" th:href="@{/registrarse}">Empezar <i class="ai-arrow-up-right"></i></a>
-                <div class="df mt4">
-                    <img class="height50x" src="img/slider-01.png">
-                    <img class="height40x" src="img/slider-02.png">
+            <aside class="column jcr">
+                <div class="column-9 df gap2">
+                    <div class="dib">
+                    <h1 class="color_dark mb2 font_w500 sz72">
+                        Aprendizaje <br/>ligero y<br/> <strong>flexible.</strong>
+                    </h1>
+                    <p class="color_dark sz24">Asesorias en vivo con profesores en español.
+                    <br/>Cientos de universidades apuestan por
+                    <br/>nuestro servicio.</p>
+                    <div class="mt3">
+                        <a class="p1 br1 bg_light color_dark sz20 font_s" th:href="@{/registrarse}">
+                            Empezar <i class="ai-arrow-up-right"></i>
+                        </a>
+                    </div>
+                    </div>
+                    <figure class="dg">
+                        <video class="posit_abs right3 height80x top3 br3" autoplay muted loop>
+                            <source src="img/video.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                    </figure>
                 </div>
-            </section>
+            </aside>
+        </div>
+
+        <div class="posit_fix right2 bottom2">
+            <div class="posit_abs top0 right3" id="dropdow_menu">
+                
+            </div>
+            <li class="chat_click dif" id="dropdow_toogle">
+                <div class="br05 p1 bg_dark">
+                    <p class="sz16 color_light"><strong>Hola! 👋 </strong> ¿Puedo ayudarte?</p>
+                </div>
+            </li>
         </div>
     </main>
     <links th:include="components/footer"></links>

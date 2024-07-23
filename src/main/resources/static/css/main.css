@@ -53,3 +53,9 @@ CONTENDER
     padding-right: 1rem;
     align-items: center;
 }
+/*------
+2/6 CHAT
+------ */
+.chat_click{
+    cursor: pointer;
+}

@@ -10,7 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import jakarta.servlet.http.HttpServletResponse;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 @Controller
@@ -34,7 +37,24 @@ public class RecibosController {
 
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Recibos");
-        Row headerRow = sheet.createRow(0);
+
+        // Añadir imagen
+        InputStream inputStream = new FileInputStream("src/main/resources/static/img/logo_icon.png");
+        byte[] imageBytes = toByteArray(inputStream);
+        inputStream.close();
+
+        int pictureIdx = workbook.addPicture(imageBytes, Workbook.PICTURE_TYPE_PNG);
+
+        CreationHelper helper = workbook.getCreationHelper();
+        Drawing<?> drawing = sheet.createDrawingPatriarch();
+        ClientAnchor anchor = helper.createClientAnchor();
+        anchor.setCol1(0);
+        anchor.setRow1(0);
+        Picture pict = drawing.createPicture(anchor, pictureIdx);
+        pict.resize();
+
+        // Ajustar la fila de encabezado para empezar después de la imagen
+        Row headerRow = sheet.createRow(2);
         String[] columns = { "ID Recibo", "Nombre del Profesor", "Nombre del Estudiante", "Curso", "Precio", "Tema",
                 "Descripción" };
         for (int i = 0; i < columns.length; i++) {
@@ -42,7 +62,7 @@ public class RecibosController {
             cell.setCellValue(columns[i]);
         }
 
-        int rowNum = 1;
+        int rowNum = 3; // Ajustar para empezar después de la fila de encabezado
         for (Recibos recibo : recibosList) {
             Row row = sheet.createRow(rowNum++);
             row.createCell(0).setCellValue(recibo.getIdRecibo());
@@ -60,5 +80,15 @@ public class RecibosController {
 
         workbook.write(response.getOutputStream());
         workbook.close();
+    }
+
+    private byte[] toByteArray(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) {
+            outputStream.write(buffer, 0, bytesRead);
+        }
+        return outputStream.toByteArray();
     }
 }

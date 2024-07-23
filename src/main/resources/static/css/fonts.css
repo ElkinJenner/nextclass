@@ -24,4 +24,6 @@ h6{font-size: 22px; line-height: 22px;}
 .sz22{font-size: 22px!important;}
 .sz24{font-size: 24px!important;}
 .sz28{font-size: 28px!important;}
-.sz48{font-size: 48px!important;}
+.sz48{font-size: 48px!important; line-height: 52px !important;}
+.sz56{font-size: 56px!important; line-height: 58px!important;}
+.sz72{font-size: 72px!important; line-height: 72px!important;}

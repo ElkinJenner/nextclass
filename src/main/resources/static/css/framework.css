@@ -26,11 +26,11 @@
 
 ::-webkit-scrollbar-thumb {
     border-radius: 4rem;
-    background-color: var(--color_border);
+    background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--color_subspan);
+    background-color: var(--color_border);
 }
 :root {
     --height_unit: 10px;
@@ -379,6 +379,8 @@ label[for="file-input"] {
 /*------
 POSITIONS
 ------ */
+.posit_fix{position: fixed;}
+.posit_sti{position: sticky;}
 .posit_abs{position: absolute;}
 .posit_rel{position: relative;}
 .left1{left: 1rem;}
@@ -409,6 +411,9 @@ HEIGHTS
 .height40x{height: calc(var(--height_unit) * 40) !important; }
 .height45x{height: calc(var(--height_unit) * 45) !important; }
 .height50x{height: calc(var(--height_unit) * 50) !important; }
+.height80x{height: calc(var(--height_unit) * 80) !important; }
+.height100x{height: calc(var(--height_unit) * 100) !important; }
+
 /*------
 DISPLAYS
 ------ */
