@@ -8,19 +8,22 @@
         <div class="p1 ml2">
             <h4 class="font_w600 sz24"><i class="ki-outline ki-rocket"></i> Inscribir asesoria </h4>
         </div>
-        <form method="POST" class="p1 ml2">
+        <form method="POST" class="p1 ml2" action="/inscribirse_asesoria">
             <aside class="form_column">
                 <div class="group dg alit_c">
+                    <input type="text" name="idEstudiante" value="1">
+                    <input type="text" name="idAsesoria" th:value="${asesoria.idAsesoria}"/>
+
                     <p class="color_span font_w500 mb1">Seleccionar sesión</p>
-                    
-                <article class="dg gap05 mt1">
-                    <div th:each="sesion, iterStat : ${asesoria.sesiones}" class="checkbox_radio alit_c posit_rel df gap1">
-                        <input type="radio" name="idSesion" th:id="${'dia' + iterStat.index}"
-                            th:value="${sesion.dia + ': ' + sesion.horaInicial + ' - ' + sesion.horaFinal}">
-                        <label th:for="${'dia' + iterStat.index}" class="color_span"
-                            th:text="${sesion.dia + ': ' + sesion.horaInicial + ' - ' + sesion.horaFinal}"></label>
+
+                <article class="dg gap05 mt1" th:each="sesion, iterStat : ${asesoria.sesiones}" >
+                    <div class="checkbox_radio alit_c posit_rel df gap1">
+                        <input type="radio" name="idSesion" th:id="${sesion.idSesion}" th:value="${sesion.idSesion}">
+                        <label th:for="${sesion.idSesion}" class="color_span" th:text="${sesion.dia + ': ' + sesion.horaInicial + ' - ' + sesion.horaFinal}"></label>
                     </div>
                 </article>
+                
+                
                 </div>
 
                 <div class="users_btn">
