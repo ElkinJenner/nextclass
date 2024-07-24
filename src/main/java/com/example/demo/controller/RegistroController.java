@@ -125,7 +125,7 @@ public class RegistroController {
         session.setAttribute("usuarios", nuevoUsuario);
 
         // Redirigir a la página de inicio después de un registro exitoso
-        return "redirect:/index";
+        return "redirect:/registro_completar";
     }
     private String generateCodUsuario(String nombres, String apellidos) {
     // Obtener la primera letra del primer nombre y la primera letra del primer apellido

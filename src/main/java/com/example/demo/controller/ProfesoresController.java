@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
@@ -71,5 +72,23 @@ public class ProfesoresController {
         //Activación  al menu de navegación
         model.addAttribute("activePage", "profesores");
         return "profesores"; // Devuelve la vista "profesores"
+    }
+
+    @PostMapping("/profesores/registrar_profesor")
+    public String registrarProfesor(
+            @RequestParam("idUsuario") Long idUsuario,
+            @RequestParam("permiso") String permiso,
+            @RequestParam("profesion") String profesion,
+            @RequestParam("descripcion") String descripcion) {
+
+        Profesores nuevoProfesor = new Profesores();
+        nuevoProfesor.setIdUsuario(idUsuario);
+        nuevoProfesor.setPermiso(permiso);
+        nuevoProfesor.setProfesion(profesion);
+        nuevoProfesor.setDescripcion(descripcion);
+
+        profesoresDao.save(nuevoProfesor);
+
+        return "redirect:/index.html";
     }
 }

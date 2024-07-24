@@ -36,6 +36,16 @@ public class ProfesoresDaoImpl extends CrudDaoImpl<Profesores, Long> {
             }
         };
     }
+    
+    @Override
+    public void save(Profesores entity) {
+        String sql = "INSERT INTO profesores (idUsuario, permiso, profesion, descripcion) VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update(sql,
+                entity.getIdUsuario(),
+                entity.getPermiso(),
+                entity.getProfesion(),
+                entity.getDescripcion());
+    }
 
     // Método para obtener una lista de profesores con paginación
     public List<Profesores> findAllWithPagination(int offset, int pageSize) {

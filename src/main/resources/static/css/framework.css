@@ -175,6 +175,10 @@ BUTTONS
 .br2{border-radius: 2rem;}
 .br3{border-radius: 3rem;}
 .br50{border-radius: 50%;}
+.brt1{border-radius: 1rem 1rem 0rem 0rem;}
+.brt2{border-radius: 2rem 2rem 0rem 0rem;}
+.brb1{border-radius: 0rem 0rem 1rem 1rem;}
+.brb2{border-radius: 0rem 0rem 2rem 2rem;}
 .brr1{border-radius: 1rem 0rem 0rem 1rem;}
 .brr2{border-radius: 2rem 0rem 0rem 2rem;}
 .brl1{border-radius: 0rem 1rem 1rem 0rem;}

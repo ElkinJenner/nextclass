@@ -9,9 +9,15 @@
     </article>
     <article class="mv_body">
         <form method="POST" class="p1" action="/registrar_asesoria">
+            <input type="hidden" name="idUsuario" th:value="${usuarios.idUsuario}" />
+            
+            <p th:each="profesor : ${profesores}">
+                <!-- Solo muestra la fila si el idUsuario del profesor coincide con el idUsuario del usuario en sesión -->
+                <input th:if="${profesor.idUsuario} == ${usuarios.idUsuario}" type="hidden" name="idProfesor"
+                    th:value="${profesor.idProfesor}" />
+            </p>
             <aside class="form_column">
-                <input type="hidden" name="idUsuario" th:value="${usuarios.idUsuario}"/>
-                <input type="text" name="idProfesor"/>
+                
                 <div class="group_2">
                     <label>Tema</label>
                     <input type="text" name="tema"/>

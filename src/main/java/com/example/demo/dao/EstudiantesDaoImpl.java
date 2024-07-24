@@ -25,6 +25,7 @@ public class EstudiantesDaoImpl extends CrudDaoImpl<Estudiantes,Long>{
                 estudiantes.setIdEstudiante(rs.getLong("idEstudiante"));
                 estudiantes.setIdUsuario(rs.getLong("idUsuario"));
                 estudiantes.setNivelAcademico(rs.getString("nivelAcademico"));
+                estudiantes.setFotoPerfil(rs.getString("fotoPerfil"));
                 return estudiantes;
             }
         };

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,9 +24,9 @@
                 <h6 class="color_subtitle font_w600">Dashboard</h6>
             </div>
         </article>
-        <form class="form_registrar b1 br1 mr1 mb1" method="POST" action="">
+        <form class="form_registrar b1 br1 mr1 mb1" method="POST" action="/estudiantes/registrar_estudiante">
             <aside class="form_column p2">
-                <input type="hidden" name="codUsuario">
+                <input type="text" name="idUsuario" th:value="${usuarios.idUsuario}"/>
                 <div class="group">
                     <label>Foto Perfil</label>
                     <div class="profile-pic-container mt1">
@@ -43,22 +42,22 @@
                     <label>Nivel Academico</label>
                     <div class="checkbox_content mt2 mb2">
                         <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                            <input type="radio" name="nivelAcademico" id="primaria" value="1">
-                            <label for="primaria" class="p05 tc">
+                            <input type="radio" name="nivelAcademico" id="Primario" value="Primario">
+                            <label for="primario" class="p05 tc">
                                 <img class="height5x" src="upload/academic/primaria.png">
-                                <small class="db">Primaria</small>
+                                <small class="db">Primario</small>
                             </label>
                         </fieldset>
                         <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                            <input type="radio" name="nivelAcademico" id="secundaria" value="2">
-                            <label for="secundaria" class="p05 tc">
+                            <input type="radio" name="nivelAcademico" id="Secundario" value="Secundario">
+                            <label for="secundario" class="p05 tc">
                                 <img class="height5x" src="upload/academic/secundaria.png">
-                                <small class="db">Secundaria</small>
+                                <small class="db">Secundario</small>
                             </label>
                         </fieldset>
                         <fieldset class="checkbox_item posit_rel checkbox_item_small">
-                            <input type="radio" name="nivelAcademico" id="universitaria" value="2">
-                            <label for="universitaria" class="p05 tc">
+                            <input type="radio" name="nivelAcademico" id="Universitario" value="universitario">
+                            <label for="universitario" class="p05 tc">
                                 <img class="height5x mc" src="upload/academic/universitaria.png">
                                 <small class="db">Universitario</small>
                             </label>
@@ -72,19 +71,11 @@
             </aside>
         </form>
 
-        <form class="form_registrar b1 br1 mr1" method="POST" action="">
+        <form class="form_registrar b1 br1 mr1" method="POST" action="/profesores/registrar_profesor">
             <aside class="form_column p2">
-                <input type="hidden" name="codUsuario">
-                <div class="group">
-                    <label>Foto Perfil</label>
-                    <div class="profile-pic-container mt1">
-                        <img id="profile-pic" src="upload/professors/default_profile.jpg" alt="Default">
-                        <input name="fotoPerfil" type="file" id="file-input" accept="image/*" onchange="loadFile(event)">
-                        <label for="file-input">
-                            <i class="ki-outline ki-pencil"></i>
-                        </label>
-                    </div>
-                </div>
+                <input type="hidden" name="idUsuario" th:value="${usuarios.idUsuario}" />
+                <input type="hidden" name="permiso" value="Aceptado" />
+               
         
                 <div class="group">
                     <label>Profesión</label>
@@ -93,7 +84,7 @@
 
                 <div class="group">
                     <label>Acerca de mi</label>
-                    <textarea name="profesion"></textarea>
+                    <textarea name="descripcion" required></textarea>
                 </div>
         
                 <div class="df gap05 alit_c mt1">

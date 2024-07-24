@@ -82,12 +82,7 @@
                                     
                                     <small class="dib color_subspan p05 mb05 b1 br075 font_w600">Horarios</small>
                                     <div class="bd1 p1 br1 mb05">
-                                        <div th:each="sesion : ${sesiones}">
-                                            <div th:each="sesion : ${asesoria.sesiones}">
-                                                <p class="df color_span sz14" th:text="${sesion.dia + ': ' + sesion.horaInicial + ' - ' + sesion.horaFinal}">
-                                                </p>
-                                            </div>
-                                        </div>
+                                        <p th:each="sesion : ${asesoria.sesiones}" class="df color_span sz14" th:text="${sesion.dia + ': ' + sesion.horaInicial + ' - ' + sesion.horaFinal}"></p>
                                     </div>
                                     <small class="color_subspan">Disponible del 01 de Julio al 13 de Agosto</small>
                                 </div>
@@ -110,8 +105,8 @@
                             <img  class="height15x br50 mc" th:src="@{'upload/professors/' + ${asesoria.fotoPerfil}}" alt="Foto del profesor">
                         </div>
                         <div class="profile_info tc mb05">
-                            <h6 class="sz18" th:text="${asesoria.nomProfesor}">Luis Javier</h6>
-                            <p class="color_span sz15"><i class="ai-mention"></i> <span th:text="${asesoria.profesion}"></span></p>
+                            <h6 class="sz18" th:text="${asesoria.nomProfesor}"></h6>
+                            <p class="color_span sz15"><span th:text="${asesoria.profesion}"></span></p>
                         </div>
                     </div>
                 </div>

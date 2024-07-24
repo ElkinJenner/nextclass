@@ -16,7 +16,7 @@
                     </figure>
                 </ul>
                 <ul class="navbar_right">
-                    <li><a th:href="@{/login}" class="button btn_abrir bg_secondary color_dark font_w700">
+                    <li><a th:href="@{/login}" class="button bg_secondary color_dark font_w700">
                                 Acceder
                         </a>
                     </li>
@@ -51,16 +51,28 @@
             </aside>
         </div>
 
-        <div class="posit_fix right2 bottom2">
-            <div class="posit_abs top0 right3" id="dropdow_menu">
-                
-            </div>
-            <li class="chat_click dif" id="dropdow_toogle">
+            <li class="posit_fix right2 bottom2 chat_click dif" id="dropdow_toogle">
                 <div class="br05 p1 bg_dark">
                     <p class="sz16 color_light"><strong>Hola! 👋 </strong> ¿Puedo ayudarte?</p>
                 </div>
             </li>
-        </div>
+            <div class="posit_fix column-2 top3 hidden right2" id="dropdow_menu">
+                <article class="height40x">
+                    <header class="chatbg brt1">
+                        <div class="mt1 p2">
+                            <h5 class="font_w500">¡Hola! <br/> <strong>En que te puedo ayudar</strong></h5>
+                        </div>
+                    </header>
+                    <div class="body_select bg_dark">
+                        <div class="body_select_contender p1">
+                            <small class="color_light bg_span db p1 br1">
+                            ¡Excelente! Solo necesitamos un poco más de información para que
+                            podamos hablar con el experto en productos adecuado.
+                            </small>
+                        </div>
+                    </div>
+                </article>
+            </div>
     </main>
     <links th:include="components/footer"></links>
 </body>

@@ -12,38 +12,15 @@
             <aside class="form_column">
                 <div class="group dg alit_c">
                     <p class="color_span font_w500 mb1">Seleccionar sesión</p>
-                    <article class="dg gap05 mt1">
-                        <div class="checkbox_radio alit_c posit_rel df gap1">
-                            <input type="radio" name="dia" id="dia">
-                            <label for="dia" class="color_span">Lunes: 12:00 pm - 13:30 pm </label>
-                        </div>
-                        
-                        <div class="checkbox_radio alit_c posit_rel df gap1">
-                            <input type="radio" name="dia" id="dia2">
-                            <label for="dia2" class="color_span">Martes: 13:30 pm - 15:00 pm</label>
-                        </div>
-                     </article>
-                </div>
-               
-
-                <div class="group mt1">
-                    <h6>
-                        <small class="color_span sz16 font_w600">Medios de  Pago</small><br>
-                    </h6>
-                    <div class="checkbox_content p1">
-                        <fieldset class="checkbox_item checkbox_item_small posit_rel">
-                            <input type="radio" name="tarjeta" id="tarjeta" checked>
-                            <label for="tarjeta" class="p05">
-                                <img class="bn" src="img/paypal.png">
-                            </label>
-                        </fieldset>
-                        <fieldset class="checkbox_item checkbox_item_small posit_rel">
-                            <input type="radio" name="tarjeta" id="tarjeta">
-                            <label for="tarjeta" class="p05">
-                                <img class="bn" src="img/visa.png">
-                            </label>
-                        </fieldset>
+                    
+                <article class="dg gap05 mt1">
+                    <div th:each="sesion, iterStat : ${asesoria.sesiones}" class="checkbox_radio alit_c posit_rel df gap1">
+                        <input type="radio" name="idSesion" th:id="${'dia' + iterStat.index}"
+                            th:value="${sesion.dia + ': ' + sesion.horaInicial + ' - ' + sesion.horaFinal}">
+                        <label th:for="${'dia' + iterStat.index}" class="color_span"
+                            th:text="${sesion.dia + ': ' + sesion.horaInicial + ' - ' + sesion.horaFinal}"></label>
                     </div>
+                </article>
                 </div>
 
                 <div class="users_btn">
