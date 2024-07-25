@@ -53,47 +53,12 @@
                         </td>                      
                         <td><h4 class="color_text sz16">$ 180.00</h4></td>
                         <td >
-                        <a class="button button_2 bg_secondary color_light">Ver Recibo</a>
+                        <a class="button button_2 bg_secondary color_light btn_abrir sz15">Ver Recibo</a>
+                        <main class="modal_ventana_content hidden" id="modal" th:include="components/ver_recibo"></main>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>
-                            <strong class="color_span font_w600">#T0124</strong>
-                        </td>
-                        <td>
-                            <strong class="font_w600">Grafico por computadora con openGl </strong>
-                        </td>
-                        <td>
-                            <strong class="font_w600">21/06/2024</strong>
-                        </td>
-                        <td>
-                             <strong class="fsz20 color_danger font_w600">Vigente</strong>
-                        </td>
-                        <td>
-                            <h4 class="color_text sz16">$ 220.00</h4>
-                        </td>
-                        <td>
-                            <a class="button button_2 bg_secondary color_light">Ver Recibo</a>
-                        </td>
-                    </tr>
-                    
                 </tbody>
             </table>
-            <div class="pagination_pages">
-                <ul>
-                    <li>
-                        <a href="#" class="active">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                   
-                </ul>
-            </div>
         </section>
     </main>
     <links th:include="components/footer"></links>

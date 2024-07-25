@@ -16,6 +16,15 @@
                 <input th:if="${profesor.idUsuario} == ${usuarios.idUsuario}" type="hidden" name="idProfesor"
                     th:value="${profesor.idProfesor}" />
             </p>
+            <tr th:each="estudiante : ${estudiantes}">
+                <td th:text="${estudiante.idEstudiante}"></td>
+                <td th:text="${estudiante.idUsuario}"></td>
+                <td th:text="${estudiante.nivelAcademico}"></td>
+                <td>
+                    <!-- Mostrar la foto de perfil si está disponible -->
+                    <img th:src="@{${estudiante.fotoPerfil}}" alt="Foto de Perfil" style="width:100px;height:100px;" />
+                </td>
+            </tr>
             <aside class="form_column">
                 
                 <div class="group_2">

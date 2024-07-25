@@ -5,16 +5,15 @@ public class Estudiantes{
     private Long idEstudiante;
     private Long idUsuario;
     private String nivelAcademico;
-    // Atributos adicionales para mapear y realizar JOINS
-    private String fotoPerfil;
+    private String fotoEstudiante;
     //Constructores
     public Estudiantes(){}
     
-    public Estudiantes(Long idEstudiante, Long idUsuario, String nivelAcademico, String fotoPerfil ) {
+    public Estudiantes(Long idEstudiante, Long idUsuario, String nivelAcademico, String fotoEstudiante ) {
         this.idEstudiante = idEstudiante;
         this.idUsuario = idUsuario;
         this.nivelAcademico = nivelAcademico;
-        this.fotoPerfil = fotoPerfil;
+        this.fotoEstudiante = fotoEstudiante;
     }
 
     public Long getIdEstudiante() {
@@ -36,12 +35,12 @@ public class Estudiantes{
         this.nivelAcademico = nivelAcademico;
     }
     
-    public String getFotoPerfil() {
-        return fotoPerfil;
+    public String getFotoEstudiante() {
+        return fotoEstudiante;
     }
 
-    public void setFotoPerfil(String fotoPerfil) {
-        this.fotoPerfil = fotoPerfil;
+    public void setFotoEstudiante(String fotoEstudiante) {
+        this.fotoEstudiante = fotoEstudiante;
     }
     
 }

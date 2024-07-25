@@ -417,7 +417,7 @@ HEIGHTS
 .height50x{height: calc(var(--height_unit) * 50) !important; }
 .height80x{height: calc(var(--height_unit) * 80) !important; }
 .height100x{height: calc(var(--height_unit) * 100) !important; }
-
+.overflow_y{overflow-y: auto;}
 /*------
 DISPLAYS
 ------ */

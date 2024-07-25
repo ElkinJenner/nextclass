@@ -35,9 +35,9 @@ public class EstudiantesController {
     }
 
     // Método para registrar un nuevo estudiante
-    @PostMapping("/registrar_estudiante")
+    @PostMapping("/registro_completar")
     public String registrarEstudiante(@RequestParam("idUsuario") Long idUsuario,
-            @RequestParam("nivelAcademico") String nivelAcademico) {
+                                      @RequestParam("nivelAcademico") String nivelAcademico) {
         Estudiantes nuevoEstudiante = new Estudiantes();
         nuevoEstudiante.setIdUsuario(idUsuario);
         nuevoEstudiante.setNivelAcademico(nivelAcademico);
